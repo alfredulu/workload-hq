@@ -6,21 +6,21 @@
 
 :root {
   color-scheme: light;
-  --accent-slate: #e8edf4;
-  --accent-slate-strong: #d6dee9;
-  --accent-ink: #1f2937;
+  --accent-slate: #e7ece8;
+  --accent-slate-strong: #d7dfda;
+  --accent-ink: #1a241f;
 }
 
 body {
   font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
-  color: #111827;
+  color: #1a241f;
   background:
     radial-gradient(1200px 600px at 20% -10%, rgba(255, 255, 255, 0.9), transparent),
-    radial-gradient(900px 520px at 85% 0%, rgba(232, 237, 244, 0.9), transparent),
-    radial-gradient(720px 440px at 10% 70%, rgba(214, 222, 233, 0.6), transparent),
-    #f5f7fb;
+    radial-gradient(900px 520px at 85% 0%, rgba(231, 236, 232, 0.9), transparent),
+    radial-gradient(720px 440px at 10% 70%, rgba(215, 223, 218, 0.6), transparent),
+    #f4f6f4;
 }
 
 ::selection {
-  background: rgba(17, 24, 39, 0.15);
+  background: rgba(26, 36, 31, 0.18);
 }

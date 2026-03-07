@@ -26,28 +26,28 @@ export default function Navbar() {
   }, [open]);
 
   return (
-    <nav className="fixed top-0 w-full z-50 border-b border-slate-200/60 bg-white/75 backdrop-blur-xl">
+    <nav className="fixed top-0 w-full z-50 border-b border-emerald-200/60 bg-gradient-to-r from-white/70 via-emerald-50/60 to-white/70 backdrop-blur-xl">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <Link href="/" className="text-lg font-semibold tracking-[0.2em] text-slate-900">
+        <Link href="/" className="text-lg font-semibold tracking-[0.2em] text-stone-950">
           WORKLOAD HQ
         </Link>
 
-        <div className="hidden items-center gap-8 text-xs font-medium uppercase tracking-[0.3em] text-slate-600 md:flex">
-          <Link href="/" className="hover:text-slate-900 transition-colors">
+        <div className="hidden items-center gap-8 text-xs font-medium uppercase tracking-[0.3em] text-emerald-800 md:flex">
+          <Link href="/" className="hover:text-emerald-950 transition-colors">
             Home
           </Link>
           <Link
             href="/portfolio"
-            className="hover:text-slate-900 transition-colors"
+            className="hover:text-emerald-950 transition-colors"
           >
             Portfolio
           </Link>
-          <Link href="/#services" className="hover:text-slate-900 transition-colors">
+          <Link href="/services" className="hover:text-emerald-950 transition-colors">
             Services
           </Link>
           <Link
             href="/contact"
-            className="rounded-full bg-slate-900 px-6 py-2 text-white shadow-sm transition-all hover:bg-slate-800 active:scale-95"
+            className="rounded-full bg-emerald-950 px-6 py-2 text-white shadow-sm transition-all hover:bg-emerald-900 active:scale-95"
           >
             Let's Talk
           </Link>
@@ -57,7 +57,7 @@ export default function Navbar() {
           <button
             type="button"
             onClick={() => setOpen((prev) => !prev)}
-            className="rounded-full border border-slate-200/70 bg-white/70 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-slate-700 shadow-sm"
+            className="rounded-full border border-emerald-200/70 bg-white/70 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-stone-800 shadow-sm"
             aria-expanded={open}
             aria-controls="mobile-menu"
           >
@@ -66,33 +66,33 @@ export default function Navbar() {
           {open ? (
             <div
               id="mobile-menu"
-              className="absolute right-0 mt-3 w-48 rounded-3xl border border-slate-200/70 bg-white/90 p-4 shadow-lg backdrop-blur-xl"
+              className="absolute right-0 mt-3 w-48 rounded-3xl border border-emerald-200/70 bg-white/90 p-4 shadow-lg backdrop-blur-xl"
             >
-              <div className="flex flex-col gap-3 text-xs font-medium uppercase tracking-[0.3em] text-slate-600">
+              <div className="flex flex-col gap-3 text-xs font-medium uppercase tracking-[0.3em] text-emerald-800">
                 <Link
                   href="/"
-                  className="hover:text-slate-900 transition-colors"
+                  className="hover:text-emerald-950 transition-colors"
                   onClick={() => setOpen(false)}
                 >
                   Home
                 </Link>
                 <Link
                   href="/portfolio"
-                  className="hover:text-slate-900 transition-colors"
+                  className="hover:text-emerald-950 transition-colors"
                   onClick={() => setOpen(false)}
                 >
                   Portfolio
                 </Link>
                 <Link
-                  href="/#services"
-                  className="hover:text-slate-900 transition-colors"
+                  href="/services"
+                  className="hover:text-emerald-950 transition-colors"
                   onClick={() => setOpen(false)}
                 >
                   Services
                 </Link>
                 <Link
                   href="/contact"
-                  className="rounded-full bg-slate-900 px-4 py-2 text-center text-white shadow-sm transition-all hover:bg-slate-800 active:scale-95"
+                  className="rounded-full bg-emerald-950 px-4 py-2 text-center text-white shadow-sm transition-all hover:bg-emerald-900 active:scale-95"
                   onClick={() => setOpen(false)}
                 >
                   Let's Talk
@@ -105,3 +105,7 @@ export default function Navbar() {
     </nav>
   );
 }
+
+
+
+
