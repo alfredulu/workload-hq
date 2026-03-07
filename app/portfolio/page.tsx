@@ -1,4 +1,4 @@
-import Icon from "@/components/Icons";
+import { AlertTriangle, CheckCircle2, Sparkles, Wand2 } from "lucide-react";
 
 export default function Portfolio() {
   const projects = [
@@ -51,14 +51,14 @@ export default function Portfolio() {
   return (
     <main className="min-h-screen pb-24 pt-28">
       <section className="mx-auto max-w-6xl px-6 pb-12">
-        <p className="text-xs font-semibold uppercase tracking-[0.35em] text-gray-500">
+        <p className="text-xs font-semibold uppercase tracking-[0.35em] text-slate-500">
           Portfolio
         </p>
-        <h1 className="mt-4 text-4xl font-semibold text-gray-900 md:text-6xl">
+        <h1 className="mt-4 text-4xl font-semibold text-slate-900 md:text-6xl">
           Selected work that feels
-          <span className="block text-gray-500">quietly luxurious.</span>
+          <span className="block text-slate-500">quietly luxurious.</span>
         </h1>
-        <p className="mt-4 max-w-2xl text-sm text-gray-600 md:text-base">
+        <p className="mt-4 max-w-2xl text-sm text-slate-600 md:text-base">
           We partner with ambitious teams to craft digital experiences that are
           restrained, modern, and built for conversion.
         </p>
@@ -67,9 +67,9 @@ export default function Portfolio() {
         {projects.map((project) => (
           <div
             key={project.title}
-            className="group rounded-3xl border border-white/40 bg-white/70 p-6 shadow-lg backdrop-blur transition hover:-translate-y-1 hover:shadow-xl"
+            className="group rounded-3xl border border-slate-200/60 bg-gradient-to-br from-white/85 to-slate-50/70 p-6 shadow-lg shadow-slate-900/10 backdrop-blur transition hover:-translate-y-1 hover:shadow-xl active:scale-[0.99]"
           >
-            <div className="relative h-56 w-full overflow-hidden rounded-2xl bg-white/70">
+            <div className="relative h-56 w-full overflow-hidden rounded-2xl bg-gradient-to-br from-white/90 to-slate-50/70">
               <img
                 src={project.desktopImage}
                 alt={project.imageAlt}
@@ -78,35 +78,42 @@ export default function Portfolio() {
               <img
                 src={project.phoneImage}
                 alt=""
-                className="absolute bottom-4 right-4 h-28 w-14 rounded-xl object-cover shadow-lg"
+                className="absolute bottom-4 right-4 h-28 w-14 rounded-xl border border-white/80 object-cover shadow-lg shadow-slate-900/20"
               />
             </div>
-            <h2 className="mt-4 text-2xl font-semibold text-gray-900">
+            <h2 className="mt-4 text-2xl font-semibold text-slate-900">
               {project.title}
             </h2>
-            <div className="mt-4 space-y-3 text-sm text-gray-600">
+            <div className="mt-4 space-y-3 text-sm text-slate-600">
               <p>
-                <span className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.3em] text-gray-500">
-                  <Icon name="alert" className="h-4 w-4" />
+                <span className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.3em] text-slate-500">
+                  <AlertTriangle className="h-4 w-4" />
                   Problem
                 </span>
                 <span className="mt-2 block">{project.problem}</span>
               </p>
               <p>
-                <span className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.3em] text-gray-500">
-                  <Icon name="wand" className="h-4 w-4" />
+                <span className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.3em] text-slate-500">
+                  <Wand2 className="h-4 w-4" />
                   Solution
                 </span>
                 <span className="mt-2 block">{project.solution}</span>
               </p>
               <p>
-                <span className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.3em] text-gray-500">
-                  <Icon name="check" className="h-4 w-4" />
+                <span className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.3em] text-slate-500">
+                  <CheckCircle2 className="h-4 w-4" />
                   Result
                 </span>
                 <span className="mt-2 block">{project.result}</span>
               </p>
             </div>
+            <a
+              href="/contact"
+              className="mt-5 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.3em] text-slate-500 hover:text-slate-800"
+            >
+              <Sparkles className="h-4 w-4" />
+              View Project
+            </a>
           </div>
         ))}
       </section>

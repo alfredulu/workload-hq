@@ -7,7 +7,7 @@ Premium, mobile-first agency website for WorkLoad HQ. The site is designed to fe
 - Mobile-first layout with refined typography and spacing
 - Glassmorphism panels with soft shadows and rounded corners
 - Desktop + phone image overlays for project previews
-- Inline SVG icons (no external icon library needed)
+- Lucide icons for consistent, modern UI accents
 
 ## Getting Started
 ```bash
@@ -45,4 +45,4 @@ Text content lives in:
 - `app/contact/page.tsx`
 
 ## Icons
-Inline icons are defined in `components/Icons.tsx` and can be reused anywhere without installing packages.
+This project uses `lucide-react`. Icons are imported directly where needed.
