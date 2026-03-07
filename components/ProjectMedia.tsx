@@ -41,24 +41,6 @@ export default function ProjectMedia({
     };
   }, [open]);
 
-  useEffect(() => {
-    function onClick(event: MouseEvent) {
-      const target = event.target as HTMLElement;
-      if (target.closest("[data-project-modal]")) {
-        return;
-      }
-      setOpen(false);
-    }
-
-    if (open) {
-      document.addEventListener("mousedown", onClick);
-    }
-
-    return () => {
-      document.removeEventListener("mousedown", onClick);
-    };
-  }, [open]);
-
   return (
     <>
       <button
@@ -92,28 +74,24 @@ export default function ProjectMedia({
               className="fixed inset-0 z-[999] bg-stone-900/70 backdrop-blur-xl"
               onClick={() => setOpen(false)}
             >
-              <div
-                className="relative flex h-full w-full items-center justify-center"
-                data-project-modal
-                onClick={(event) => event.stopPropagation()}
-              >
-                <button
-                  type="button"
-                  onClick={() => setOpen(false)}
-                  className="absolute right-4 top-4 border border-white/40 bg-white/80 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-stone-700 transition hover:bg-white"
-                >
-                  Close
-                </button>
-                <div className="flex h-[92vh] w-[96vw] max-w-[1600px] flex-col gap-4 md:flex-row md:items-stretch">
+              <div className="flex h-full w-full items-center justify-center pointer-events-none">
+                <div className="relative flex h-[92vh] w-[96vw] max-w-[1600px] flex-col gap-4 md:flex-row md:items-stretch">
+                  <button
+                    type="button"
+                    onClick={() => setOpen(false)}
+                    className="pointer-events-auto absolute right-4 top-4 border border-white/40 bg-white/80 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-stone-700 transition hover:bg-white"
+                  >
+                    Close
+                  </button>
                   <img
                     src={desktopImage}
                     alt={alt}
-                    className="h-[65vh] w-full object-contain md:h-full md:w-2/3"
+                    className="pointer-events-auto h-[65vh] w-full object-contain md:h-full md:w-2/3"
                   />
                   <img
                     src={phoneImage}
                     alt=""
-                    className="h-[40vh] w-full object-contain md:h-full md:w-1/3"
+                    className="pointer-events-auto h-[45vh] w-full object-contain md:h-full md:w-1/3"
                   />
                 </div>
               </div>
