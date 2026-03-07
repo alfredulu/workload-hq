@@ -1,46 +1,85 @@
-const services = [
+import Icon from "@/components/Icons";
+import type { IconName } from "@/components/Icons";
+
+type Service = {
+  title: string;
+  description: string;
+  icon: IconName;
+};
+
+type ProcessStep = {
+  title: string;
+  description: string;
+  icon: IconName;
+};
+
+type Stat = {
+  value: string;
+  label: string;
+  icon: IconName;
+};
+
+const stats: Stat[] = [
+  {
+    value: "120+",
+    label: "Premium launches delivered",
+    icon: "chart",
+  },
+  { value: "3.2x", label: "Average conversion uplift", icon: "target" },
+  { value: "14 days", label: "Typical design sprint", icon: "clock" },
+];
+
+const services: Service[] = [
   {
     title: "Brand Sites",
     description:
       "Elegant, high-converting websites with refined typography and precise motion.",
+    icon: "layout",
   },
   {
     title: "Product Launch",
     description:
       "Polished launch pages built for speed, clarity, and conversion.",
+    icon: "bolt",
   },
   {
     title: "UX Systems",
     description:
       "Design systems and UI libraries that keep your brand consistent at scale.",
+    icon: "layers",
   },
   {
     title: "Growth Labs",
     description:
       "Iterative landing page and funnel experiments grounded in analytics.",
+    icon: "target",
   },
 ];
 
-const processSteps = [
+const processSteps: ProcessStep[] = [
   {
     title: "Discovery",
     description:
       "We align on your vision, audience, and competitive landscape.",
+    icon: "spark",
   },
   {
     title: "Design",
     description:
       "We craft an elegant interface with a modern, minimalist voice.",
+    icon: "layout",
   },
   {
     title: "Build",
     description:
       "We engineer a fast, accessible site with premium polish.",
+    icon: "bolt",
   },
   {
     title: "Refine",
     description:
       "We optimize, measure, and evolve the experience post-launch.",
+    icon: "check",
   },
 ];
 
@@ -130,9 +169,10 @@ function Hero() {
       </div>
       <div className="grid gap-6 md:grid-cols-2">
         <div className="rounded-3xl border border-white/40 bg-white/60 p-8 shadow-lg backdrop-blur">
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-gray-500">
+          <div className="flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.3em] text-gray-500">
+            <Icon name="clock" className="h-4 w-4" />
             Now booking
-          </p>
+          </div>
           <p className="mt-4 text-2xl font-semibold text-gray-900">
             Fast turnarounds
           </p>
@@ -141,9 +181,10 @@ function Hero() {
           </p>
         </div>
         <div className="rounded-3xl border border-white/40 bg-white/70 p-8 shadow-lg backdrop-blur">
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-gray-500">
+          <div className="flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.3em] text-gray-500">
+            <Icon name="target" className="h-4 w-4" />
             Our focus
-          </p>
+          </div>
           <p className="mt-4 text-2xl font-semibold text-gray-900">
             Conversion-led design
           </p>
@@ -159,16 +200,17 @@ function Hero() {
 function Stats() {
   return (
     <section className="mx-auto grid max-w-6xl gap-6 px-6 pb-20 md:grid-cols-3">
-      {[
-        { value: "120+", label: "Premium launches delivered" },
-        { value: "3.2x", label: "Average conversion uplift" },
-        { value: "14 days", label: "Typical design sprint" },
-      ].map((stat) => (
+      {stats.map((stat) => (
         <div
           key={stat.value}
           className="rounded-3xl border border-white/40 bg-white/70 p-6 shadow-sm backdrop-blur"
         >
-          <p className="text-3xl font-semibold text-gray-900">{stat.value}</p>
+          <div className="flex items-center justify-between">
+            <p className="text-3xl font-semibold text-gray-900">
+              {stat.value}
+            </p>
+            <Icon name={stat.icon} className="h-5 w-5 text-gray-500" />
+          </div>
           <p className="mt-2 text-sm uppercase tracking-[0.3em] text-gray-500">
             {stat.label}
           </p>
@@ -194,6 +236,9 @@ function Services() {
             key={service.title}
             className="rounded-3xl border border-white/40 bg-white/70 p-8 shadow-lg backdrop-blur"
           >
+            <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-2xl border border-white/60 bg-white/80 text-gray-600">
+              <Icon name={service.icon} className="h-5 w-5" />
+            </div>
             <h3 className="text-xl font-semibold text-gray-900">
               {service.title}
             </h3>
@@ -219,7 +264,10 @@ function Process() {
             key={step.title}
             className="flex gap-5 rounded-3xl border border-white/40 bg-white/60 p-6 shadow-sm backdrop-blur"
           >
-            <div className="text-sm font-semibold uppercase tracking-[0.3em] text-gray-500">
+            <div className="flex flex-col items-center gap-2 text-sm font-semibold uppercase tracking-[0.3em] text-gray-500">
+              <div className="flex h-10 w-10 items-center justify-center rounded-2xl border border-white/60 bg-white/80 text-gray-600">
+                <Icon name={step.icon} className="h-4 w-4" />
+              </div>
               0{index + 1}
             </div>
             <div>
@@ -263,9 +311,10 @@ function FeaturedWork() {
                 className="absolute bottom-3 right-3 h-24 w-12 rounded-xl object-cover shadow-lg"
               />
             </div>
-            <p className="mt-4 text-xs font-semibold uppercase tracking-[0.3em] text-gray-500">
-              {work.category}
-            </p>
+            <div className="mt-4 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.3em] text-gray-500">
+              <Icon name="spark" className="h-4 w-4" />
+              <span>{work.category}</span>
+            </div>
             <h3 className="mt-2 text-lg font-semibold text-gray-900">
               {work.title}
             </h3>
@@ -295,7 +344,8 @@ function Testimonials() {
             key={testimonial.name}
             className="rounded-3xl border border-white/40 bg-white/70 p-8 shadow-lg backdrop-blur"
           >
-            <p className="text-lg text-gray-800">"{testimonial.quote}"</p>
+            <Icon name="quote" className="h-6 w-6 text-gray-400" />
+            <p className="mt-4 text-lg text-gray-800">"{testimonial.quote}"</p>
             <div className="mt-6">
               <p className="text-sm font-semibold uppercase tracking-[0.3em] text-gray-500">
                 {testimonial.name}
@@ -342,6 +392,12 @@ function CTA() {
             <p className="text-xs font-semibold uppercase tracking-[0.35em] text-gray-500">
               Email
             </p>
+            <div className="mt-4 flex items-center gap-3 text-gray-600">
+              <Icon name="mail" className="h-5 w-5" />
+              <span className="text-xs uppercase tracking-[0.3em] text-gray-500">
+                Fast response
+              </span>
+            </div>
             <a
               href="mailto:workloadhq@gmail.com"
               className="mt-3 block text-base font-semibold text-gray-900 hover:text-gray-600"
@@ -353,6 +409,12 @@ function CTA() {
             <p className="text-xs font-semibold uppercase tracking-[0.35em] text-gray-500">
               Instagram
             </p>
+            <div className="mt-4 flex items-center gap-3 text-gray-600">
+              <Icon name="instagram" className="h-5 w-5" />
+              <span className="text-xs uppercase tracking-[0.3em] text-gray-500">
+                Latest work
+              </span>
+            </div>
             <a
               href="https://www.instagram.com/workload_hq/"
               target="_blank"

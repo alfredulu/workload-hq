@@ -1,3 +1,5 @@
+import Icon from "@/components/Icons";
+
 export default function Portfolio() {
   const projects = [
     {
@@ -84,19 +86,22 @@ export default function Portfolio() {
             </h2>
             <div className="mt-4 space-y-3 text-sm text-gray-600">
               <p>
-                <span className="text-xs font-semibold uppercase tracking-[0.3em] text-gray-500">
+                <span className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.3em] text-gray-500">
+                  <Icon name="alert" className="h-4 w-4" />
                   Problem
                 </span>
                 <span className="mt-2 block">{project.problem}</span>
               </p>
               <p>
-                <span className="text-xs font-semibold uppercase tracking-[0.3em] text-gray-500">
+                <span className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.3em] text-gray-500">
+                  <Icon name="wand" className="h-4 w-4" />
                   Solution
                 </span>
                 <span className="mt-2 block">{project.solution}</span>
               </p>
               <p>
-                <span className="text-xs font-semibold uppercase tracking-[0.3em] text-gray-500">
+                <span className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.3em] text-gray-500">
+                  <Icon name="check" className="h-4 w-4" />
                   Result
                 </span>
                 <span className="mt-2 block">{project.result}</span>

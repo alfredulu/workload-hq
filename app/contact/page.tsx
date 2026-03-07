@@ -1,3 +1,5 @@
+import Icon from "@/components/Icons";
+
 export default function Contact() {
   return (
     <main className="min-h-screen pb-24 pt-28">
@@ -17,9 +19,14 @@ export default function Contact() {
 
       <section className="mx-auto mt-12 grid max-w-4xl gap-6 px-6 lg:grid-cols-[1.2fr_0.8fr]">
         <form className="rounded-3xl border border-white/40 bg-white/70 p-8 shadow-lg backdrop-blur">
-          <p className="text-xs font-semibold uppercase tracking-[0.35em] text-gray-500">
-            Send Us A Message
-          </p>
+          <div className="flex items-center gap-3">
+            <div className="flex h-10 w-10 items-center justify-center rounded-2xl border border-white/60 bg-white/80 text-gray-600">
+              <Icon name="message" className="h-5 w-5" />
+            </div>
+            <p className="text-xs font-semibold uppercase tracking-[0.35em] text-gray-500">
+              Send Us A Message
+            </p>
+          </div>
           <p className="mt-3 text-sm text-gray-600">Leave this field blank.</p>
           <input
             type="text"
@@ -98,6 +105,12 @@ export default function Contact() {
             <p className="text-xs font-semibold uppercase tracking-[0.35em] text-gray-500">
               Contact Info
             </p>
+            <div className="mt-4 flex items-center gap-3 text-gray-600">
+              <Icon name="globe" className="h-5 w-5" />
+              <span className="text-xs uppercase tracking-[0.3em] text-gray-500">
+                Remote-first
+              </span>
+            </div>
             <p className="mt-4 text-sm text-gray-600">
               Based in Abeokuta, Nigeria, with a U.S. presence, we operate
               remotely and serve clients across Nigeria and internationally.
@@ -111,9 +124,15 @@ export default function Contact() {
             <p className="text-xs font-semibold uppercase tracking-[0.35em] text-gray-500">
               Email Us At
             </p>
+            <div className="mt-4 flex items-center gap-3 text-gray-600">
+              <Icon name="mail" className="h-5 w-5" />
+              <span className="text-xs uppercase tracking-[0.3em] text-gray-500">
+                Quick replies
+              </span>
+            </div>
             <a
               href="mailto:workloadhq@gmail.com"
-              className="mt-4 block text-lg font-semibold text-gray-900 hover:text-gray-600"
+              className="mt-3 block text-lg font-semibold text-gray-900 hover:text-gray-600"
             >
               workloadhq@gmail.com
             </a>
@@ -122,11 +141,17 @@ export default function Contact() {
             <p className="text-xs font-semibold uppercase tracking-[0.35em] text-gray-500">
               Instagram
             </p>
+            <div className="mt-4 flex items-center gap-3 text-gray-600">
+              <Icon name="instagram" className="h-5 w-5" />
+              <span className="text-xs uppercase tracking-[0.3em] text-gray-500">
+                Recent work
+              </span>
+            </div>
             <a
               href="https://www.instagram.com/workload_hq/"
               target="_blank"
               rel="noreferrer"
-              className="mt-4 block text-lg font-semibold text-gray-900 hover:text-gray-600"
+              className="mt-3 block text-lg font-semibold text-gray-900 hover:text-gray-600"
             >
               @workload_hq
             </a>
@@ -136,8 +161,16 @@ export default function Contact() {
 
       <section className="mx-auto mt-12 max-w-4xl px-6">
         <div className="rounded-3xl border border-white/40 bg-white/60 p-8 text-sm text-gray-600 shadow-sm backdrop-blur">
-          Prefer a quick start? Send us your brand name, service list, and any
-          reference links. We will reply with a first concept within 48 hours.
+          <div className="flex items-center gap-3 text-gray-600">
+            <Icon name="spark" className="h-5 w-5" />
+            <span className="text-xs uppercase tracking-[0.3em] text-gray-500">
+              Quick start
+            </span>
+          </div>
+          <p className="mt-3">
+            Prefer a quick start? Send us your brand name, service list, and any
+            reference links. We will reply with a first concept within 48 hours.
+          </p>
         </div>
       </section>
     </main>
