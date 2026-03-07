@@ -1,3 +1,5 @@
+import { Instagram, Mail, MapPin } from "lucide-react";
+
 export default function Footer() {
   return (
     <footer className="mx-auto flex max-w-6xl flex-col gap-6 px-6 pb-10">
@@ -12,9 +14,18 @@ export default function Footer() {
           </p>
         </div>
         <div className="flex flex-col gap-3 text-sm text-emerald-800">
-          <span>workloadhq@gmail.com</span>
-          <span>@workload_hq</span>
-          <span>Nigeria · Remote</span>
+          <span className="flex items-center gap-2">
+            <Mail className="h-4 w-4 text-stone-600" />
+            workloadhq@gmail.com
+          </span>
+          <span className="flex items-center gap-2">
+            <Instagram className="h-4 w-4 text-stone-600" />
+            @workload_hq
+          </span>
+          <span className="flex items-center gap-2">
+            <MapPin className="h-4 w-4 text-stone-600" />
+            Nigeria - Remote
+          </span>
         </div>
       </div>
       <p className="text-xs uppercase tracking-[0.3em] text-stone-600">
@@ -23,7 +34,3 @@ export default function Footer() {
     </footer>
   );
 }
-
-
-
-

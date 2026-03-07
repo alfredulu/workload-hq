@@ -62,12 +62,12 @@ function useActiveIndex<T extends HTMLElement>() {
 
 const stats: Stat[] = [
   {
-    value: "120+",
+    value: "20+",
     label: "Premium launches delivered",
     icon: Target,
   },
   { value: "3.2x", label: "Average conversion uplift", icon: Sparkles },
-  { value: "14 days", label: "Typical design sprint", icon: Clock },
+  { value: "7 days", label: "Typical design sprint", icon: Clock },
 ];
 
 const services: Service[] = [
@@ -112,14 +112,12 @@ const processSteps: ProcessStep[] = [
   },
   {
     title: "Build",
-    description:
-      "We engineer a fast, accessible site with premium polish.",
+    description: "We engineer a fast, accessible site with premium polish.",
     icon: Zap,
   },
   {
     title: "Refine",
-    description:
-      "We optimize, measure, and evolve the experience post-launch.",
+    description: "We optimize, measure, and evolve the experience post-launch.",
     icon: CheckCircle2,
   },
 ];
@@ -167,7 +165,9 @@ function Hero() {
         </span>
         <h1 className="text-4xl font-semibold tracking-tight text-stone-950 md:text-6xl">
           We design and build
-          <span className="block text-stone-600">expensive minimalist</span>
+          <span className="block text-stone-600">
+            expensive or/and minimalist
+          </span>
           websites for modern brands.
         </h1>
         <p className="max-w-2xl text-lg text-emerald-800 md:text-xl">
@@ -206,7 +206,7 @@ function Hero() {
             Fast turnarounds
           </p>
           <p className="mt-3 text-sm text-emerald-800">
-            Most one-page builds ship in 2-3 days once we have your content.
+            Most one-page builds ship in 2-4 days once we have your content.
           </p>
         </div>
         <div
@@ -225,7 +225,8 @@ function Hero() {
             Conversion-led design
           </p>
           <p className="mt-3 text-sm text-emerald-800">
-            Strategy, UX, and engineering working together to grow your business.
+            Strategy, UX, and engineering working together to grow your
+            business.
           </p>
         </div>
       </div>
@@ -298,14 +299,16 @@ function Services() {
               }`}
               onClick={() => setActiveIndex(index)}
             >
-            <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-2xl border border-emerald-200/70 bg-gradient-to-br from-white/90 to-emerald-50/80 text-emerald-800 shadow-sm shadow-emerald-900/10">
-              <service.icon className="h-5 w-5" />
+              <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-2xl border border-emerald-200/70 bg-gradient-to-br from-white/90 to-emerald-50/80 text-emerald-800 shadow-sm shadow-emerald-900/10">
+                <service.icon className="h-5 w-5" />
+              </div>
+              <h3 className="text-xl font-semibold text-stone-950">
+                {service.title}
+              </h3>
+              <p className="mt-3 text-sm text-emerald-800">
+                {service.description}
+              </p>
             </div>
-            <h3 className="text-xl font-semibold text-stone-950">
-              {service.title}
-            </h3>
-            <p className="mt-3 text-sm text-emerald-800">{service.description}</p>
-          </div>
           );
         })}
       </div>
@@ -387,28 +390,28 @@ function FeaturedWork() {
               }`}
               onClick={() => setActiveIndex(index)}
             >
-            <ProjectMedia
-              desktopImage={work.desktopImage}
-              phoneImage={work.phoneImage}
-              alt={work.imageAlt}
-            />
-            <div className="mt-4 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.3em] text-stone-600">
-              <Sparkles className="h-4 w-4" />
-              <span>{work.category}</span>
+              <ProjectMedia
+                desktopImage={work.desktopImage}
+                phoneImage={work.phoneImage}
+                alt={work.imageAlt}
+              />
+              <div className="mt-4 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.3em] text-stone-600">
+                <Sparkles className="h-4 w-4" />
+                <span>{work.category}</span>
+              </div>
+              <h3 className="mt-2 text-lg font-semibold text-stone-950">
+                {work.title}
+              </h3>
+              <p className="mt-3 text-sm text-emerald-800">
+                Minimal, conversion-led storytelling with a premium feel.
+              </p>
+              <a
+                href="/contact"
+                className="mt-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.3em] text-stone-600 hover:text-stone-900"
+              >
+                View Project
+              </a>
             </div>
-            <h3 className="mt-2 text-lg font-semibold text-stone-950">
-              {work.title}
-            </h3>
-            <p className="mt-3 text-sm text-emerald-800">
-              Minimal, conversion-led storytelling with a premium feel.
-            </p>
-            <a
-              href="/contact"
-              className="mt-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.3em] text-stone-600 hover:text-stone-900"
-            >
-              View Project
-            </a>
-          </div>
           );
         })}
       </div>
@@ -591,8 +594,3 @@ function SectionHeader({
     </div>
   );
 }
-
-
-
-
-

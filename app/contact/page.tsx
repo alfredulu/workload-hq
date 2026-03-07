@@ -29,7 +29,9 @@ export default function Contact() {
               Send Us A Message
             </p>
           </div>
-          <p className="mt-3 text-sm text-emerald-800">Leave this field blank.</p>
+          <p className="mt-3 text-sm text-emerald-800">
+            Leave this field blank.
+          </p>
           <input
             type="text"
             name="company"
@@ -114,8 +116,8 @@ export default function Contact() {
               </span>
             </div>
             <p className="mt-4 text-sm text-emerald-800">
-              Based in Abeokuta, Nigeria, with a U.S. presence, we operate
-              remotely and serve clients across Nigeria and internationally.
+              Based in Nigeria, with a wordwide presence, we operate remotely
+              and serve clients across Nigeria and internationally.
             </p>
             <p className="mt-4 text-sm text-emerald-800">
               Trusted by clients worldwide, we deliver excellence regardless of
@@ -178,7 +180,3 @@ export default function Contact() {
     </main>
   );
 }
-
-
-
-
