@@ -1,38 +1,110 @@
-import Navbar from "@/components/Navbar";
-
 export default function Portfolio() {
   const projects = [
     {
-      title: "SaaS Dashboard",
-      tech: "Next.js + Tailwind",
-      color: "bg-blue-50",
+      title: "SME Booking Dashboard",
+      problem:
+        "Client needed a way to showcase services without manual DMs.",
+      solution:
+        "Built a mobile-first, high-speed landing page with a direct WhatsApp bridge for instant conversion.",
+      result: "Improved customer engagement.",
+      desktopImage: "/images/portfolio-booking-desktop.jpg",
+      phoneImage: "/images/portfolio-booking-phone.jpg",
+      imageAlt: "SME booking dashboard preview",
     },
     {
-      title: "Booking Platform",
-      tech: "React + Firebase",
-      color: "bg-emerald-50",
+      title: "Retail Landing Page Solution",
+      problem:
+        "Client had social-only traffic and no central place to convert visitors.",
+      solution:
+        "Designed a clean, trust-focused site with clear offers and fast inquiry flow.",
+      result: "Improved customer engagement.",
+      desktopImage: "/images/portfolio-retail-desktop.jpg",
+      phoneImage: "/images/portfolio-retail-phone.jpg",
+      imageAlt: "Retail landing page preview",
+    },
+    {
+      title: "Salon Appointment Flow",
+      problem:
+        "Client needed faster booking without phone calls or back-and-forth.",
+      solution:
+        "Created a simple booking experience with service cards and CTA routing.",
+      result: "Improved customer engagement.",
+      desktopImage: "/images/portfolio-salon-desktop.jpg",
+      phoneImage: "/images/portfolio-salon-phone.jpg",
+      imageAlt: "Salon appointment site preview",
+    },
+    {
+      title: "Logistics Service Hub",
+      problem:
+        "Client needed credibility and a clear service breakdown for new leads.",
+      solution:
+        "Built a lightweight site with pricing clarity and direct contact actions.",
+      result: "Improved customer engagement.",
+      desktopImage: "/images/portfolio-logistics-desktop.jpg",
+      phoneImage: "/images/portfolio-logistics-phone.jpg",
+      imageAlt: "Logistics service site preview",
     },
   ];
 
   return (
-    <main className="pt-32 px-10 min-h-screen">
-      <h1 className="text-6xl font-bold mb-16">Our Projects</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-        {projects.map((p, i) => (
+    <main className="min-h-screen pb-24 pt-28">
+      <section className="mx-auto max-w-6xl px-6 pb-12">
+        <p className="text-xs font-semibold uppercase tracking-[0.35em] text-gray-500">
+          Portfolio
+        </p>
+        <h1 className="mt-4 text-4xl font-semibold text-gray-900 md:text-6xl">
+          Selected work that feels
+          <span className="block text-gray-500">quietly luxurious.</span>
+        </h1>
+        <p className="mt-4 max-w-2xl text-sm text-gray-600 md:text-base">
+          We partner with ambitious teams to craft digital experiences that are
+          restrained, modern, and built for conversion.
+        </p>
+      </section>
+      <section className="mx-auto grid max-w-6xl gap-6 px-6 pb-20 md:grid-cols-2">
+        {projects.map((project) => (
           <div
-            key={i}
-            className="group cursor-pointer overflow-hidden rounded-3xl border border-gray-100 transition-all hover:shadow-2xl hover:-translate-y-2 duration-300"
+            key={project.title}
+            className="group rounded-3xl border border-white/40 bg-white/70 p-6 shadow-lg backdrop-blur transition hover:-translate-y-1 hover:shadow-xl"
           >
-            <div
-              className={`h-64 ${p.color} transition-transform duration-500 group-hover:scale-105`}
-            ></div>
-            <div className="p-8">
-              <h2 className="text-2xl font-bold">{p.title}</h2>
-              <p className="text-gray-500 mt-2">{p.tech}</p>
+            <div className="relative h-56 w-full overflow-hidden rounded-2xl bg-white/70">
+              <img
+                src={project.desktopImage}
+                alt={project.imageAlt}
+                className="h-full w-full object-cover"
+              />
+              <img
+                src={project.phoneImage}
+                alt=""
+                className="absolute bottom-4 right-4 h-28 w-14 rounded-xl object-cover shadow-lg"
+              />
+            </div>
+            <h2 className="mt-4 text-2xl font-semibold text-gray-900">
+              {project.title}
+            </h2>
+            <div className="mt-4 space-y-3 text-sm text-gray-600">
+              <p>
+                <span className="text-xs font-semibold uppercase tracking-[0.3em] text-gray-500">
+                  Problem
+                </span>
+                <span className="mt-2 block">{project.problem}</span>
+              </p>
+              <p>
+                <span className="text-xs font-semibold uppercase tracking-[0.3em] text-gray-500">
+                  Solution
+                </span>
+                <span className="mt-2 block">{project.solution}</span>
+              </p>
+              <p>
+                <span className="text-xs font-semibold uppercase tracking-[0.3em] text-gray-500">
+                  Result
+                </span>
+                <span className="mt-2 block">{project.result}</span>
+              </p>
             </div>
           </div>
         ))}
-      </div>
+      </section>
     </main>
   );
 }
