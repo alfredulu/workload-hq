@@ -49,6 +49,6 @@ export const faqs: FAQItem[] = [
   {
     question: "How can I reach the team?",
     answer:
-      "Send a note to `workloadhq@gmail.com` or fill out the contact form; we typically reply within one business day with next steps.",
+      "Send a note to `workloadhq@gmail.com`, message us on instagram or fill out the contact form; we typically reply within one business day with next steps.",
   },
 ];
