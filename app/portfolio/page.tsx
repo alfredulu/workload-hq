@@ -4,8 +4,7 @@ export default function Portfolio() {
   const projects = [
     {
       title: "SME Booking Dashboard",
-      problem:
-        "Client needed a way to showcase services without manual DMs.",
+      problem: "Client needed a way to showcase services without manual DMs.",
       solution:
         "Built a mobile-first, high-speed landing page with a direct WhatsApp bridge for instant conversion.",
       result: "Improved customer engagement.",
@@ -31,7 +30,7 @@ export default function Portfolio() {
       solution:
         "Created a simple booking experience with service cards and CTA routing.",
       result: "Improved customer engagement.",
-      desktopImage: "/images/portfolio-salon-desktop.jpg",
+      desktopImage: "./public/images/portfolio-salon-desktop.jpg",
       phoneImage: "/images/portfolio-salon-phone.jpg",
       imageAlt: "Salon appointment site preview",
     },
