@@ -30,7 +30,8 @@ export default function Contact() {
             </p>
           </div>
           <p className="mt-3 text-sm text-emerald-800">
-            Leave this field blank.
+            Drop in the brief details we ask for below so we can get back with a
+            personalized plan.
           </p>
           <input
             type="text"

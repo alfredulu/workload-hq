@@ -17,7 +17,7 @@ export const projects = [
       "Improved lead quality and streamlined updates for the client’s team.",
     desktopImage: "/images/portfolio-realestate-desktop.jpg",
     phoneImage: "/images/portfolio-realestate-phone.jpg",
-    imageAlt: "Retail landing page preview",
+    imageAlt: "Retail estate website preview",
   },
   {
     title: "Salon Appointment Flow",
@@ -44,20 +44,20 @@ export const projects = [
       "Streamlined ticket workflows and reduced time spent on repetitive updates by enabling bulk actions and quick filtering, while keeping the interface usable across device sizes and orientations.",
     desktopImage: "/images/portfolio-enterpriseadmin-desktop.jpg",
     phoneImage: "/images/portfolio-enterpriseadmin-phone.jpg",
-    imageAlt: "SME booking dashboard preview",
+    imageAlt: "admin dashboard preview",
   },
   {
-    title: "Logistics Service Hub",
-    category: "Logistics & Transport",
+    title: "Hopebridge Impact Platform",
+    category: "Nonprofit storytelling & donor experience site",
     featured: false,
-    problem:
-      "Client needed credibility and a clear service breakdown for new leads.",
+    problem: "Supporters saw Hopebridge as opaque, so engagement stalled.",
     solution:
-      "Built a lightweight site with pricing clarity and direct contact actions.",
-    result: "Improved customer engagement.",
-    desktopImage: "/images/portfolio-logistics-desktop.jpg",
-    phoneImage: "/images/portfolio-logistics-phone.jpg",
-    imageAlt: "Logistics service site preview",
+      "Built a site with pricing clarity, mission narrative, program highlights, and direct contact actions.",
+    result:
+      "Visitors now move from story to contact in one flow, boosting clarity ahead of the next campaign.",
+    desktopImage: "/images/portfolio-donationwebsite-desktop.jpg",
+    phoneImage: "/images/portfolio-donationwebsite-phone.jpg",
+    imageAlt: "donation site preview",
   },
 ];
 
