@@ -1,52 +1,60 @@
 import { AlertTriangle, CheckCircle2, Sparkles, Wand2 } from "lucide-react";
 
-export default function Portfolio() {
-  const projects = [
-    {
-      title: "SME Booking Dashboard",
-      problem: "Client needed a way to showcase services without manual DMs.",
-      solution:
-        "Built a mobile-first, high-speed landing page with a direct WhatsApp bridge for instant conversion.",
-      result: "Improved customer engagement.",
-      desktopImage: "/images/portfolio-booking-desktop.jpg",
-      phoneImage: "/images/portfolio-booking-phone.jpg",
-      imageAlt: "SME booking dashboard preview",
-    },
-    {
-      title: "Retail Landing Page Solution",
-      problem:
-        "Client had social-only traffic and no central place to convert visitors.",
-      solution:
-        "Designed a clean, trust-focused site with clear offers and fast inquiry flow.",
-      result: "Improved customer engagement.",
-      desktopImage: "/images/portfolio-retail-desktop.jpg",
-      phoneImage: "/images/portfolio-retail-phone.jpg",
-      imageAlt: "Retail landing page preview",
-    },
-    {
-      title: "Salon Appointment Flow",
-      problem:
-        "Client needed faster booking without phone calls or back-and-forth.",
-      solution:
-        "Created a simple booking experience with service cards and CTA routing.",
-      result: "Improved customer engagement.",
-      desktopImage: "./public/images/portfolio-salon-desktop.jpg",
-      phoneImage: "/images/portfolio-salon-phone.jpg",
-      imageAlt: "Salon appointment site preview",
-    },
-    {
-      title: "Logistics Service Hub",
-      problem:
-        "Client needed credibility and a clear service breakdown for new leads.",
-      solution:
-        "Built a lightweight site with pricing clarity and direct contact actions.",
-      result: "Improved customer engagement.",
-      desktopImage: "/images/portfolio-logistics-desktop.jpg",
-      phoneImage: "/images/portfolio-logistics-phone.jpg",
-      imageAlt: "Logistics service site preview",
-    },
-  ];
+export const projects = [
+  {
+    title: "SME Booking Dashboard",
+    category: "Local Services",
+    featured: true,
+    problem: "Client needed a way to showcase services without manual DMs.",
+    solution:
+      "Built a mobile-first, high-speed landing page with a direct WhatsApp bridge for instant conversion.",
+    result: "Improved customer engagement.",
+    desktopImage: "/images/portfolio-booking-desktop.jpg",
+    phoneImage: "/images/portfolio-booking-phone.jpg",
+    imageAlt: "SME booking dashboard preview",
+  },
+  {
+    title: "Retail Landing Page Solution",
+    category: "Retail & Commerce",
+    featured: true,
+    problem:
+      "Client had social-only traffic and no central place to convert visitors.",
+    solution:
+      "Designed a clean, trust-focused site with clear offers and fast inquiry flow.",
+    result: "Improved customer engagement.",
+    desktopImage: "/images/portfolio-retail-desktop.jpg",
+    phoneImage: "/images/portfolio-retail-phone.jpg",
+    imageAlt: "Retail landing page preview",
+  },
+  {
+    title: "Salon Appointment Flow",
+    category: "Beauty & Wellness",
+    featured: true,
+    problem:
+      "Client needed faster booking without phone calls or back-and-forth.",
+    solution:
+      "Created a simple booking experience with service cards and CTA routing.",
+    result: "Improved customer engagement.",
+    desktopImage: "/images/portfolio-salon-desktop.jpg",
+    phoneImage: "/images/portfolio-salon-phone.jpg",
+    imageAlt: "Salon appointment site preview",
+  },
+  {
+    title: "Logistics Service Hub",
+    category: "Logistics & Transport",
+    featured: false,
+    problem:
+      "Client needed credibility and a clear service breakdown for new leads.",
+    solution:
+      "Built a lightweight site with pricing clarity and direct contact actions.",
+    result: "Improved customer engagement.",
+    desktopImage: "/images/portfolio-logistics-desktop.jpg",
+    phoneImage: "/images/portfolio-logistics-phone.jpg",
+    imageAlt: "Logistics service site preview",
+  },
+];
 
+export default function Portfolio() {
   return (
     <main className="min-h-screen pb-24 pt-28">
       <section className="mx-auto max-w-6xl px-6 pb-12">

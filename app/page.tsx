@@ -11,6 +11,7 @@ import {
   Target,
   Zap,
 } from "lucide-react";
+import { projects } from "./portfolio/page";
 
 type Service = {
   title: string;
@@ -94,29 +95,7 @@ const processSteps: ProcessStep[] = [
   },
 ];
 
-const featuredWork = [
-  {
-    title: "Salon Appointment Flow",
-    category: "Beauty & Wellness",
-    desktopImage: "/images/featured-salon-desktop.jpg",
-    phoneImage: "/images/featured-salon-phone.jpg",
-    imageAlt: "Salon appointment website preview",
-  },
-  {
-    title: "SME Booking Dashboard",
-    category: "Local Services",
-    desktopImage: "/images/featured-booking-desktop.jpg",
-    phoneImage: "/images/featured-booking-phone.jpg",
-    imageAlt: "SME booking dashboard preview",
-  },
-  {
-    title: "Retail Landing Page",
-    category: "Retail & Commerce",
-    desktopImage: "/images/featured-retail-desktop.jpg",
-    phoneImage: "/images/featured-retail-phone.jpg",
-    imageAlt: "Retail landing page preview",
-  },
-];
+const featuredProjects = projects.filter((project) => project.featured);
 
 const testimonials = [
   {
@@ -305,7 +284,7 @@ function FeaturedWork() {
         actionHref="/portfolio"
       />
       <div className="grid gap-6 md:grid-cols-3">
-        {featuredWork.map((work, index) => (
+        {featuredProjects.map((work) => (
           <div
             key={work.title}
             className="group rounded-3xl border border-slate-200/60 bg-gradient-to-br from-white/85 to-slate-50/70 p-6 shadow-lg shadow-slate-900/10 backdrop-blur transition hover:-translate-y-1 hover:shadow-xl active:scale-[0.99]"
