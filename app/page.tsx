@@ -127,7 +127,7 @@ const featuredProjects = projects.filter((project) => project.featured);
 const testimonials = [
   {
     quote:
-      "The admin dashboard WorkLoad HQ built has transformed our operations. The polished dashboard and thoughtful mobile layout keep us fast and in control no matter where we’re working.",
+      "The admin dashboard WorkLoad HQ built us has transformed our operations. The polished dashboard and thoughtful mobile layout keep us fast and in control no matter where we’re working.",
     name: "Samuel Carter",
     role: "Head of Operations, Auralis",
   },
