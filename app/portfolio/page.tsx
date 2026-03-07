@@ -9,6 +9,7 @@ export const projects = [
     title: "LuxeEstate Real Estate Platform",
     category: "Real Estate & PropTech",
     featured: true,
+    link: "/contact",
     problem:
       "Client needed a modern platform to showcase luxury listings and convert high-intent visitors into inquiries.",
     solution:
@@ -23,6 +24,7 @@ export const projects = [
     title: "Salon Appointment Flow",
     category: "Beauty & Wellness",
     featured: true,
+    link: "https://business-template-gray.vercel.app/",
     problem:
       "Client needed faster booking without phone calls or back-and-forth.",
     solution:
@@ -36,6 +38,7 @@ export const projects = [
     title: "Enterprise Admin UI",
     category: "Web App / Admin Dashboard",
     featured: true,
+    link: "https://enterprise-admin-ui.vercel.app/",
     problem:
       "Internal teams needed a single place to manage support tickets, users, and system settings efficiently, with fast filtering, bulk actions, and clear status visibility.",
     solution:
@@ -50,6 +53,7 @@ export const projects = [
     title: "Hopebridge Impact Platform",
     category: "Nonprofit storytelling & donor experience site",
     featured: false,
+    link: "https://hopebridge-ochre.vercel.app/",
     problem: "Supporters saw Hopebridge as opaque, so engagement stalled.",
     solution:
       "Built a site with pricing clarity, mission narrative, program highlights, and direct contact actions.",
@@ -150,7 +154,7 @@ export default function Portfolio() {
                 </p>
               </div>
               <a
-                href="/contact"
+                href={project.link || "/contact"}
                 className="mt-5 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.3em] text-stone-600 hover:text-stone-900"
               >
                 <Sparkles className="h-4 w-4" />

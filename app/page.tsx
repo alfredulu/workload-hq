@@ -127,15 +127,9 @@ const featuredProjects = projects.filter((project) => project.featured);
 const testimonials = [
   {
     quote:
-      "WorkLoad HQ elevated our brand with a site that feels premium and performs.",
-    name: "Ariana Lopez",
-    role: "Chief Marketing Officer, Lumen",
-  },
-  {
-    quote:
-      "Every decision felt intentional. The final experience is effortlessly elegant.",
-    name: "Elias Carter",
-    role: "Founder, Auralis",
+      "The admin dashboard WorkLoad HQ built has transformed our operations. The polished dashboard and thoughtful mobile layout keep us fast and in control no matter where we’re working.",
+    name: "Samuel Carter",
+    role: "Head of Operations, Auralis",
   },
 ];
 
@@ -406,7 +400,7 @@ function FeaturedWork() {
                 Minimal, conversion-led storytelling with a premium feel.
               </p>
               <a
-                href="/contact"
+                href={work.link || "/contact"}
                 className="mt-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.3em] text-stone-600 hover:text-stone-900"
               >
                 View Project
