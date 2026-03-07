@@ -107,12 +107,12 @@ const deliverables: Deliverable[] = [
 const engagements: Engagement[] = [
   {
     title: "Launch Sprint",
-    timeline: "7-14 days",
+    timeline: "2-4 business days",
     summary: "Tight scope, fast turnaround, one premium marketing page.",
   },
   {
     title: "Brand Platform",
-    timeline: "3-4 weeks",
+    timeline: "1-3 weeks",
     summary: "Multi-page website with strategy, UX, and a scalable system.",
   },
   {
@@ -140,6 +140,15 @@ export default function ServicesPage() {
           From single-page launches to ongoing growth systems, each engagement
           is designed to feel refined, intentional, and effortless to use.
         </p>
+        <div className="flex flex-wrap gap-3">
+          <a
+            href="/#faq"
+            className="inline-flex items-center gap-2 rounded-full border border-emerald-200/70 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-emerald-800 shadow-sm transition hover:border-emerald-300 active:scale-95"
+          >
+            <Sparkles className="h-4 w-4" />
+            View Home FAQ
+          </a>
+        </div>
       </section>
 
       <section className="mx-auto max-w-6xl px-6 pb-20">
@@ -226,9 +235,7 @@ export default function ServicesPage() {
                   <h3 className="text-lg font-semibold text-stone-950">
                     {item.title}
                   </h3>
-                  <p className="mt-2 text-sm text-emerald-800">
-                    {item.detail}
-                  </p>
+                  <p className="mt-2 text-sm text-emerald-800">{item.detail}</p>
                 </div>
               </div>
             );

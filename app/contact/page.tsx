@@ -1,4 +1,12 @@
-import { Globe2, Instagram, Mail, MessageSquare, Sparkles } from "lucide-react";
+import {
+  Globe2,
+  Instagram,
+  Mail,
+  MessageSquare,
+  Sparkles,
+} from "lucide-react";
+import FAQSection from "@/components/FAQSection";
+import { faqs } from "@/data/faqs";
 
 export default function Contact() {
   return (
@@ -178,6 +186,8 @@ export default function Contact() {
           </p>
         </div>
       </section>
+
+      <FAQSection faqs={faqs} ctaLabel="Book a Call" ctaHref="/contact" />
     </main>
   );
 }

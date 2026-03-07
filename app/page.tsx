@@ -5,6 +5,7 @@ import type { LucideIcon } from "lucide-react";
 import {
   CheckCircle2,
   Clock,
+  HelpCircle,
   Layers,
   LayoutGrid,
   Mail,
@@ -15,6 +16,8 @@ import {
   Zap,
 } from "lucide-react";
 import ProjectMedia from "@/components/ProjectMedia";
+import FAQSection from "@/components/FAQSection";
+import { faqs } from "@/data/faqs";
 import { projects } from "./portfolio/page";
 
 type Service = {
@@ -142,6 +145,7 @@ export default function Home() {
       <Process />
       <FeaturedWork />
       <Testimonials />
+      <FAQSection faqs={faqs} />
       <CTA />
     </main>
   );
@@ -180,6 +184,13 @@ function Hero() {
             className="rounded-full border border-emerald-200/70 bg-gradient-to-r from-white/80 to-emerald-50/80 px-8 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-stone-800 shadow-sm backdrop-blur transition hover:bg-white active:scale-95"
           >
             View Our Work
+          </a>
+          <a
+            href="#faq"
+            className="flex items-center justify-center gap-2 rounded-full border border-emerald-200/70 px-6 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-emerald-800 shadow-sm transition hover:border-emerald-300 active:scale-95"
+          >
+            <HelpCircle className="h-4 w-4" />
+            FAQ
           </a>
         </div>
       </div>

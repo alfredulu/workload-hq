@@ -1,7 +1,15 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { AlertTriangle, CheckCircle2, Sparkles, Wand2 } from "lucide-react";
+import {
+  AlertTriangle,
+  CheckCircle2,
+  LayoutGrid,
+  Sparkles,
+  Wand2,
+  Layers,
+} from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import ProjectMedia from "@/components/ProjectMedia";
 
 export const projects = [
@@ -65,6 +73,37 @@ export const projects = [
   },
 ];
 
+const websiteTypes: {
+  title: string;
+  detail: string;
+  icon: LucideIcon;
+}[] = [
+  {
+    title: "Landing & Promotional Pages",
+    detail:
+      "High-converting hero sections, concise storytelling, and clear CTAs built to turn browsers into leads.",
+    icon: Sparkles,
+  },
+  {
+    title: "Product & Launch Minisites",
+    detail:
+      "Clean, focused experiences with tiered features, social proof, and launch timers when timing matters.",
+    icon: Wand2,
+  },
+  {
+    title: "Web Apps & Dashboards",
+    detail:
+      "Responsive, Full Websites, interface-driven builds with data visualization, bulk actions, and polished microinteractions.",
+    icon: LayoutGrid,
+  },
+  {
+    title: "Content & Storytelling Hubs",
+    detail:
+      "Editorial-ready layouts that marry narrative copy with hero visuals, case studies, and evergreen resources.",
+    icon: Layers,
+  },
+];
+
 export default function Portfolio() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const gridRef = useRef<HTMLDivElement | null>(null);
@@ -101,6 +140,15 @@ export default function Portfolio() {
           We partner with ambitious teams to craft digital experiences that are
           restrained, modern, and built for conversion.
         </p>
+        <div className="mt-6 flex flex-wrap gap-3">
+          <a
+            href="/#faq"
+            className="inline-flex items-center gap-2 rounded-full border border-emerald-200/70 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-emerald-800 shadow-sm transition hover:border-emerald-300 active:scale-95"
+          >
+            <Sparkles className="h-4 w-4" />
+            Visit Home FAQ
+          </a>
+        </div>
       </section>
       <section
         className="mx-auto grid max-w-6xl gap-6 px-6 pb-20 md:grid-cols-2"
@@ -163,6 +211,39 @@ export default function Portfolio() {
             </div>
           );
         })}
+      </section>
+      <section className="mx-auto max-w-6xl px-6 pb-20">
+        <div className="mb-10">
+          <p className="text-xs font-semibold uppercase tracking-[0.35em] text-stone-600">
+            Deliverables
+          </p>
+          <h2 className="mt-4 text-3xl font-semibold text-stone-950">
+            Different types of websites we build
+          </h2>
+          <p className="mt-2 text-sm text-emerald-800">
+            From promo-focused landing pages to enterprise dashboards, we design
+            each project to showcase the work, push conversions, and stay
+            endlessly maintainable.
+          </p>
+        </div>
+        <div className="grid gap-6 md:grid-cols-2">
+          {websiteTypes.map((type) => (
+            <div
+              key={type.title}
+              className="flex gap-4 rounded-3xl border border-emerald-200/60 bg-gradient-to-br from-white/85 to-emerald-50/70 p-6 shadow-sm shadow-emerald-900/10 backdrop-blur"
+            >
+              <div className="flex h-10 w-10 items-center justify-center rounded-2xl border border-emerald-200/70 bg-gradient-to-br from-white/90 to-emerald-50/80 text-emerald-800 shadow-sm shadow-emerald-900/10">
+                <type.icon className="h-5 w-5" />
+              </div>
+              <div>
+                <p className="text-lg font-semibold text-stone-950">
+                  {type.title}
+                </p>
+                <p className="mt-2 text-sm text-emerald-800">{type.detail}</p>
+              </div>
+            </div>
+          ))}
+        </div>
       </section>
     </main>
   );
