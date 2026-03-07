@@ -88,10 +88,14 @@ export default function ProjectMedia({
 
       {open && mounted
         ? createPortal(
-            <div className="fixed inset-0 z-[999] bg-stone-900/70 backdrop-blur-xl">
+            <div
+              className="fixed inset-0 z-[999] bg-stone-900/70 backdrop-blur-xl"
+              onClick={() => setOpen(false)}
+            >
               <div
                 className="relative flex h-full w-full items-center justify-center"
                 data-project-modal
+                onClick={(event) => event.stopPropagation()}
               >
                 <button
                   type="button"
@@ -100,16 +104,16 @@ export default function ProjectMedia({
                 >
                   Close
                 </button>
-                <div className="flex h-[92vh] w-[96vw] max-w-[1600px] flex-col gap-4">
+                <div className="flex h-[92vh] w-[96vw] max-w-[1600px] flex-col gap-4 md:flex-row md:items-stretch">
                   <img
                     src={desktopImage}
                     alt={alt}
-                    className="h-[70%] w-full object-contain"
+                    className="h-[65vh] w-full object-contain md:h-full md:w-2/3"
                   />
                   <img
                     src={phoneImage}
                     alt=""
-                    className="h-[30%] w-full object-contain md:w-2/3"
+                    className="h-[40vh] w-full object-contain md:h-full md:w-1/3"
                   />
                 </div>
               </div>
