@@ -1,14 +1,41 @@
-import {
-  Globe2,
-  Instagram,
-  Mail,
-  MessageSquare,
-  Sparkles,
-} from "lucide-react";
+"use client";
+
+import { Globe2, Instagram, Mail, MessageSquare, Sparkles } from "lucide-react";
 import FAQSection from "@/components/FAQSection";
 import { faqs } from "@/data/faqs";
+import { FormEvent } from "react";
 
 export default function Contact() {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+
+    // This is your secret submission link
+    const googleURL =
+      "https://docs.google.com/forms/d/e/1FAIpQLSeI2sV1B6zeJCQmZhKYCsbivxGPiuZxCwjCRUD_EfiC1-yH9Q/formResponse";
+
+    const data = new URLSearchParams();
+    data.append("entry.1352442608", formData.get("name") as string);
+    data.append("entry.447160304", formData.get("email") as string);
+    data.append("entry.1701260939", formData.get("phone") as string);
+    data.append("entry.915533908", formData.get("subject") as string);
+    data.append("entry.1077008706", formData.get("message") as string);
+
+    try {
+      await fetch(googleURL, {
+        method: "POST",
+        mode: "no-cors",
+        body: data,
+      });
+      alert("Success! Your message has been sent to WorkLoad HQ.");
+      (e.target as HTMLFormElement).reset();
+    } catch (err) {
+      alert(
+        "Something went wrong. Please email us at workloadhq@gmail.com directly."
+      );
+    }
+  };
+
   return (
     <main className="min-h-screen pb-24 pt-28">
       <section className="mx-auto max-w-4xl px-6">
@@ -25,10 +52,17 @@ export default function Contact() {
           We respond swiftly within a few hours or minutes and can share a
           tailored scope as soon as we understand your goals.
         </p>
+        <p className="mt-2 max-w-2xl text-sm text-emerald-800 md:text-base">
+          Tell us about your needs, challenges, and timeline so the right lead
+          can reach out with suited options.
+        </p>
       </section>
 
       <section className="mx-auto mt-12 grid max-w-4xl gap-6 px-6 lg:grid-cols-[1.2fr_0.8fr]">
-        <form className="rounded-3xl border border-emerald-200/60 bg-gradient-to-br from-white/85 to-emerald-50/70 p-8 shadow-lg shadow-emerald-900/10 backdrop-blur">
+        <form
+          onSubmit={handleSubmit}
+          className="rounded-3xl border border-emerald-200/60 bg-gradient-to-br from-white/85 to-emerald-50/70 p-8 shadow-lg shadow-emerald-900/10 backdrop-blur"
+        >
           <div className="flex items-center gap-3">
             <div className="flex h-10 w-10 items-center justify-center rounded-2xl border border-emerald-200/70 bg-white/80 text-emerald-800">
               <MessageSquare className="h-5 w-5" />
