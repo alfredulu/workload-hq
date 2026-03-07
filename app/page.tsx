@@ -14,6 +14,7 @@ import {
   Target,
   Zap,
 } from "lucide-react";
+import ProjectMedia from "@/components/ProjectMedia";
 import { projects } from "./portfolio/page";
 
 type Service = {
@@ -386,22 +387,11 @@ function FeaturedWork() {
               }`}
               onClick={() => setActiveIndex(index)}
             >
-            <div className="relative -mx-2 h-40 w-[calc(100%+1rem)] overflow-hidden rounded-xl bg-gradient-to-br from-white/90 to-emerald-50/70 md:-mx-3 md:w-[calc(100%+1.5rem)]">
-              <div
-                className="absolute inset-0 z-0 scale-105 bg-cover bg-center blur-md"
-                style={{ backgroundImage: `url(${work.desktopImage})` }}
-              />
-              <img
-                src={work.desktopImage}
-                alt={work.imageAlt}
-                className="relative z-10 h-full w-full object-contain"
-              />
-              <img
-                src={work.phoneImage}
-                alt=""
-                className="absolute bottom-3 right-3 z-20 h-24 w-12 rounded-lg border border-white/80 object-cover shadow-lg shadow-emerald-900/20"
-              />
-            </div>
+            <ProjectMedia
+              desktopImage={work.desktopImage}
+              phoneImage={work.phoneImage}
+              alt={work.imageAlt}
+            />
             <div className="mt-4 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.3em] text-stone-600">
               <Sparkles className="h-4 w-4" />
               <span>{work.category}</span>
