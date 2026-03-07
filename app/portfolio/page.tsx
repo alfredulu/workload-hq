@@ -2,31 +2,21 @@
 
 import { useEffect, useRef, useState } from "react";
 import { AlertTriangle, CheckCircle2, Sparkles, Wand2 } from "lucide-react";
+import ProjectMedia from "@/components/ProjectMedia";
 
 export const projects = [
   {
-    title: "SME Booking Dashboard",
-    category: "Local Services",
-    featured: true,
-    problem: "Client needed a way to showcase services without manual DMs.",
-    solution:
-      "Built a mobile-first, high-speed landing page with a direct WhatsApp bridge for instant conversion.",
-    result: "Improved customer engagement.",
-    desktopImage: "/images/portfolio-booking-desktop.jpg",
-    phoneImage: "/images/portfolio-booking-phone.jpg",
-    imageAlt: "SME booking dashboard preview",
-  },
-  {
-    title: "Retail Landing Page Solution",
-    category: "Retail & Commerce",
+    title: "LuxeEstate Real Estate Platform",
+    category: "Real Estate & PropTech",
     featured: true,
     problem:
-      "Client had social-only traffic and no central place to convert visitors.",
+      "Client needed a modern platform to showcase luxury listings and convert high-intent visitors into inquiries.",
     solution:
-      "Designed a clean, trust-focused site with clear offers and fast inquiry flow.",
-    result: "Improved customer engagement.",
-    desktopImage: "/images/portfolio-retail-desktop.jpg",
-    phoneImage: "/images/portfolio-retail-phone.jpg",
+      "Built a full-stack site with featured listings, advanced search, inquiry capture, and an admin dashboard for property and team management.",
+    result:
+      "Improved lead quality and streamlined updates for the client’s team.",
+    desktopImage: "/images/portfolio-realestate-desktop.jpg",
+    phoneImage: "/images/portfolio-realestate-phone.jpg",
     imageAlt: "Retail landing page preview",
   },
   {
@@ -41,6 +31,20 @@ export const projects = [
     desktopImage: "/images/portfolio-salon-desktop.jpg",
     phoneImage: "/images/portfolio-salon-phone.jpg",
     imageAlt: "Salon appointment site preview",
+  },
+  {
+    title: "Enterprise Admin UI",
+    category: "Web App / Admin Dashboard",
+    featured: true,
+    problem:
+      "Internal teams needed a single place to manage support tickets, users, and system settings efficiently, with fast filtering, bulk actions, and clear status visibility.",
+    solution:
+      "Built a responsive admin dashboard with searchable, sortable ticket tables, bulk updates, CSV export, and a persistent sidebar for navigation. Added real-time-friendly UI patterns (inline edits, status/priority controls) and mobile landscape fixes to keep navigation accessible.",
+    result:
+      "Streamlined ticket workflows and reduced time spent on repetitive updates by enabling bulk actions and quick filtering, while keeping the interface usable across device sizes and orientations.",
+    desktopImage: "/images/portfolio-enterpriseadmin-desktop.jpg",
+    phoneImage: "/images/portfolio-enterpriseadmin-phone.jpg",
+    imageAlt: "SME booking dashboard preview",
   },
   {
     title: "Logistics Service Hub",
@@ -111,20 +115,12 @@ export default function Portfolio() {
               }`}
               onClick={() => setActiveIndex(index)}
             >
-              <div className="relative -mx-2 h-56 w-[calc(100%+1rem)] overflow-hidden rounded-xl bg-gradient-to-br from-white/90 to-emerald-50/70 md:-mx-3 md:w-[calc(100%+1.5rem)]">
-                <div
-                  className="absolute inset-0 z-0 scale-105 bg-cover bg-center blur-md"
-                  style={{ backgroundImage: `url(${project.desktopImage})` }}
-                />
-                <img
-                  src={project.desktopImage}
+              <div className="-mx-2 md:-mx-3">
+                <ProjectMedia
+                  desktopImage={project.desktopImage}
+                  phoneImage={project.phoneImage}
                   alt={project.imageAlt}
-                  className="relative z-10 h-full w-full object-contain"
-                />
-                <img
-                  src={project.phoneImage}
-                  alt=""
-                  className="absolute bottom-4 right-4 z-20 h-28 w-14 rounded-lg border border-white/80 object-cover shadow-lg shadow-emerald-900/20"
+                  variant="tall"
                 />
               </div>
               <h2 className="mt-4 text-2xl font-semibold text-stone-950">
@@ -167,8 +163,3 @@ export default function Portfolio() {
     </main>
   );
 }
-
-
-
-
-
