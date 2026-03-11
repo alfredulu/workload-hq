@@ -14,10 +14,10 @@ import ProjectMedia from "@/components/ProjectMedia";
 
 export const projects = [
   {
-    title: "LuxeEstate Real Estate Platform",
+    title: "LuxeEstate Real Estate Website",
     category: "Real Estate & PropTech",
     featured: true,
-    link: "/contact",
+    link: "https://luxe-estate-two.vercel.app/",
     problem:
       "Client needed a modern platform to showcase luxury listings and convert high-intent visitors into inquiries.",
     solution:
@@ -29,10 +29,10 @@ export const projects = [
     imageAlt: "Retail estate website preview",
   },
   {
-    title: "Salon Appointment Flow",
+    title: "Nailtech Appointment Website",
     category: "Beauty & Wellness",
     featured: true,
-    link: "https://business-template-gray.vercel.app/",
+    link: "https://the-nail-tech.vercel.app/",
     problem:
       "Client needed faster booking without phone calls or back-and-forth.",
     solution:
@@ -58,7 +58,7 @@ export const projects = [
     imageAlt: "admin dashboard preview",
   },
   {
-    title: "Hopebridge Impact Platform",
+    title: "Hopebridge Donation Platform",
     category: "Nonprofit storytelling & donor experience site",
     featured: false,
     link: "https://hopebridge-ochre.vercel.app/",
