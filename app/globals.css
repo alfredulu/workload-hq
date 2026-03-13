@@ -28,3 +28,16 @@ body {
 ::selection {
   background: rgba(26, 36, 31, 0.18);
 }
+
+.animate-heroZoom {
+  animation: heroZoom 25s ease-in-out infinite alternate;
+}
+
+@keyframes heroZoom {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.08);
+  }
+}
