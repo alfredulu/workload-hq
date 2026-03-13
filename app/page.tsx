@@ -162,15 +162,13 @@ function Hero() {
           Premium Digital Agency
         </span>
         <h1 className="text-4xl font-semibold tracking-tight text-stone-950 md:text-6xl">
-          We design and build
-          <span className="block text-stone-600">
-            expensive or/and minimalist
-          </span>
-          websites for modern brands.
+          WORKLOAD
+          <span className="block text-stone-600">HQ</span>
         </h1>
         <p className="max-w-2xl text-lg text-emerald-800 md:text-xl">
           WorkLoad HQ is a digital agency focused on crafting refined, mobile-
-          first experiences that convert attention into revenue.
+          first experiences that convert attention into revenue. We design and
+          build expensive or/and minimalist websites for modern brands.
         </p>
         <div className="flex flex-col gap-4 sm:flex-row">
           <a

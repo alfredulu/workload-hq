@@ -26,7 +26,7 @@ export default function Navbar() {
   }, [open]);
 
   return (
-    <nav className="fixed top-0 w-full z-50 border-b border-emerald-200/60 bg-gradient-to-r from-white/70 via-emerald-50/60 to-white/70 backdrop-blur-xl">
+    <nav className="fixed top-0 w-full z-50 border-b border-emerald-200/60 bg-gradient-to-r from-white/70 via-emerald-50/60 to-white/70 backdrop-blur-xl shadow-lg">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <Link href="/" className="text-lg font-semibold tracking-[0.2em] text-stone-950">
           WORKLOAD HQ
