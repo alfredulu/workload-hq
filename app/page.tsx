@@ -138,7 +138,7 @@ const testimonials = [
 
 export default function Home() {
   return (
-    <main className="min-h-screen pb-24 pt-28">
+    <main className="min-h-screen pb-24 pt-0">
       <Hero />
       <Stats />
       <Services />
@@ -156,15 +156,18 @@ function Hero() {
     useActiveIndex<HTMLDivElement>();
 
   return (
-    <section className="relative w-full overflow-hidden">
-      <div className="relative">
-        <img
-          src="/images/herobackground.jpg"
-          alt=""
-          className="pointer-events-none h-full w-full object-cover animate-heroZoom"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-white/95 via-white/90 to-white/85" />
-        <div className="relative mx-auto flex max-w-6xl flex-col gap-10 px-6 py-8 md:py-12">
+    <>
+      <section
+        className="relative w-full overflow-hidden"
+        style={{
+          backgroundImage:
+            "linear-gradient(180deg, rgba(255,255,255,0.8), rgba(255,255,255,0.9)), url('/images/herobackground.jpg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
+        <div className="mx-auto flex max-w-6xl flex-col gap-10 px-6 pt-28 pb-8 md:pt-32 md:pb-12">
           <div className="flex flex-col gap-6">
             <span className="w-fit rounded-full border border-emerald-200/70 bg-gradient-to-r from-white/80 to-emerald-50/80 px-4 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-emerald-800 shadow-sm backdrop-blur">
               Premium Digital Agency
@@ -174,9 +177,10 @@ function Hero() {
               <span className="block text-stone-600">HQ</span>
             </h1>
             <p className="max-w-2xl text-lg text-emerald-800 md:text-xl">
-              WorkLoad HQ is a digital agency focused on crafting refined, mobile-
-              first experiences that convert attention into revenue. We design
-              and build expensive or/and minimalist websites for modern brands.
+              WorkLoad HQ is a digital agency focused on crafting refined,
+              mobile- first experiences that convert attention into revenue. We
+              design and build expensive or/and minimalist websites for modern
+              brands.
             </p>
             <div className="flex flex-col gap-4 sm:flex-row">
               <a
@@ -201,8 +205,11 @@ function Hero() {
             </div>
           </div>
         </div>
-      </div>
-      <div className="mx-auto grid max-w-6xl gap-6 px-6 pb-20 pt-8 md:grid-cols-2" ref={containerRef}>
+      </section>
+      <div
+        className="mx-auto grid max-w-6xl gap-6 px-6 pb-20 pt-8 md:grid-cols-2"
+        ref={containerRef}
+      >
         <div
           className={`rounded-3xl border border-emerald-200/60 bg-gradient-to-br from-white/85 via-white/70 to-emerald-50/70 p-8 shadow-lg shadow-emerald-900/10 backdrop-blur transition ${
             activeIndex === 0
@@ -243,7 +250,7 @@ function Hero() {
           </p>
         </div>
       </div>
-    </section>
+    </>
   );
 }
 
