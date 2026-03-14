@@ -156,91 +156,91 @@ function Hero() {
     useActiveIndex<HTMLDivElement>();
 
   return (
-    <section className="relative w-full overflow-hidden px-0 py-8 md:py-12">
-      <div className="absolute inset-0">
+    <section className="relative w-full overflow-hidden">
+      <div className="relative">
         <img
           src="/images/herobackground.jpg"
           alt=""
           className="pointer-events-none h-full w-full object-cover animate-heroZoom"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-white/85 to-white/95" />
-      </div>
-      <div className="relative mx-auto flex max-w-6xl flex-col gap-10 px-6 pb-20 pt-8 md:pb-28 md:pt-16">
-        <div className="flex flex-col gap-6">
-          <span className="w-fit rounded-full border border-emerald-200/70 bg-gradient-to-r from-white/80 to-emerald-50/80 px-4 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-emerald-800 shadow-sm backdrop-blur">
-            Premium Digital Agency
-          </span>
-          <h1 className="text-4xl font-semibold tracking-tight text-stone-950 md:text-6xl">
-            WORKLOAD
-            <span className="block text-stone-600">HQ</span>
-          </h1>
-          <p className="max-w-2xl text-lg text-emerald-800 md:text-xl">
-            WorkLoad HQ is a digital agency focused on crafting refined, mobile-
-            first experiences that convert attention into revenue. We design and
-            build expensive or/and minimalist websites for modern brands.
-          </p>
-          <div className="flex flex-col gap-4 sm:flex-row">
-            <a
-              href="/contact"
-              className="rounded-full bg-emerald-900/90 px-8 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-white shadow-lg shadow-emerald-900/20 transition hover:bg-emerald-950 active:scale-95"
-            >
-              Start a Project
-            </a>
-            <a
-              href="/portfolio"
-              className="rounded-full border border-emerald-200/70 bg-gradient-to-r from-white/80 to-emerald-50/80 px-8 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-stone-800 shadow-sm backdrop-blur transition hover:bg-white active:scale-95"
-            >
-              View Our Work
-            </a>
-            <a
-              href="#faq"
-              className="flex items-center justify-center gap-2 rounded-full border border-emerald-200/70 px-6 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-emerald-800 shadow-sm transition hover:border-emerald-300 active:scale-95"
-            >
-              <HelpCircle className="h-4 w-4" />
-              FAQ
-            </a>
+        <div className="absolute inset-0 bg-gradient-to-b from-white/95 via-white/90 to-white/85" />
+        <div className="relative mx-auto flex max-w-6xl flex-col gap-10 px-6 py-8 md:py-12">
+          <div className="flex flex-col gap-6">
+            <span className="w-fit rounded-full border border-emerald-200/70 bg-gradient-to-r from-white/80 to-emerald-50/80 px-4 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-emerald-800 shadow-sm backdrop-blur">
+              Premium Digital Agency
+            </span>
+            <h1 className="text-4xl font-semibold tracking-tight text-stone-950 md:text-6xl">
+              WORKLOAD
+              <span className="block text-stone-600">HQ</span>
+            </h1>
+            <p className="max-w-2xl text-lg text-emerald-800 md:text-xl">
+              WorkLoad HQ is a digital agency focused on crafting refined, mobile-
+              first experiences that convert attention into revenue. We design
+              and build expensive or/and minimalist websites for modern brands.
+            </p>
+            <div className="flex flex-col gap-4 sm:flex-row">
+              <a
+                href="/contact"
+                className="rounded-full bg-emerald-900/90 px-8 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-white shadow-lg shadow-emerald-900/20 transition hover:bg-emerald-950 active:scale-95"
+              >
+                Start a Project
+              </a>
+              <a
+                href="/portfolio"
+                className="rounded-full border border-emerald-200/70 bg-gradient-to-r from-white/80 to-emerald-50/80 px-8 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-stone-800 shadow-sm backdrop-blur transition hover:bg-white active:scale-95"
+              >
+                View Our Work
+              </a>
+              <a
+                href="#faq"
+                className="flex items-center justify-center gap-2 rounded-full border border-emerald-200/70 px-6 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-emerald-800 shadow-sm transition hover:border-emerald-300 active:scale-95"
+              >
+                <HelpCircle className="h-4 w-4" />
+                FAQ
+              </a>
+            </div>
           </div>
         </div>
-        <div className="grid gap-6 md:grid-cols-2" ref={containerRef}>
-          <div
-            className={`rounded-3xl border border-emerald-200/60 bg-gradient-to-br from-white/85 via-white/70 to-emerald-50/70 p-8 shadow-lg shadow-emerald-900/10 backdrop-blur transition ${
-              activeIndex === 0
-                ? "-translate-y-1 shadow-xl"
-                : "hover:-translate-y-1 hover:shadow-xl"
-            }`}
-            onClick={() => setActiveIndex(0)}
-          >
-            <div className="flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.3em] text-stone-600">
-              <Clock className="h-4 w-4" />
-              Now booking
-            </div>
-            <p className="mt-4 text-2xl font-semibold text-stone-950">
-              Fast turnarounds
-            </p>
-            <p className="mt-3 text-sm text-emerald-800">
-              Most one-page builds ship in 2-4 days once we have your content.
-            </p>
+      </div>
+      <div className="mx-auto grid max-w-6xl gap-6 px-6 pb-20 pt-8 md:grid-cols-2" ref={containerRef}>
+        <div
+          className={`rounded-3xl border border-emerald-200/60 bg-gradient-to-br from-white/85 via-white/70 to-emerald-50/70 p-8 shadow-lg shadow-emerald-900/10 backdrop-blur transition ${
+            activeIndex === 0
+              ? "-translate-y-1 shadow-xl"
+              : "hover:-translate-y-1 hover:shadow-xl"
+          }`}
+          onClick={() => setActiveIndex(0)}
+        >
+          <div className="flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.3em] text-stone-600">
+            <Clock className="h-4 w-4" />
+            Now booking
           </div>
-          <div
-            className={`rounded-3xl border border-emerald-200/60 bg-gradient-to-br from-white/85 via-white/75 to-emerald-50/70 p-8 shadow-lg shadow-emerald-900/10 backdrop-blur transition ${
-              activeIndex === 1
-                ? "-translate-y-1 shadow-xl"
-                : "hover:-translate-y-1 hover:shadow-xl"
-            }`}
-            onClick={() => setActiveIndex(1)}
-          >
-            <div className="flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.3em] text-stone-600">
-              <Target className="h-4 w-4" />
-              Our focus
-            </div>
-            <p className="mt-4 text-2xl font-semibold text-stone-950">
-              Conversion-led design
-            </p>
-            <p className="mt-3 text-sm text-emerald-800">
-              Strategy, UX, and engineering working together to grow your
-              business.
-            </p>
+          <p className="mt-4 text-2xl font-semibold text-stone-950">
+            Fast turnarounds
+          </p>
+          <p className="mt-3 text-sm text-emerald-800">
+            Most one-page builds ship in 2-4 days once we have your content.
+          </p>
+        </div>
+        <div
+          className={`rounded-3xl border border-emerald-200/60 bg-gradient-to-br from-white/85 via-white/75 to-emerald-50/70 p-8 shadow-lg shadow-emerald-900/10 backdrop-blur transition ${
+            activeIndex === 1
+              ? "-translate-y-1 shadow-xl"
+              : "hover:-translate-y-1 hover:shadow-xl"
+          }`}
+          onClick={() => setActiveIndex(1)}
+        >
+          <div className="flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.3em] text-stone-600">
+            <Target className="h-4 w-4" />
+            Our focus
           </div>
+          <p className="mt-4 text-2xl font-semibold text-stone-950">
+            Conversion-led design
+          </p>
+          <p className="mt-3 text-sm text-emerald-800">
+            Strategy, UX, and engineering working together to grow your
+            business.
+          </p>
         </div>
       </div>
     </section>
