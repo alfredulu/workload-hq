@@ -160,8 +160,10 @@ function Hero() {
       <section
         className="relative w-full overflow-hidden"
         style={{
-          backgroundImage:
-            "linear-gradient(180deg, rgba(255,255,255,0.8), rgba(255,255,255,0.9)), url('/images/herobackground.jpg')",
+          backgroundImage: `linear-gradient(180deg, 
+          color-mix(in srgb, black 50%, transparent), 
+          color-mix(in srgb, black 50%, transparent)), 
+          url('/images/herobackground.jpg')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
@@ -172,11 +174,11 @@ function Hero() {
             <span className="w-fit rounded-full border border-emerald-200/70 bg-gradient-to-r from-white/80 to-emerald-50/80 px-4 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-emerald-800 shadow-sm backdrop-blur">
               Premium Digital Agency
             </span>
-            <h1 className="text-4xl font-semibold tracking-tight text-stone-950 md:text-6xl">
+            <h1 className="text-4xl font-semibold tracking-tight text-emerald-100 md:text-6xl">
               WORKLOAD
-              <span className="block text-stone-600">HQ</span>
+              <span className="block text-stone-800">HQ</span>
             </h1>
-            <p className="max-w-2xl text-lg text-emerald-800 md:text-xl">
+            <p className="max-w-2xl text-lg text-emerald-100 md:text-xl">
               WorkLoad HQ is a digital agency focused on crafting refined,
               mobile- first experiences that convert attention into revenue. We
               design and build expensive or/and minimalist websites for modern
@@ -197,7 +199,7 @@ function Hero() {
               </a>
               <a
                 href="#faq"
-                className="flex items-center justify-center gap-2 rounded-full border border-emerald-200/70 px-6 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-emerald-800 shadow-sm transition hover:border-emerald-300 active:scale-95"
+                className="flex items-center justify-center gap-2 rounded-full border border-emerald-200/70 px-6 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-emerald-100 shadow-sm transition hover:border-emerald-300 active:scale-95"
               >
                 <HelpCircle className="h-4 w-4" />
                 FAQ
