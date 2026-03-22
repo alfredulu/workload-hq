@@ -14,19 +14,19 @@ import ProjectMedia from "@/components/ProjectMedia";
 
 export const projects = [
   {
-    title: "Workload Saas Admin Dashboard",
+    title: "WorkLoad Saas Admin Dashboard",
     category: "Dashboard / Admin UI",
     featured: true,
-    link: "https://luxe-estate-two.vercel.app/",
+    link: "https://workload-saas-admin.vercel.app/",
     problem:
-      "Client needed a modern platform to showcase luxury listings and convert high-intent visitors into inquiries.",
+      "The client needed a centralized dashboard to manage operations, track performance, and monitor team activity in a clean, scalable interface.",
     solution:
-      "Built a full-stack site with featured listings, advanced search, inquiry capture, and an admin dashboard for property and team management.",
+      "Designed and built a modern SaaS admin dashboard with analytics widgets, task management, user controls, and responsive navigation, structured for real-time data integration and future scalability.",
     result:
-      "Improved lead quality and streamlined updates for the client’s team.",
-    desktopImage: "/images/portfolio-realestate-desktop.jpg",
-    phoneImage: "/images/portfolio-realestate-phone.jpg",
-    imageAlt: "Retail estate website preview",
+      "Delivered a polished, production-ready admin system that streamlines operations, improves visibility across workflows, and provides a strong foundation for scaling the client’s platform.",
+    desktopImage: "/images/portfolio-workloadsaas-desktop.jpg",
+    phoneImage: "/images/portfolio-workloadsaas-phone.jpg",
+    imageAlt: "WorkLoad Saas website preview",
   },
   {
     title: "LuxeEstate Real Estate Website",
