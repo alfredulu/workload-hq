@@ -119,7 +119,7 @@ export default function Contact() {
   const confettiPieces = Array.from({ length: 18 }, (_, index) => index);
 
   return (
-    <main className="min-h-screen pb-24 pt-28">
+    <main className="min-h-screen pb-24 pt-0">
       {showSuccessOverlay && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/80 px-6">
           <div className="absolute inset-0 overflow-hidden">
@@ -170,35 +170,88 @@ export default function Contact() {
           `}</style>
         </div>
       )}
-      <section className="mx-auto max-w-4xl px-6">
-        <p className="text-xs font-semibold uppercase tracking-[0.35em] text-stone-600">
-          Contact
-        </p>
-        <h1 className="mt-4 text-4xl font-semibold text-stone-950 md:text-6xl">
-          Let us build a calm,
-          <span className="block text-stone-600">
-            conversion-led experience.
-          </span>
-        </h1>
-        <p className="mt-4 max-w-2xl text-sm text-emerald-800 md:text-base">
-          We respond swiftly within a few hours or minutes and can share a
-          tailored scope as soon as we understand your goals.
-        </p>
-        <p className="mt-2 max-w-2xl text-sm text-emerald-800 md:text-base">
-          Tell us about your needs, challenges, and timeline so the right lead
-          can reach out with suited options.
-        </p>
-        {formStatus.type && !showSuccessOverlay && (
-          <div
-            className={`mt-6 flex items-center justify-center rounded-2xl border px-6 py-3 text-sm font-semibold uppercase tracking-[0.3em] ${statusPillClass}`}
-            aria-live="polite"
-          >
-            {formStatus.message}
+      <section
+        className="relative w-full overflow-hidden"
+        style={{
+          backgroundImage:
+            "linear-gradient(180deg, rgba(3, 43, 40, 0.9) 0%, rgba(10, 27, 34, 0.6) 45%, rgba(255,255,255,0.95) 100%), url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=2000&q=80')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/20 to-transparent" />
+        <div className="relative mx-auto flex max-w-4xl flex-col gap-6 px-6 pt-28 pb-20 text-emerald-50">
+          <p className="text-xs font-semibold uppercase tracking-[0.35em] text-emerald-200">
+            Contact
+          </p>
+          <h1 className="text-4xl font-semibold uppercase tracking-tight text-white md:text-6xl">
+            Let us design calm,
+            <span className="block text-emerald-100">
+              conversion-led experiences.
+            </span>
+          </h1>
+          <p className="max-w-3xl text-lg text-white/80 md:text-xl">
+            WorkLoad HQ responds quickly, scopes clearly, and will pair you with
+            a focused team ready to ship your next digital flagship.
+          </p>
+          <div className="flex flex-wrap gap-4">
+            <a
+              href="/contact"
+              className="rounded-full bg-white/90 px-8 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-emerald-950 shadow-lg shadow-emerald-900/30 transition hover:bg-white active:scale-95"
+            >
+              Book a Call
+            </a>
+            <a
+              href="/portfolio"
+              className="rounded-full border border-white/60 bg-transparent px-8 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-white transition hover:border-white hover:text-emerald-50 active:scale-95"
+            >
+              View Portfolio
+            </a>
           </div>
-        )}
+        </div>
       </section>
 
-      <section className="mx-auto mt-12 grid max-w-4xl gap-6 px-6 lg:grid-cols-[1.2fr_0.8fr]">
+      <section className="bg-slate-50 py-16">
+        <div className="mx-auto max-w-4xl px-6">
+          <div className="space-y-8">
+            <div className="space-y-2">
+              <p className="text-xs font-semibold uppercase tracking-[0.35em] text-stone-600">
+                Contact
+              </p>
+              <h2 className="text-3xl font-semibold text-stone-950">
+                We respond within hours and scope the plan you need.
+              </h2>
+              <p className="text-sm text-emerald-800">
+                Tell us about your needs, challenges, and timeline so we can
+                match you with the right sprint, launch, or maintenance plan.
+              </p>
+            </div>
+            <div className="flex flex-col gap-6">
+              <div className="rounded-3xl border border-emerald-200/60 bg-white/80 p-6 shadow-sm shadow-emerald-900/10">
+                <p className="text-xs font-semibold uppercase tracking-[0.35em] text-stone-600">
+                  Reach out
+                </p>
+                <p className="mt-2 text-sm text-stone-600">
+                  Share your current website, marketing needs, or the problem you
+                  want to solve. We will respond with a concise plan, timeline,
+                  and ballpark investment.
+                </p>
+              </div>
+              {formStatus.type && !showSuccessOverlay && (
+                <div
+                  className={`rounded-3xl border px-6 py-3 text-sm font-semibold uppercase tracking-[0.3em] ${statusPillClass}`}
+                  aria-live="polite"
+                >
+                  {formStatus.message}
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto mt-4 grid max-w-4xl gap-6 px-6 lg:grid-cols-[1.2fr_0.8fr]">
         <form
           onSubmit={handleSubmit}
           className="rounded-3xl border border-emerald-200/60 bg-gradient-to-br from-white/85 to-emerald-50/70 p-8 shadow-lg shadow-emerald-900/10 backdrop-blur"

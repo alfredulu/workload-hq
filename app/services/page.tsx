@@ -128,118 +128,138 @@ export default function ServicesPage() {
   const engagementActive = useActiveIndex<HTMLDivElement>();
 
   return (
-    <main className="min-h-screen pb-24 pt-28">
-      <section className="mx-auto flex max-w-6xl flex-col gap-6 px-6 pb-16">
-        <p className="text-xs font-semibold uppercase tracking-[0.35em] text-stone-600">
-          Services
-        </p>
-        <h1 className="text-4xl font-semibold text-stone-950 md:text-6xl">
-          Quietly ambitious builds for brands that expect more.
-        </h1>
-        <p className="max-w-2xl text-sm text-emerald-800 md:text-base">
-          From single-page launches to ongoing growth systems, each engagement
-          is designed to feel refined, intentional, and effortless to use.
-        </p>
-        <div className="flex flex-wrap gap-3">
-          <a
-            href="/#faq"
-            className="inline-flex items-center gap-2 rounded-full border border-emerald-200/70 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-emerald-800 shadow-sm transition hover:border-emerald-300 active:scale-95"
-          >
-            <Sparkles className="h-4 w-4" />
-            View Home FAQ
-          </a>
+    <main className="min-h-screen pb-24 pt-0">
+      <section
+        className="relative w-full overflow-hidden"
+        style={{
+          backgroundImage:
+            "linear-gradient(180deg, rgba(3, 43, 40, 0.9) 0%, rgba(10, 27, 34, 0.6) 45%, rgba(255,255,255,0.95) 100%), url('https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=2000&q=80')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/10 to-transparent" />
+        <div className="relative mx-auto flex max-w-6xl flex-col gap-6 px-6 pt-28 pb-20 text-emerald-100">
+          <p className="text-xs font-semibold uppercase tracking-[0.35em] text-emerald-200">
+            Services
+          </p>
+          <h1 className="text-4xl font-semibold uppercase tracking-tight text-white md:text-6xl">
+            Quietly ambitious
+            <span className="block text-emerald-100">digital craftsmanship.</span>
+          </h1>
+          <p className="max-w-3xl text-lg text-white/80 md:text-xl">
+            Launch-focused teams, product squads, and founders rely on WorkLoad
+            HQ for fast, elegant, commercially driven digital experiences.
+          </p>
+          <div className="flex flex-wrap gap-4">
+            <a
+              href="/contact"
+              className="rounded-full bg-white/90 px-8 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-emerald-950 shadow-lg shadow-emerald-900/30 transition hover:bg-white active:scale-95"
+            >
+              Book an Alignment Call
+            </a>
+            <a
+              href="/portfolio"
+              className="rounded-full border border-white/60 bg-transparent px-8 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-white transition hover:border-white hover:text-emerald-50 active:scale-95"
+            >
+              View Portfolio
+            </a>
+          </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 pb-20">
-        <div className="mb-10 flex items-end justify-between gap-6">
-          <div>
+      <section className="bg-slate-50 py-16">
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="mb-10 flex flex-col gap-4">
             <p className="text-xs font-semibold uppercase tracking-[0.35em] text-stone-600">
               Core Services
             </p>
-            <h2 className="mt-4 text-3xl font-semibold text-stone-950 md:text-4xl">
+            <h2 className="text-3xl font-semibold text-stone-950 md:text-4xl">
               The foundations we build with.
             </h2>
-            <p className="mt-3 max-w-2xl text-sm text-emerald-800 md:text-base">
-              The same services featured on the homepage, expanded here with
-              deeper strategy and delivery support.
+            <p className="max-w-2xl text-sm text-emerald-800 md:text-base">
+              Every engagement is an exercise in restraint—luxury feels effortless
+              when the interface is fine-tuned for clarity, speed, and trust.
             </p>
           </div>
-        </div>
-        <div
-          className="grid gap-6 md:grid-cols-2"
-          ref={serviceActive.containerRef}
-        >
-          {services.map((service, index) => {
-            const isActive = serviceActive.activeIndex === index;
+          <div
+            className="grid gap-6 md:grid-cols-2"
+            ref={serviceActive.containerRef}
+          >
+            {services.map((service, index) => {
+              const isActive = serviceActive.activeIndex === index;
 
-            return (
-              <div
-                key={service.title}
-                className={`rounded-3xl border border-emerald-200/60 bg-gradient-to-br from-white/85 via-white/75 to-emerald-50/70 p-8 shadow-lg shadow-emerald-900/10 backdrop-blur transition ${
-                  isActive
-                    ? "-translate-y-1 shadow-xl"
-                    : "hover:-translate-y-1 hover:shadow-xl"
-                }`}
-                onClick={() => serviceActive.setActiveIndex(index)}
-              >
-                <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-2xl border border-emerald-200/70 bg-gradient-to-br from-white/90 to-emerald-50/80 text-emerald-800 shadow-sm shadow-emerald-900/10">
-                  <service.icon className="h-5 w-5" />
+              return (
+                <div
+                  key={service.title}
+                  className={`rounded-3xl border border-emerald-200/60 bg-white/80 p-8 shadow-lg shadow-emerald-900/10 backdrop-blur transition ${
+                    isActive
+                      ? "-translate-y-1 shadow-xl"
+                      : "hover:-translate-y-1 hover:shadow-xl"
+                  }`}
+                  onClick={() => serviceActive.setActiveIndex(index)}
+                >
+                  <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-2xl border border-emerald-200/70 bg-gradient-to-br from-white/90 to-emerald-50/80 text-emerald-800 shadow-sm shadow-emerald-900/10">
+                    <service.icon className="h-5 w-5" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-stone-950">
+                    {service.title}
+                  </h3>
+                  <p className="mt-3 text-sm text-emerald-800">
+                    {service.description}
+                  </p>
                 </div>
-                <h3 className="text-xl font-semibold text-stone-950">
-                  {service.title}
-                </h3>
-                <p className="mt-3 text-sm text-emerald-800">
-                  {service.description}
-                </p>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 pb-20">
-        <div className="mb-10 flex flex-col gap-4">
-          <p className="text-xs font-semibold uppercase tracking-[0.35em] text-stone-600">
-            Deliverables
-          </p>
-          <h2 className="text-3xl font-semibold text-stone-950 md:text-4xl">
-            More than a website. A full system.
-          </h2>
-          <p className="max-w-2xl text-sm text-emerald-800 md:text-base">
-            We balance strategy, design, and engineering so every launch is both
-            beautiful and measurable.
-          </p>
-        </div>
-        <div
-          className="grid gap-6 md:grid-cols-2"
-          ref={deliverableActive.containerRef}
-        >
-          {deliverables.map((item, index) => {
-            const isActive = deliverableActive.activeIndex === index;
+      <section className="bg-slate-50 py-16">
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="mb-10 flex flex-col gap-4">
+            <p className="text-xs font-semibold uppercase tracking-[0.35em] text-stone-600">
+              Deliverables
+            </p>
+            <h2 className="text-3xl font-semibold text-stone-950 md:text-4xl">
+              More than a website. A full system.
+            </h2>
+            <p className="max-w-2xl text-sm text-emerald-800 md:text-base">
+              We balance strategy, design, and engineering so every launch is both
+              beautiful and measurable.
+            </p>
+          </div>
+          <div
+            className="grid gap-6 md:grid-cols-2"
+            ref={deliverableActive.containerRef}
+          >
+            {deliverables.map((item, index) => {
+              const isActive = deliverableActive.activeIndex === index;
 
-            return (
-              <div
-                key={item.title}
-                className={`flex gap-4 rounded-3xl border border-emerald-200/60 bg-gradient-to-br from-white/85 to-emerald-50/70 p-6 shadow-sm shadow-emerald-900/10 backdrop-blur transition ${
-                  isActive
-                    ? "-translate-y-1 shadow-md"
-                    : "hover:-translate-y-1 hover:shadow-md"
-                }`}
-                onClick={() => deliverableActive.setActiveIndex(index)}
-              >
-                <div className="flex h-10 w-10 items-center justify-center rounded-2xl border border-emerald-200/70 bg-gradient-to-br from-white/90 to-emerald-50/80 text-emerald-800 shadow-sm shadow-emerald-900/10">
-                  <Wand2 className="h-4 w-4" />
+              return (
+                <div
+                  key={item.title}
+                  className={`flex gap-4 rounded-3xl border border-emerald-200/60 bg-white/80 p-6 shadow-sm shadow-emerald-900/10 backdrop-blur transition ${
+                    isActive
+                      ? "-translate-y-1 shadow-md"
+                      : "hover:-translate-y-1 hover:shadow-md"
+                  }`}
+                  onClick={() => deliverableActive.setActiveIndex(index)}
+                >
+                  <div className="flex h-10 w-10 items-center justify-center rounded-2xl border border-emerald-200/70 bg-gradient-to-br from-white/90 to-emerald-50/80 text-emerald-800 shadow-sm shadow-emerald-900/10">
+                    <Wand2 className="h-4 w-4" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-stone-950">
+                      {item.title}
+                    </h3>
+                    <p className="mt-2 text-sm text-emerald-800">{item.detail}</p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-stone-950">
-                    {item.title}
-                  </h3>
-                  <p className="mt-2 text-sm text-emerald-800">{item.detail}</p>
-                </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
       </section>
 
@@ -291,6 +311,6 @@ export default function ServicesPage() {
           })}
         </div>
       </section>
-    </main>
-  );
+   </main>
+ );
 }

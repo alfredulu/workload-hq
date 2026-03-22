@@ -14,6 +14,21 @@ import ProjectMedia from "@/components/ProjectMedia";
 
 export const projects = [
   {
+    title: "Workload Saas Admin Dashboard",
+    category: "Dashboard / Admin UI",
+    featured: true,
+    link: "https://luxe-estate-two.vercel.app/",
+    problem:
+      "Client needed a modern platform to showcase luxury listings and convert high-intent visitors into inquiries.",
+    solution:
+      "Built a full-stack site with featured listings, advanced search, inquiry capture, and an admin dashboard for property and team management.",
+    result:
+      "Improved lead quality and streamlined updates for the client’s team.",
+    desktopImage: "/images/portfolio-realestate-desktop.jpg",
+    phoneImage: "/images/portfolio-realestate-phone.jpg",
+    imageAlt: "Retail estate website preview",
+  },
+  {
     title: "LuxeEstate Real Estate Website",
     category: "Real Estate & PropTech",
     featured: true,
@@ -127,27 +142,68 @@ export default function Portfolio() {
   }, []);
 
   return (
-    <main className="min-h-screen pb-24 pt-28">
-      <section className="mx-auto max-w-6xl px-6 pb-12">
-        <p className="text-xs font-semibold uppercase tracking-[0.35em] text-stone-600">
-          Portfolio
-        </p>
-        <h1 className="mt-4 text-4xl font-semibold text-stone-950 md:text-6xl">
-          Selected work that feels
-          <span className="block text-stone-600">quietly luxurious.</span>
-        </h1>
-        <p className="mt-4 max-w-2xl text-sm text-emerald-800 md:text-base">
-          We partner with ambitious teams to craft digital experiences that are
-          restrained, modern, and built for conversion.
-        </p>
-        <div className="mt-6 flex flex-wrap gap-3">
-          <a
-            href="/#faq"
-            className="inline-flex items-center gap-2 rounded-full border border-emerald-200/70 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-emerald-800 shadow-sm transition hover:border-emerald-300 active:scale-95"
-          >
-            <Sparkles className="h-4 w-4" />
-            Visit Home FAQ
-          </a>
+    <main className="min-h-screen pb-24 pt-0">
+      <section
+        className="relative w-full overflow-hidden"
+        style={{
+          backgroundImage:
+            "linear-gradient(180deg, rgba(2, 68, 51, 0.9) 0%, rgba(11, 45, 34, 0.65) 40%, rgba(255,255,255,0.9) 100%), url('https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=2000&q=80')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-transparent" />
+        <div className="relative mx-auto flex max-w-6xl flex-col gap-6 px-6 pt-28 pb-20 text-emerald-100">
+          <p className="text-xs font-semibold uppercase tracking-[0.35em] text-emerald-200">
+            Showcase
+          </p>
+          <h1 className="text-4xl font-semibold uppercase tracking-tight text-white md:text-6xl">
+            Portfolio
+            <span className="block text-emerald-100">quietly luxurious.</span>
+          </h1>
+          <p className="max-w-3xl text-lg text-white/80 md:text-xl">
+            Selected projects built for confident teams that need modern, mobile
+            -first experiences with visible business results.
+          </p>
+          <div className="flex flex-wrap gap-4">
+            <a
+              href="/contact"
+              className="rounded-full bg-white/90 px-8 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-emerald-950 shadow-lg shadow-emerald-900/30 transition hover:bg-white active:scale-95"
+            >
+              Commission a Project
+            </a>
+            <a
+              href="/services"
+              className="rounded-full border border-white/60 bg-transparent px-8 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-white transition hover:border-white hover:text-emerald-50 active:scale-95"
+            >
+              Explore Services
+            </a>
+          </div>
+        </div>
+      </section>
+      <section className="bg-slate-50 py-12">
+        <div className="mx-auto max-w-6xl px-6">
+          <p className="text-xs font-semibold uppercase tracking-[0.35em] text-stone-600">
+            Portfolio
+          </p>
+          <h2 className="mt-4 text-3xl font-semibold text-stone-950">
+            Strategic, high-end builds with a nimble execution
+          </h2>
+          <p className="mt-4 max-w-3xl text-sm text-emerald-800 md:text-base">
+            We partner with founders and marketing teams to produce launch-ready
+            sites, dashboards, and campaigns that feel expensive without the
+            face value price.
+          </p>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <a
+              href="/#faq"
+              className="inline-flex items-center gap-2 rounded-full border border-emerald-200/70 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-emerald-800 shadow-sm transition hover:border-emerald-300 active:scale-95"
+            >
+              <Sparkles className="h-4 w-4" />
+              Visit Home FAQ
+            </a>
+          </div>
         </div>
       </section>
       <section
