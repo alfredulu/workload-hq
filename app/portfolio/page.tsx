@@ -60,7 +60,7 @@ export const projects = [
   {
     title: "Enterprise Admin UI",
     category: "Web App / Admin Dashboard",
-    featured: true,
+    featured: false,
     link: "https://enterprise-admin-ui.vercel.app/",
     problem:
       "Internal teams needed a single place to manage support tickets, users, and system settings efficiently, with fast filtering, bulk actions, and clear status visibility.",

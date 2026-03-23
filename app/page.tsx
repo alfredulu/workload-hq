@@ -425,7 +425,7 @@ function FeaturedWork() {
                 {work.title}
               </h3>
               <p className="mt-3 text-sm text-emerald-800">
-                Minimal, conversion-led storytelling with a premium feel.
+                {work.result}
               </p>
               <a
                 href={work.link || "/contact"}
