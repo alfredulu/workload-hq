@@ -72,20 +72,6 @@ export const projects = [
     phoneImage: "/images/portfolio-enterpriseadmin-phone.jpg",
     imageAlt: "admin dashboard preview",
   },
-  {
-    title: "Hopebridge Donation Platform",
-    category: "Nonprofit storytelling & donor experience site",
-    featured: false,
-    link: "https://hopebridge-ochre.vercel.app/",
-    problem: "Supporters saw Hopebridge as opaque, so engagement stalled.",
-    solution:
-      "Built a site with pricing clarity, mission narrative, program highlights, and direct contact actions.",
-    result:
-      "Visitors now move from story to contact in one flow, boosting clarity ahead of the next campaign.",
-    desktopImage: "/images/portfolio-donationwebsite-desktop.jpg",
-    phoneImage: "/images/portfolio-donationwebsite-phone.jpg",
-    imageAlt: "donation site preview",
-  },
 ];
 
 const websiteTypes: {
