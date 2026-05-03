@@ -195,7 +195,7 @@ export default function ContactContent() {
             Contact
           </p>
           <h1 className="text-4xl font-semibold uppercase tracking-tight text-white md:text-6xl">
-            We build websites
+            Websites and mobile apps
             <span className="block text-emerald-100">
               that bring in business.
             </span>

@@ -157,7 +157,7 @@ export default function ServicesContent() {
           </h1>
           <p className="max-w-3xl text-lg text-white/80 md:text-xl">
             Founders, product teams, and growing businesses work with WorkLoad
-            HQ when they need a website or web app built right.
+            HQ when they need a website or mobile app built right.
           </p>
           <div className="flex flex-wrap gap-4">
             <a

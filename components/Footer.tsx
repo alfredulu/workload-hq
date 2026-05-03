@@ -13,7 +13,7 @@ export default function Footer() {
               WorkLoad HQ
             </p>
             <p className="mt-3 max-w-sm text-sm text-emerald-200">
-              We build fast, high-performing websites for businesses that want
+              We build fast websites and mobile apps for businesses that want
               results.
             </p>
           </div>

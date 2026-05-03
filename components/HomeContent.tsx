@@ -173,16 +173,16 @@ function Hero() {
         <div className="relative z-10 mx-auto flex max-w-6xl flex-col gap-10 px-6 pt-28 pb-8 md:pt-32 md:pb-12">
           <div className="flex flex-col gap-6">
             <span className="w-fit rounded-full border border-emerald-200/70 bg-linear-to-r from-white/80 to-emerald-50/80 px-4 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-emerald-800 shadow-sm backdrop-blur">
-              Digital Agency
+              Website & App Development
             </span>
             <h1 className="text-4xl font-semibold tracking-tight text-emerald-100 md:text-6xl">
               WORKLOAD
               <span className="block text-stone-800">HQ</span>
             </h1>
             <p className="max-w-2xl text-lg text-emerald-100 md:text-xl">
-              WorkLoad HQ builds fast, clean websites and web apps for modern
-              brands. We focus on design that looks good, loads fast, and
-              brings in business.
+              WorkLoad HQ builds fast, clean websites and mobile apps for
+              modern brands. We focus on design that looks good, loads fast,
+              and brings in business.
             </p>
             <div className="flex flex-col gap-4 sm:flex-row">
               <a

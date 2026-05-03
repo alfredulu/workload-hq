@@ -6,15 +6,15 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://workload-hq.vercel.app"),
   title: {
-    default: "WorkLoad HQ | Website Development Agency",
+    default: "WorkLoad HQ | Website & Mobile App Development Agency",
     template: "%s | WorkLoad HQ",
   },
   description:
-    "WorkLoad HQ is a Nigerian digital agency that builds fast, conversion-focused websites and web apps for modern brands. We work with founders, product teams, and growing businesses who need results.",
+    "WorkLoad HQ is a Nigerian website and mobile app development agency. We build fast, conversion-focused websites and mobile apps for founders, product teams, and growing businesses.",
   openGraph: {
-    title: "WorkLoad HQ | Nigerian Digital Agency",
+    title: "WorkLoad HQ | Website & Mobile App Development Agency",
     description:
-      "WorkLoad HQ is a Nigerian digital agency that builds fast, conversion-focused websites and web apps for modern brands.",
+      "Nigerian website and mobile app development agency. We build fast, conversion-focused websites and mobile apps for modern brands.",
     url: "https://workload-hq.vercel.app",
     siteName: "WorkLoad HQ",
     type: "website",
@@ -24,20 +24,53 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "WorkLoad HQ - Nigerian Digital Agency",
+        alt: "WorkLoad HQ - Website & Mobile App Development Agency",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "WorkLoad HQ | Nigerian Digital Agency",
+    title: "WorkLoad HQ | Website & Mobile App Development Agency",
     description:
-      "We build fast, conversion-focused websites and web apps for modern brands.",
+      "We build fast, conversion-focused websites and mobile apps for modern brands.",
     images: ["/og-image.png"],
   },
   icons: {
-    icon: "/images/logo.jpg",
     apple: "/images/logo.jpg",
+  },
+  verification: {
+    google: "Vg5p8f7FxYNYmGb9vidDAjC5cI0PUt_8kVSu1gVI5oA",
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "WorkLoad HQ",
+  url: "https://workload-hq.vercel.app",
+  logo: "https://workload-hq.vercel.app/images/logo.jpg",
+  description:
+    "Website and mobile app development agency based in Nigeria. We build fast, clean websites and mobile apps for modern brands worldwide.",
+  email: "workloadhq@gmail.com",
+  foundingLocation: {
+    "@type": "Place",
+    name: "Nigeria",
+    address: {
+      "@type": "PostalAddress",
+      addressCountry: "NG",
+    },
+  },
+  areaServed: "Worldwide",
+  knowsLanguage: "en",
+  sameAs: [
+    "https://www.instagram.com/workload_hq/",
+    "https://www.tiktok.com/@workload_hq",
+  ],
+  contactPoint: {
+    "@type": "ContactPoint",
+    email: "workloadhq@gmail.com",
+    contactType: "customer service",
+    availableLanguage: "English",
   },
 };
 
@@ -49,6 +82,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <Navbar />
         {children}
         <Footer />
