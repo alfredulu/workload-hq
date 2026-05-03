@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://workload-hq.vercel.app/sitemap.xml
