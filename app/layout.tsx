@@ -1,7 +1,14 @@
 import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import "./globals.css";
+
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://workload-hq.vercel.app"),
@@ -40,6 +47,10 @@ export const metadata: Metadata = {
   },
   verification: {
     google: "Vg5p8f7FxYNYmGb9vidDAjC5cI0PUt_8kVSu1gVI5oA",
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
@@ -80,7 +91,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={inter.variable}>
       <body className="antialiased">
         <script
           type="application/ld+json"
