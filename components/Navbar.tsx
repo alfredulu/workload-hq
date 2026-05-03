@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -28,8 +29,15 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 w-full z-50 border-b border-emerald-200/60 bg-gradient-to-r from-white/70 via-emerald-50/60 to-white/70 backdrop-blur-xl shadow-lg">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <Link href="/" className="text-lg font-semibold tracking-[0.2em] text-stone-950">
-          WORKLOAD HQ
+        <Link href="/" className="flex items-center">
+          <Image
+            src="/images/logo.jpg"
+            alt="WorkLoad HQ"
+            width={140}
+            height={40}
+            className="h-10 w-auto object-contain"
+            priority
+          />
         </Link>
 
         <div className="hidden items-center gap-8 text-xs font-medium uppercase tracking-[0.3em] text-emerald-800 md:flex">
@@ -105,7 +113,3 @@ export default function Navbar() {
     </nav>
   );
 }
-
-
-
-

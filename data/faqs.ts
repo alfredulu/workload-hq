@@ -15,7 +15,7 @@ export const faqs: FAQItem[] = [
     answer:
       "The launch bundle gives you everything you need to go live quickly:",
     list: [
-      "Custom, responsive page design tailored to your brand",
+      "Custom, responsive page design built for your brand",
       "Copy support or refinement to clarify your message",
       "Initial SEO fundamentals (metadata, alt text, sitemap)",
       "Hosting setup plus one month of coverage",
@@ -26,7 +26,7 @@ export const faqs: FAQItem[] = [
   {
     question: "Why should I pay for hosting and renew my domain?",
     answer:
-      "Hosting is the online rack space where your site lives; renewing it keeps the site accessible. Domains are leased annually, and renewals lock in your web address so customers in Nigeria and abroad can keep finding you, hence we charge a yearly fee paid once a year. We handle the renewals so your business keeps operating with zero downtime.",
+      "Hosting is the online rack space where your site lives; renewing it keeps the site accessible. Domains are leased annually, and renewals lock in your web address so customers in Nigeria and abroad can keep finding you. We charge a yearly fee. We handle the renewals so your business keeps operating with zero downtime.",
     list: [
       "We offer dedicated maintenance and infrastructure plans starting at ₦30,000/year",
     ],
@@ -49,6 +49,6 @@ export const faqs: FAQItem[] = [
   {
     question: "How can I reach the team?",
     answer:
-      "Send a note to `workloadhq@gmail.com`, message us on instagram or fill out the contact form; we typically reply within one business day with next steps.",
+      "Send us an email at workloadhq@gmail.com, message us on Instagram, or fill out the contact form. We typically reply within one business day with next steps.",
   },
 ];

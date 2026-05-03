@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
+import Image from "next/image";
 
 type ProjectMediaProps = {
   desktopImage: string;
@@ -49,19 +50,23 @@ export default function ProjectMedia({
           event.stopPropagation();
           setOpen(true);
         }}
-        className={`relative w-full overflow-hidden rounded-2xl bg-gradient-to-br from-white/90 to-emerald-50/70 text-left ${
+        className={`relative w-full overflow-hidden rounded-2xl bg-linear-to-br from-white/90 to-emerald-50/70 text-left ${
           variant === "tall" ? "h-56" : "h-40"
         }`}
         aria-label="Open project preview"
       >
-        <img
+        <Image
           src={desktopImage}
           alt={alt}
-          className="h-full w-full object-cover"
+          fill
+          className="object-cover"
+          sizes="(max-width: 768px) 100vw, 50vw"
         />
-        <img
+        <Image
           src={phoneImage}
-          alt=""
+          alt={`${alt} on mobile`}
+          width={56}
+          height={112}
           className={`absolute bottom-3 right-3 rounded-xl border border-white/80 object-cover shadow-lg shadow-emerald-900/20 ${
             variant === "tall" ? "h-28 w-14" : "h-24 w-12"
           }`}
@@ -71,11 +76,11 @@ export default function ProjectMedia({
       {open && mounted
         ? createPortal(
             <div
-              className="fixed inset-0 z-[999] bg-stone-900/70 backdrop-blur-xl"
+              className="fixed inset-0 z-999 bg-stone-900/70 backdrop-blur-xl"
               onClick={() => setOpen(false)}
             >
               <div className="flex h-full w-full items-center justify-center pointer-events-none">
-                <div className="relative flex h-[92vh] w-[96vw] max-w-[1600px] flex-col gap-4 md:flex-row md:items-stretch">
+                <div className="relative flex h-[92vh] w-[96vw] max-w-400 flex-col gap-4 md:flex-row md:items-stretch">
                   <button
                     type="button"
                     onClick={() => setOpen(false)}
@@ -83,15 +88,21 @@ export default function ProjectMedia({
                   >
                     Close
                   </button>
-                  <img
+                  <Image
                     src={desktopImage}
                     alt={alt}
+                    width={1920}
+                    height={1080}
                     className="pointer-events-auto h-[65vh] w-full object-contain md:h-full md:w-2/3"
+                    sizes="(max-width: 768px) 100vw, 66vw"
                   />
-                  <img
+                  <Image
                     src={phoneImage}
-                    alt=""
+                    alt={`${alt} on mobile`}
+                    width={390}
+                    height={844}
                     className="pointer-events-auto h-[45vh] w-full object-contain md:h-full md:w-1/3"
+                    sizes="(max-width: 768px) 100vw, 33vw"
                   />
                 </div>
               </div>

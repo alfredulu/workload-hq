@@ -16,7 +16,7 @@ type FAQSectionProps = {
 export default function FAQSection({
   faqs,
   heading = "Clear answers for every website question",
-  description = "Bookmark this section when you want to understand the process, finances, or what we’ll need from your team to launch fast.",
+  description = "Find answers about how we work, what things cost, and what we need from you to get started.",
   ctaLabel = "Get Quote",
   ctaHref = "/contact",
   id = "faq",
