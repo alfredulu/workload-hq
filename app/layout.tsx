@@ -43,7 +43,8 @@ export const metadata: Metadata = {
     images: ["/og-image.png"],
   },
   icons: {
-    apple: "/images/logo.jpg",
+    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
+    apple: "/favicon.svg",
   },
   verification: {
     google: "Vg5p8f7FxYNYmGb9vidDAjC5cI0PUt_8kVSu1gVI5oA",
