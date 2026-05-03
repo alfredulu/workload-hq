@@ -6,21 +6,34 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://workload-hq.vercel.app"),
   title: {
-    default: "WorkLoad HQ | Nigerian Digital Agency",
-    template: "%s | Workload Studios",
+    default: "WorkLoad HQ | Website Development Agency",
+    template: "%s | WorkLoad HQ",
   },
   description:
-    "WorkLoad HQ is a Nigerian digital agency that builds fast, conversion-focused websites, web apps and mobile apps for modern brands. We work with founders, product teams, and growing businesses who need results.",
+    "WorkLoad HQ is a Nigerian digital agency that builds fast, conversion-focused websites and web apps for modern brands. We work with founders, product teams, and growing businesses who need results.",
   openGraph: {
     title: "WorkLoad HQ | Nigerian Digital Agency",
     description:
-      "WorkLoad HQ is a Nigerian digital agency that builds fast, conversion-focused websites, mobile apps and web apps for modern brands.",
+      "WorkLoad HQ is a Nigerian digital agency that builds fast, conversion-focused websites and web apps for modern brands.",
     url: "https://workload-hq.vercel.app",
     siteName: "WorkLoad HQ",
-    images: [{ url: "/images/logo.jpg" }],
+    type: "website",
+    locale: "en_US",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "WorkLoad HQ - Nigerian Digital Agency",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
+    title: "WorkLoad HQ | Nigerian Digital Agency",
+    description:
+      "We build fast, conversion-focused websites and web apps for modern brands.",
+    images: ["/og-image.png"],
   },
   icons: {
     icon: "/images/logo.jpg",
