@@ -45,7 +45,6 @@ export default function HomeContent() {
       <WhatWeBuildSection />
       <SelectedWorkSection />
       <AboutStripSection />
-      <WorkLadAISection />
       <TestimonialSection />
       <FinalCTASection />
     </main>
@@ -360,54 +359,7 @@ function AboutStripSection() {
 }
 
 /* ─────────────────────────────────────────
-   SECTION 6 — WORKLAD AI
-───────────────────────────────────────── */
-function WorkLadAISection() {
-  const handleOpenWorkLad = () => {
-    window.dispatchEvent(new Event("openWorkLad"));
-  };
-
-  return (
-    <section className="bg-emerald-50 py-24 px-6">
-      <div className="mx-auto max-w-6xl">
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-          className="max-w-2xl"
-        >
-          <div className="flex items-center gap-3 mb-3">
-            <div className="w-8 h-0.5 bg-emerald-600" />
-            <p className="text-xs font-semibold uppercase tracking-widest text-stone-600">
-              WorkLad AI
-            </p>
-          </div>
-          <h2 className="text-3xl font-bold text-stone-950 md:text-4xl mb-4">
-            Not sure where to start?
-          </h2>
-          <p className="text-stone-600 text-base leading-relaxed mb-8">
-            Tell WorkLad what you want to build. It will ask you a few quick
-            questions, scope it out, and get your brief straight to us on
-            WhatsApp. No forms, no waiting.
-          </p>
-          <motion.button
-            type="button"
-            onClick={handleOpenWorkLad}
-            whileTap={{ scale: 0.97 }}
-            className="rounded-full bg-emerald-950 px-8 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-white shadow-lg transition hover:bg-emerald-900"
-          >
-            Talk to WorkLad
-          </motion.button>
-        </motion.div>
-      </div>
-    </section>
-  );
-}
-
-/* ─────────────────────────────────────────
-   SECTION 7 — TESTIMONIAL
+   SECTION 6 — TESTIMONIAL
 ───────────────────────────────────────── */
 function TestimonialSection() {
   return (
