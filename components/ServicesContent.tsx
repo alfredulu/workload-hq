@@ -1,322 +1,344 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import {
-  CheckCircle2,
-  Clock,
-  Layers,
-  LayoutGrid,
-  Sparkles,
-  Target,
-  Wand2,
-  Zap,
-} from "lucide-react";
+import Link from "next/link";
+import { motion, type Variants } from "framer-motion";
+import { CheckCircle2 } from "lucide-react";
 
-type Service = {
-  title: string;
-  description: string;
-  icon: typeof Sparkles;
+const fadeUp: Variants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0 },
 };
 
-type Deliverable = {
-  title: string;
-  detail: string;
+const container: Variants = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.1 },
+  },
 };
 
-type Engagement = {
-  title: string;
-  timeline: string;
-  summary: string;
+const item: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.4, ease: "easeOut" },
+  },
 };
-
-function useActiveIndex<T extends HTMLElement>() {
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const containerRef = useRef<T | null>(null);
-
-  useEffect(() => {
-    function handleClick(event: MouseEvent) {
-      if (!containerRef.current) {
-        return;
-      }
-
-      const target = event.target as Node;
-      if (!containerRef.current.contains(target)) {
-        setActiveIndex(null);
-      }
-    }
-
-    document.addEventListener("mousedown", handleClick);
-    return () => {
-      document.removeEventListener("mousedown", handleClick);
-    };
-  }, []);
-
-  return { activeIndex, setActiveIndex, containerRef };
-}
-
-const services: Service[] = [
-  {
-    title: "Brand Sites",
-    description:
-      "High-converting websites with clean layouts and smooth animations.",
-    icon: LayoutGrid,
-  },
-  {
-    title: "Product Launch",
-    description:
-      "Polished launch pages built for speed, clarity, and conversion.",
-    icon: Zap,
-  },
-  {
-    title: "UX Systems",
-    description:
-      "Design systems and UI libraries that keep your brand consistent at scale.",
-    icon: Layers,
-  },
-  {
-    title: "Growth Labs",
-    description:
-      "Iterative landing page and funnel experiments grounded in analytics.",
-    icon: Target,
-  },
-];
-
-const deliverables: Deliverable[] = [
-  {
-    title: "Discovery Sprints",
-    detail:
-      "Audience, positioning, and competitive framing so every screen is purposeful.",
-  },
-  {
-    title: "Design Systems",
-    detail:
-      "Component libraries with typography, spacing, and motion tokens ready to scale.",
-  },
-  {
-    title: "Responsive Build",
-    detail:
-      "Pixel-precise layouts across mobile, tablet, and desktop with fast load times.",
-  },
-  {
-    title: "Conversion Layer",
-    detail:
-      "Strategic messaging, CTA sequencing, and conversion-focused page structure.",
-  },
-];
-
-const engagements: Engagement[] = [
-  {
-    title: "Launch Sprint",
-    timeline: "2-4 business days",
-    summary: "Tight scope, fast turnaround, one focused marketing page.",
-  },
-  {
-    title: "Brand Platform",
-    timeline: "1-3 weeks",
-    summary: "Multi-page website with strategy, UX, and a scalable system.",
-  },
-  {
-    title: "Growth Partnership",
-    timeline: "Ongoing",
-    summary: "Monthly experiments, landing pages, and optimization cycles.",
-  },
-];
 
 export default function ServicesContent() {
-  const serviceActive = useActiveIndex<HTMLDivElement>();
-  const deliverableActive = useActiveIndex<HTMLDivElement>();
-  const engagementActive = useActiveIndex<HTMLDivElement>();
-
   return (
-    <main className="min-h-screen pb-24 pt-0">
-      <section className="relative w-full overflow-hidden">
-        <Image
-          src="/images/services-hero.jpg"
-          alt="WorkLoad HQ services overview showing web design, development, and digital strategy work"
-          fill
-          priority
-          className="object-cover object-center"
-          sizes="100vw"
-        />
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(180deg, rgba(3, 43, 40, 0.9) 0%, rgba(10, 27, 34, 0.6) 45%, rgba(255,255,255,0.95) 100%)",
-          }}
-        />
-        <div className="absolute inset-0 bg-linear-to-b from-black/40 via-black/10 to-transparent" />
-        <div className="relative z-10 mx-auto flex max-w-6xl flex-col gap-6 px-6 pt-28 pb-20 text-emerald-100">
-          <p className="text-xs font-semibold uppercase tracking-[0.35em] text-emerald-200">
-            Services
-          </p>
-          <h1 className="text-4xl font-semibold uppercase tracking-tight text-white md:text-6xl">
-            Fast, focused
-            <span className="block text-emerald-100">web design and development.</span>
-          </h1>
-          <p className="max-w-3xl text-lg text-white/80 md:text-xl">
-            Founders, product teams, and growing businesses work with WorkLoad
-            HQ when they need a website or mobile app built right.
-          </p>
-          <div className="flex flex-wrap gap-4">
-            <a
-              href="/contact"
-              className="rounded-full bg-white/90 px-8 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-emerald-950 shadow-lg shadow-emerald-900/30 transition hover:bg-white active:scale-95"
-            >
-              Book an Alignment Call
-            </a>
-            <a
-              href="/portfolio"
-              className="rounded-full border border-white/60 bg-transparent px-8 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-white transition hover:border-white hover:text-emerald-50 active:scale-95"
-            >
-              View Portfolio
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-slate-50 py-16">
-        <div className="mx-auto max-w-6xl px-6">
-          <div className="mb-10 flex flex-col gap-4">
-            <p className="text-xs font-semibold uppercase tracking-[0.35em] text-stone-600">
-              Core Services
-            </p>
-            <h2 className="text-3xl font-semibold text-stone-950 md:text-4xl">
-              The foundations we build with.
-            </h2>
-            <p className="max-w-2xl text-sm text-emerald-800 md:text-base">
-              We build interfaces that are clear, fast, and easy to use.
-            </p>
-          </div>
-          <div
-            className="grid gap-6 md:grid-cols-2"
-            ref={serviceActive.containerRef}
-          >
-            {services.map((service, index) => {
-              const isActive = serviceActive.activeIndex === index;
-
-              return (
-                <div
-                  key={service.title}
-                  className={`rounded-3xl border border-emerald-200/60 bg-white/80 p-8 shadow-lg shadow-emerald-900/10 backdrop-blur transition ${
-                    isActive
-                      ? "-translate-y-1 shadow-xl"
-                      : "hover:-translate-y-1 hover:shadow-xl"
-                  }`}
-                  onClick={() => serviceActive.setActiveIndex(index)}
-                >
-                  <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-2xl border border-emerald-200/70 bg-linear-to-br from-white/90 to-emerald-50/80 text-emerald-800 shadow-sm shadow-emerald-900/10">
-                    <service.icon className="h-5 w-5" />
-                  </div>
-                  <h3 className="text-xl font-semibold text-stone-950">
-                    {service.title}
-                  </h3>
-                  <p className="mt-3 text-sm text-emerald-800">
-                    {service.description}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-slate-50 py-16">
-        <div className="mx-auto max-w-6xl px-6">
-          <div className="mb-10 flex flex-col gap-4">
-            <p className="text-xs font-semibold uppercase tracking-[0.35em] text-stone-600">
-              Deliverables
-            </p>
-            <h2 className="text-3xl font-semibold text-stone-950 md:text-4xl">
-              More than a website. A full system.
-            </h2>
-            <p className="max-w-2xl text-sm text-emerald-800 md:text-base">
-              We balance strategy, design, and engineering so every launch is both
-              beautiful and measurable.
-            </p>
-          </div>
-          <div
-            className="grid gap-6 md:grid-cols-2"
-            ref={deliverableActive.containerRef}
-          >
-            {deliverables.map((item, index) => {
-              const isActive = deliverableActive.activeIndex === index;
-
-              return (
-                <div
-                  key={item.title}
-                  className={`flex gap-4 rounded-3xl border border-emerald-200/60 bg-white/80 p-6 shadow-sm shadow-emerald-900/10 backdrop-blur transition ${
-                    isActive
-                      ? "-translate-y-1 shadow-md"
-                      : "hover:-translate-y-1 hover:shadow-md"
-                  }`}
-                  onClick={() => deliverableActive.setActiveIndex(index)}
-                >
-                  <div className="flex h-10 w-10 items-center justify-center rounded-2xl border border-emerald-200/70 bg-linear-to-br from-white/90 to-emerald-50/80 text-emerald-800 shadow-sm shadow-emerald-900/10">
-                    <Wand2 className="h-4 w-4" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-stone-950">
-                      {item.title}
-                    </h3>
-                    <p className="mt-2 text-sm text-emerald-800">{item.detail}</p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-6xl px-6 pb-24">
-        <div className="mb-10 flex flex-col gap-4">
-          <p className="text-xs font-semibold uppercase tracking-[0.35em] text-stone-600">
-            Engagements
-          </p>
-          <h2 className="text-3xl font-semibold text-stone-950 md:text-4xl">
-            Choose the pace that fits your team.
-          </h2>
-          <p className="max-w-2xl text-sm text-emerald-800 md:text-base">
-            We can move fast for launches or stay embedded for long-term growth.
-          </p>
-        </div>
-        <div
-          className="grid gap-6 md:grid-cols-3"
-          ref={engagementActive.containerRef}
-        >
-          {engagements.map((engagement, index) => {
-            const isActive = engagementActive.activeIndex === index;
-
-            return (
-              <div
-                key={engagement.title}
-                className={`rounded-3xl border border-emerald-200/60 bg-linear-to-br from-white/85 to-emerald-50/70 p-6 shadow-lg shadow-emerald-900/10 backdrop-blur transition ${
-                  isActive
-                    ? "-translate-y-1 shadow-xl"
-                    : "hover:-translate-y-1 hover:shadow-xl"
-                }`}
-                onClick={() => engagementActive.setActiveIndex(index)}
-              >
-                <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.3em] text-stone-600">
-                  <Clock className="h-4 w-4" />
-                  {engagement.timeline}
-                </div>
-                <h3 className="mt-4 text-xl font-semibold text-stone-950">
-                  {engagement.title}
-                </h3>
-                <p className="mt-3 text-sm text-emerald-800">
-                  {engagement.summary}
-                </p>
-                <div className="mt-4 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.3em] text-stone-600">
-                  <CheckCircle2 className="h-4 w-4" />
-                  Defined scope
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </section>
+    <main className="min-h-screen pt-0">
+      <HeroSection />
+      <WebsitesSection />
+      <WebAppsSection />
+      <MobileAppsSection />
+      <LogoBrandSection />
+      <ClosingCTASection />
     </main>
+  );
+}
+
+/* ─────────────────────────────────────────
+   HERO
+───────────────────────────────────────── */
+function HeroSection() {
+  return (
+    <section className="relative w-full overflow-hidden">
+      <Image
+        src="/images/services-hero.jpg"
+        alt="WorkLoad HQ services overview"
+        fill
+        priority
+        className="object-cover object-center"
+        sizes="100vw"
+      />
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(180deg, rgba(3, 43, 40, 0.9) 0%, rgba(10, 27, 34, 0.6) 45%, rgba(255,255,255,0.95) 100%)",
+        }}
+      />
+      <div className="absolute inset-0 bg-linear-to-b from-black/40 via-black/10 to-transparent" />
+      <div className="relative z-10 mx-auto flex max-w-6xl flex-col gap-6 px-6 pt-28 pb-20 text-emerald-100">
+        <p className="text-xs font-semibold uppercase tracking-[0.35em] text-emerald-200">
+          Services
+        </p>
+        <h1 className="text-4xl font-bold tracking-tight text-white md:text-6xl">
+          We build websites, apps,
+          <span className="block text-emerald-100">and brand identities.</span>
+        </h1>
+        <p className="max-w-3xl text-lg text-white/80 md:text-xl">
+          Founders, product teams, small businesses, and individuals work with
+          WorkLoad HQ when they need something built properly.
+        </p>
+        <div className="flex flex-wrap gap-4">
+          <motion.div whileTap={{ scale: 0.97 }}>
+            <Link
+              href="/contact"
+              className="inline-block rounded-full bg-white/90 px-8 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-emerald-950 shadow-lg transition hover:bg-white"
+            >
+              Start a Project
+            </Link>
+          </motion.div>
+          <motion.div whileTap={{ scale: 0.97 }}>
+            <Link
+              href="/portfolio"
+              className="inline-block rounded-full border border-white/60 px-8 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-white transition hover:border-white"
+            >
+              See Our Work
+            </Link>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ─────────────────────────────────────────
+   REUSABLE — Included Card
+───────────────────────────────────────── */
+function IncludedCard({
+  items,
+  bg,
+}: {
+  items: string[];
+  bg: "stone" | "white";
+}) {
+  return (
+    <div
+      className={`rounded-2xl p-6 h-full ${
+        bg === "stone" ? "bg-stone-100" : "bg-white"
+      }`}
+    >
+      <p className="text-xs font-semibold uppercase tracking-widest text-stone-600 mb-4">
+        What is included
+      </p>
+      <ul className="space-y-3">
+        {items.map((item) => (
+          <li key={item} className="flex items-start gap-3 text-sm text-stone-700">
+            <CheckCircle2 className="h-4 w-4 text-emerald-600 mt-0.5 shrink-0" />
+            {item}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+/* ─────────────────────────────────────────
+   SERVICE SECTION 1 — WEBSITES (bg-white)
+───────────────────────────────────────── */
+function WebsitesSection() {
+  return (
+    <section className="bg-white py-24 px-6">
+      <motion.div
+        className="mx-auto max-w-6xl grid gap-12 md:grid-cols-2 md:items-start"
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.15 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+      >
+        {/* Text */}
+        <div>
+          <h2 className="text-3xl font-bold text-stone-950 mb-4">Websites</h2>
+          <p className="text-stone-600 text-base leading-relaxed mb-6">
+            Whether you need a single landing page or a full multi-page site, we
+            design and build it from scratch. Every site is mobile-first, fast,
+            and set up for search engines. We handle design, development, domain
+            setup, and hosting.
+          </p>
+          <span className="inline-block rounded-full bg-emerald-50 px-4 py-2 text-xs font-semibold text-emerald-700">
+            3 to 7 days typical delivery
+          </span>
+        </div>
+
+        {/* Included card */}
+        <IncludedCard
+          bg="stone"
+          items={[
+            "Custom responsive design",
+            "Mobile and desktop optimised",
+            "SEO basics: metadata, sitemap, structured content",
+            "Contact forms and CTAs",
+            "Domain and hosting setup",
+            "One month of post-launch support",
+          ]}
+        />
+      </motion.div>
+    </section>
+  );
+}
+
+/* ─────────────────────────────────────────
+   SERVICE SECTION 2 — WEB APPS (bg-stone-100)
+───────────────────────────────────────── */
+function WebAppsSection() {
+  return (
+    <section className="bg-stone-100 py-24 px-6">
+      <motion.div
+        className="mx-auto max-w-6xl grid gap-12 md:grid-cols-2 md:items-start"
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.15 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+      >
+        {/* Included card first (flipped layout) */}
+        <IncludedCard
+          bg="white"
+          items={[
+            "Full stack: frontend and backend",
+            "Database design and setup",
+            "User authentication and access control",
+            "Third party API integrations",
+            "Deployment and configuration",
+            "Ongoing maintenance available",
+          ]}
+        />
+
+        {/* Text */}
+        <div>
+          <h2 className="text-3xl font-bold text-stone-950 mb-4">
+            Web Applications
+          </h2>
+          <p className="text-stone-600 text-base leading-relaxed mb-6">
+            If your project needs more than a website, something users log into,
+            manage data through, or interact with every day, we build that.
+            Admin dashboards, SaaS products, booking systems, internal tools,
+            and anything that needs a real backend.
+          </p>
+          <span className="inline-block rounded-full bg-emerald-50 px-4 py-2 text-xs font-semibold text-emerald-700">
+            10 to 15 days depending on scope
+          </span>
+        </div>
+      </motion.div>
+    </section>
+  );
+}
+
+/* ─────────────────────────────────────────
+   SERVICE SECTION 3 — MOBILE APPS (bg-white)
+───────────────────────────────────────── */
+function MobileAppsSection() {
+  return (
+    <section className="bg-white py-24 px-6">
+      <motion.div
+        className="mx-auto max-w-6xl grid gap-12 md:grid-cols-2 md:items-start"
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.15 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+      >
+        {/* Text */}
+        <div>
+          <h2 className="text-3xl font-bold text-stone-950 mb-4">Mobile Apps</h2>
+          <p className="text-stone-600 text-base leading-relaxed mb-6">
+            We build cross-platform mobile apps using React Native, meaning your
+            app runs on both Android and iOS from one codebase. From the first
+            screen to app store submission, we handle the full build.
+          </p>
+          <span className="inline-block rounded-full bg-emerald-50 px-4 py-2 text-xs font-semibold text-emerald-700">
+            10 to 15 days depending on scope
+          </span>
+        </div>
+
+        {/* Included card */}
+        <IncludedCard
+          bg="stone"
+          items={[
+            "Cross-platform: Android and iOS",
+            "Native-feeling UI and interactions",
+            "Backend and API connections",
+            "Push notifications",
+            "App Store and Google Play submission support",
+          ]}
+        />
+      </motion.div>
+    </section>
+  );
+}
+
+/* ─────────────────────────────────────────
+   SERVICE SECTION 4 — LOGO + BRAND (bg-stone-100)
+───────────────────────────────────────── */
+function LogoBrandSection() {
+  return (
+    <section className="bg-stone-100 py-24 px-6">
+      <motion.div
+        className="mx-auto max-w-6xl grid gap-12 md:grid-cols-2 md:items-start"
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.15 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+      >
+        {/* Included card first (flipped layout) */}
+        <IncludedCard
+          bg="white"
+          items={[
+            "Logo design with multiple directions",
+            "Colour palette",
+            "Typography selection",
+            "Brand usage guidelines",
+            "Files for print and digital use",
+          ]}
+        />
+
+        {/* Text */}
+        <div>
+          <h2 className="text-3xl font-bold text-stone-950 mb-4">
+            Logo and Brand Identity
+          </h2>
+          <p className="text-stone-600 text-base leading-relaxed mb-6">
+            Your logo is often the first thing people see. We design logos and
+            brand identities that are clean, memorable, and work across every
+            surface: your website, social profiles, and anywhere else you show
+            up.
+          </p>
+          <span className="inline-block rounded-full bg-emerald-50 px-4 py-2 text-xs font-semibold text-emerald-700">
+            3 to 5 days
+          </span>
+        </div>
+      </motion.div>
+    </section>
+  );
+}
+
+/* ─────────────────────────────────────────
+   CLOSING CTA (bg-emerald-950)
+───────────────────────────────────────── */
+function ClosingCTASection() {
+  return (
+    <section className="bg-emerald-950 py-24 px-6">
+      <div className="mx-auto max-w-6xl text-center">
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 className="text-3xl font-bold text-white md:text-4xl mb-4">
+            Not sure which service you need?
+          </h2>
+          <p className="text-emerald-200 text-base max-w-xl mx-auto mb-10">
+            Tell us what you are trying to do. We will point you in the right
+            direction and give you a clear quote.
+          </p>
+          <motion.div whileTap={{ scale: 0.97 }} className="inline-block">
+            <Link
+              href="/contact"
+              className="inline-block rounded-full bg-white px-8 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-emerald-950 shadow-lg transition hover:bg-stone-100"
+            >
+              Talk to Us
+            </Link>
+          </motion.div>
+        </motion.div>
+      </div>
+    </section>
   );
 }

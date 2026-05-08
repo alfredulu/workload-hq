@@ -195,17 +195,15 @@ export default function ContactContent() {
             Contact
           </p>
           <h1 className="text-4xl font-semibold uppercase tracking-tight text-white md:text-6xl">
-            Websites and mobile apps
-            <span className="block text-emerald-100">
-              that bring in business.
-            </span>
+            Let&apos;s build something together.
           </h1>
           <p className="max-w-3xl text-lg text-white/80 md:text-xl">
-            Tell us what you need. We will respond fast with a clear plan.
+            Tell us what you need. We will come back with a clear plan and a
+            price within 24 hours.
           </p>
           <div className="flex flex-wrap gap-4">
             <a
-              href="/contact"
+              href="#contact-form"
               className="rounded-full bg-white/90 px-8 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-emerald-950 shadow-lg shadow-emerald-900/30 transition hover:bg-white active:scale-95"
             >
               Book a Call
@@ -259,7 +257,7 @@ export default function ContactContent() {
         </div>
       </section>
 
-      <section className="mx-auto mt-4 grid max-w-4xl gap-6 px-6 lg:grid-cols-[1.2fr_0.8fr]">
+      <section id="contact-form" className="mx-auto mt-4 grid max-w-4xl gap-6 px-6 lg:grid-cols-[1.2fr_0.8fr]">
         <form
           onSubmit={handleSubmit}
           className="rounded-3xl border border-emerald-200/60 bg-linear-to-br from-white/85 to-emerald-50/70 p-8 shadow-lg shadow-emerald-900/10 backdrop-blur"
