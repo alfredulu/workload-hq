@@ -3,7 +3,6 @@
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import Image from "next/image";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -51,79 +50,83 @@ export default function Navbar() {
       }`}
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <Link href="/" className="flex items-center">
-          <Image
-            src="/images/logo.jpg"
+        <Link
+          href="/"
+          onClick={() => setOpen(false)}
+          aria-label="WorkLoad HQ home"
+          className="flex items-center"
+        >
+          <img
+            src="/images/logo.svg"
             alt="WorkLoad HQ"
-            width={140}
-            height={40}
-            className="h-10 w-auto object-contain"
-            priority
+            style={{ width: "100px", height: "auto" }}
           />
         </Link>
 
-        <div className="hidden items-center gap-8 text-xs font-medium uppercase tracking-[0.3em] md:flex">
-          {navLinks.map((link) => (
+        <div className="flex items-center">
+          <div className="hidden items-center gap-8 text-xs font-medium uppercase tracking-[0.3em] md:flex">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`transition-colors ${
+                  isActive(link.href)
+                    ? "font-semibold text-emerald-950 border-b-2 border-emerald-600 pb-0.5"
+                    : "text-emerald-700 hover:text-emerald-950"
+                }`}
+              >
+                {link.label}
+              </Link>
+            ))}
             <Link
-              key={link.href}
-              href={link.href}
-              className={`transition-colors ${
-                isActive(link.href)
-                  ? "font-semibold text-emerald-950 border-b-2 border-emerald-600 pb-0.5"
-                  : "text-emerald-700 hover:text-emerald-950"
-              }`}
+              href="/contact"
+              className="rounded-full bg-emerald-950 px-6 py-2 text-white shadow-sm transition-all hover:bg-emerald-900 active:scale-95"
             >
-              {link.label}
+              Let&apos;s Talk
             </Link>
-          ))}
-          <Link
-            href="/contact"
-            className="rounded-full bg-emerald-950 px-6 py-2 text-white shadow-sm transition-all hover:bg-emerald-900 active:scale-95"
-          >
-            Let&apos;s Talk
-          </Link>
-        </div>
+          </div>
 
-        <div className="relative md:hidden" ref={menuRef}>
-          <button
-            type="button"
-            onClick={() => setOpen((prev) => !prev)}
-            className="rounded-full border border-emerald-200/70 bg-white/70 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-stone-800 shadow-sm"
-            aria-expanded={open}
-            aria-controls="mobile-menu"
-          >
-            Menu
-          </button>
-          {open ? (
-            <div
-              id="mobile-menu"
-              className="absolute right-0 mt-3 w-48 rounded-3xl border border-emerald-200/70 bg-white/90 p-4 shadow-lg backdrop-blur-xl"
+          <div className="relative md:hidden" ref={menuRef}>
+            <button
+              type="button"
+              onClick={() => setOpen((prev) => !prev)}
+              className="rounded-full border border-emerald-200/70 bg-white/70 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-stone-800 shadow-sm"
+              aria-expanded={open}
+              aria-controls="mobile-menu"
             >
-              <div className="flex flex-col gap-3 text-xs font-medium uppercase tracking-[0.3em]">
-                {navLinks.map((link) => (
+              Menu
+            </button>
+            {open ? (
+              <div
+                id="mobile-menu"
+                className="absolute right-0 mt-3 w-48 rounded-3xl border border-emerald-200/70 bg-white/90 p-4 shadow-lg backdrop-blur-xl"
+              >
+                <div className="flex flex-col gap-3 text-xs font-medium uppercase tracking-[0.3em]">
+                  {navLinks.map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      onClick={() => setOpen(false)}
+                      className={`transition-colors ${
+                        isActive(link.href)
+                          ? "font-semibold text-emerald-950 border-b-2 border-emerald-600 pb-0.5 w-fit"
+                          : "text-emerald-700 hover:text-emerald-950"
+                      }`}
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
                   <Link
-                    key={link.href}
-                    href={link.href}
+                    href="/contact"
+                    className="rounded-full bg-emerald-950 px-4 py-2 text-center text-white shadow-sm transition-all hover:bg-emerald-900 active:scale-95"
                     onClick={() => setOpen(false)}
-                    className={`transition-colors ${
-                      isActive(link.href)
-                        ? "font-semibold text-emerald-950 border-b-2 border-emerald-600 pb-0.5 w-fit"
-                        : "text-emerald-700 hover:text-emerald-950"
-                    }`}
                   >
-                    {link.label}
+                    Let&apos;s Talk
                   </Link>
-                ))}
-                <Link
-                  href="/contact"
-                  className="rounded-full bg-emerald-950 px-4 py-2 text-center text-white shadow-sm transition-all hover:bg-emerald-900 active:scale-95"
-                  onClick={() => setOpen(false)}
-                >
-                  Let&apos;s Talk
-                </Link>
+                </div>
               </div>
-            </div>
-          ) : null}
+            ) : null}
+          </div>
         </div>
       </div>
     </nav>

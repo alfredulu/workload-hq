@@ -43,10 +43,6 @@ export const metadata: Metadata = {
       "We build fast, conversion-focused websites and mobile apps for modern brands.",
     images: ["/og-image.png"],
   },
-  icons: {
-    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
-    apple: "/favicon.svg",
-  },
   verification: {
     google: "Vg5p8f7FxYNYmGb9vidDAjC5cI0PUt_8kVSu1gVI5oA",
   },
@@ -61,7 +57,7 @@ const jsonLd = {
   "@type": "Organization",
   name: "WorkLoad HQ",
   url: "https://workload-hq.vercel.app",
-  logo: "https://workload-hq.vercel.app/images/logo.jpg",
+  logo: "https://workload-hq.vercel.app/images/logo.svg",
   description:
     "Website and mobile app development agency based in Nigeria. We build fast, clean websites and mobile apps for modern brands worldwide.",
   email: "workloadhq@gmail.com",
