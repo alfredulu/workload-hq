@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import { motion } from "framer-motion";
+import Image from "next/image";
+import { useEffect, useState } from "react";
 
 export default function MaintenancePage() {
   const [isReady, setIsReady] = useState(false);
@@ -27,7 +27,7 @@ export default function MaintenancePage() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.8, ease: 'easeOut' },
+      transition: { duration: 0.8, ease: "easeOut" as const },
     },
   };
 
@@ -39,7 +39,7 @@ export default function MaintenancePage() {
       transition: {
         duration: 6,
         repeat: Infinity,
-        ease: 'easeInOut',
+        ease: "easeInOut" as const,
       },
     },
   };
@@ -49,7 +49,7 @@ export default function MaintenancePage() {
     animate: {
       opacity: 1,
       scale: 1,
-      transition: { duration: 1, ease: 'easeOut' },
+      transition: { duration: 1, ease: "easeOut" as const },
     },
   };
 
@@ -82,7 +82,7 @@ export default function MaintenancePage() {
       <motion.div
         variants={containerVariants}
         initial="hidden"
-        animate={isReady ? 'visible' : 'hidden'}
+        animate={isReady ? "visible" : "hidden"}
         className="relative z-10 text-center max-w-2xl"
       >
         {/* Logo */}
@@ -116,7 +116,7 @@ export default function MaintenancePage() {
           className="p-8 md:p-12 rounded-3xl backdrop-blur-2xl bg-gradient-to-br from-white/40 to-white/20 border border-white/50 shadow-2xl"
           style={{
             boxShadow:
-              '0 8px 32px rgba(26, 36, 31, 0.08), inset 0 1px 1px rgba(255, 255, 255, 0.5)',
+              "0 8px 32px rgba(26, 36, 31, 0.08), inset 0 1px 1px rgba(255, 255, 255, 0.5)",
           }}
         >
           {/* Heading */}
@@ -132,7 +132,8 @@ export default function MaintenancePage() {
             variants={itemVariants}
             className="text-lg md:text-xl text-[#1a241f]/80 mb-8 leading-relaxed"
           >
-            Our site is undergoing maintenance. We're making improvements to deliver you an even better experience. We'll be back soon!
+            Our site is undergoing maintenance. We're making improvements to
+            deliver you an even better experience. We'll be back soon!
           </motion.p>
 
           {/* Status indicator */}
@@ -183,12 +184,16 @@ export default function MaintenancePage() {
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <a
                 href="mailto:workloadhq@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-block px-8 py-3 rounded-full bg-gradient-to-r from-[#1a241f] to-[#1a241f]/80 text-white font-semibold hover:shadow-lg transition-all duration-300 hover:scale-105"
               >
                 Email Us
               </a>
               <a
-                href="https://wa.me/234"
+                href="https://wa.me/2347044811328"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-block px-8 py-3 rounded-full bg-white/20 backdrop-blur-lg border border-white/40 text-[#1a241f] font-semibold hover:shadow-lg transition-all duration-300 hover:scale-105"
               >
                 WhatsApp
