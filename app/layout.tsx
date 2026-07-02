@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+import MaintenancePage from "@/components/MaintenancePage";
 import "./globals.css";
 
 const inter = Inter({
@@ -88,6 +89,18 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const isMaintenanceMode = process.env.NEXT_PUBLIC_MAINTENANCE_MODE === "true";
+
+  if (isMaintenanceMode) {
+    return (
+      <html lang="en" className={inter.variable}>
+        <body className="antialiased">
+          <MaintenancePage />
+        </body>
+      </html>
+    );
+  }
+
   return (
     <html lang="en" className={inter.variable}>
       <body className="antialiased">
