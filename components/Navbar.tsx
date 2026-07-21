@@ -3,10 +3,12 @@
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
+import { Menu, X } from "lucide-react";
 
 const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/portfolio", label: "Portfolio" },
+  { href: "/portfolio", label: "Work" },
   { href: "/services", label: "Services" },
 ];
 
@@ -17,9 +19,8 @@ export default function Navbar() {
   const menuRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 8);
+    handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -27,8 +28,7 @@ export default function Navbar() {
   useEffect(() => {
     function handleClick(event: MouseEvent) {
       if (!menuRef.current) return;
-      const target = event.target as Node;
-      if (open && !menuRef.current.contains(target)) {
+      if (open && !menuRef.current.contains(event.target as Node)) {
         setOpen(false);
       }
     }
@@ -42,37 +42,35 @@ export default function Navbar() {
   };
 
   return (
-    <nav
-      className={`fixed top-0 w-full z-50 border-b border-emerald-200/60 transition-all duration-200 ${
-        scrolled
-          ? "bg-white/95 shadow-md"
-          : "bg-linear-to-r from-white/70 via-emerald-50/60 to-white/70 backdrop-blur-xl shadow-lg"
-      }`}
-    >
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <Link
-          href="/"
-          onClick={() => setOpen(false)}
-          aria-label="WorkLoad HQ home"
-          className="flex items-center"
+    <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4">
+      <div ref={menuRef} className="mx-auto max-w-5xl">
+        <nav
+          className={`flex items-center justify-between rounded-2xl border px-4 py-2.5 transition-all duration-300 sm:px-5 ${
+            scrolled || open
+              ? "border-white/10 bg-ink/85 shadow-lg shadow-black/20 backdrop-blur-xl"
+              : "border-white/5 bg-ink/40 backdrop-blur-md"
+          }`}
         >
-          <img
-            src="/images/logo.svg"
-            alt="WorkLoad HQ"
-            style={{ width: "100px", height: "auto" }}
-          />
-        </Link>
+          <Link href="/" aria-label="WorkLoad HQ home" className="flex items-center">
+            <Image
+              src="/images/logo-light.svg"
+              alt="WorkLoad HQ"
+              width={96}
+              height={48}
+              priority
+              className="h-9 w-auto"
+            />
+          </Link>
 
-        <div className="flex items-center">
-          <div className="hidden items-center gap-8 text-xs font-medium uppercase tracking-[0.3em] md:flex">
+          <div className="hidden items-center gap-1 md:flex">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`transition-colors ${
+                className={`rounded-full px-4 py-2 text-sm transition-colors ${
                   isActive(link.href)
-                    ? "font-semibold text-emerald-950 border-b-2 border-emerald-600 pb-0.5"
-                    : "text-emerald-700 hover:text-emerald-950"
+                    ? "bg-white/10 font-medium text-white"
+                    : "text-white/60 hover:text-white"
                 }`}
               >
                 {link.label}
@@ -80,55 +78,55 @@ export default function Navbar() {
             ))}
             <Link
               href="/contact"
-              className="rounded-full bg-emerald-950 px-6 py-2 text-white shadow-sm transition-all hover:bg-emerald-900 active:scale-95"
+              className="ml-2 rounded-full bg-white px-4.5 py-2 text-sm font-medium text-ink transition hover:bg-emerald-50 active:scale-95"
             >
-              Let&apos;s Talk
+              Let&apos;s talk
             </Link>
           </div>
 
-          <div className="relative md:hidden" ref={menuRef}>
-            <button
-              type="button"
-              onClick={() => setOpen((prev) => !prev)}
-              className="rounded-full border border-emerald-200/70 bg-white/70 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-stone-800 shadow-sm"
-              aria-expanded={open}
-              aria-controls="mobile-menu"
-            >
-              Menu
-            </button>
-            {open ? (
-              <div
-                id="mobile-menu"
-                className="absolute right-0 mt-3 w-48 rounded-3xl border border-emerald-200/70 bg-white/90 p-4 shadow-lg backdrop-blur-xl"
+          <button
+            type="button"
+            onClick={() => setOpen((prev) => !prev)}
+            className="flex h-10 w-10 items-center justify-center rounded-full text-white/80 transition hover:bg-white/10 hover:text-white md:hidden"
+            aria-expanded={open}
+            aria-controls="mobile-menu"
+            aria-label={open ? "Close menu" : "Open menu"}
+          >
+            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+        </nav>
+
+        {open ? (
+          <div
+            id="mobile-menu"
+            className="mt-2 rounded-2xl border border-white/10 bg-ink/95 p-3 shadow-xl shadow-black/30 backdrop-blur-xl md:hidden"
+          >
+            <div className="flex flex-col">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setOpen(false)}
+                  className={`rounded-xl px-4 py-3 text-base transition-colors ${
+                    isActive(link.href)
+                      ? "bg-white/10 font-medium text-white"
+                      : "text-white/70 hover:bg-white/5 hover:text-white"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              ))}
+              <Link
+                href="/contact"
+                onClick={() => setOpen(false)}
+                className="mt-2 rounded-xl bg-white px-4 py-3 text-center text-base font-medium text-ink transition active:scale-[0.98]"
               >
-                <div className="flex flex-col gap-3 text-xs font-medium uppercase tracking-[0.3em]">
-                  {navLinks.map((link) => (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      onClick={() => setOpen(false)}
-                      className={`transition-colors ${
-                        isActive(link.href)
-                          ? "font-semibold text-emerald-950 border-b-2 border-emerald-600 pb-0.5 w-fit"
-                          : "text-emerald-700 hover:text-emerald-950"
-                      }`}
-                    >
-                      {link.label}
-                    </Link>
-                  ))}
-                  <Link
-                    href="/contact"
-                    className="rounded-full bg-emerald-950 px-4 py-2 text-center text-white shadow-sm transition-all hover:bg-emerald-900 active:scale-95"
-                    onClick={() => setOpen(false)}
-                  >
-                    Let&apos;s Talk
-                  </Link>
-                </div>
-              </div>
-            ) : null}
+                Let&apos;s talk
+              </Link>
+            </div>
           </div>
-        </div>
+        ) : null}
       </div>
-    </nav>
+    </header>
   );
 }

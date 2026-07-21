@@ -3,11 +3,17 @@
 @source "./**/*.{ts,tsx}";
 @source "../components/**/*.{ts,tsx}";
 
+@theme {
+  --color-ink: #070b09;
+  --color-ink-soft: #0d1310;
+  --color-ink-card: #121a16;
+  --color-mist: #f5f7f5;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", sans-serif;
+}
+
 :root {
   color-scheme: light;
-  --accent-slate: #e7ece8;
-  --accent-slate-strong: #d7dfda;
-  --accent-ink: #1a241f;
 }
 
 html {
@@ -15,28 +21,49 @@ html {
 }
 
 body {
-  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  color: #1a241f;
-  background:
-    radial-gradient(1200px 600px at 20% -10%, rgba(255, 255, 255, 0.9), transparent),
-    radial-gradient(900px 520px at 85% 0%, rgba(231, 236, 232, 0.9), transparent),
-    radial-gradient(720px 440px at 10% 70%, rgba(215, 223, 218, 0.6), transparent),
-    #f4f6f4;
+  font-family: var(--font-sans);
+  color: #101613;
+  background: #ffffff;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
 ::selection {
-  background: rgba(26, 36, 31, 0.18);
+  background: rgba(16, 185, 129, 0.25);
 }
 
-.animate-heroZoom {
-  animation: heroZoom 25s ease-in-out infinite alternate;
+:focus-visible {
+  outline: 2px solid rgba(16, 185, 129, 0.7);
+  outline-offset: 2px;
 }
 
-@keyframes heroZoom {
-  from {
-    transform: scale(1);
+/* Faint blueprint grid used on dark hero sections */
+.bg-grid-dark {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 90% 80% at 50% 0%, black 30%, transparent 75%);
+}
+
+/* Soft emerald glow blobs for dark sections */
+.glow-emerald {
+  background: radial-gradient(
+    closest-side,
+    rgba(16, 185, 129, 0.28),
+    transparent
+  );
+  filter: blur(60px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
-  to {
-    transform: scale(1.08);
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

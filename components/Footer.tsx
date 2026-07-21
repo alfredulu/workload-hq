@@ -1,95 +1,116 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Mail, MapPin } from "lucide-react";
-import { FaInstagram } from "react-icons/fa";
+import { FaInstagram, FaWhatsapp } from "react-icons/fa";
 import { FaTiktok } from "react-icons/fa6";
-import { FaWhatsapp } from "react-icons/fa";
 
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/portfolio", label: "Work" },
   { href: "/services", label: "Services" },
-  { href: "/contact", label: "Let's Talk" },
+  { href: "/contact", label: "Let's talk" },
+];
+
+const socialLinks = [
+  {
+    href: "mailto:workloadhq@gmail.com",
+    label: "workloadhq@gmail.com",
+    icon: Mail,
+    external: false,
+  },
+  {
+    href: "https://wa.me/2347044811328",
+    label: "WhatsApp",
+    icon: FaWhatsapp,
+    external: true,
+  },
+  {
+    href: "https://www.instagram.com/workload_hq/",
+    label: "@workload_hq",
+    icon: FaInstagram,
+    external: true,
+  },
+  {
+    href: "https://www.tiktok.com/@workload_hq",
+    label: "@workload_hq",
+    icon: FaTiktok,
+    external: true,
+  },
 ];
 
 export default function Footer() {
   return (
-    <footer className="bg-emerald-950">
-      <div className="mx-auto max-w-6xl px-6 pb-10 pt-10">
-        <div className="flex flex-col gap-10 border-t border-emerald-800 pt-8 md:flex-row md:justify-between">
-          {/* Left column */}
-          <div className="flex flex-col gap-6">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-white">
-                WorkLoad HQ
-              </p>
-              <p className="mt-3 max-w-sm text-sm text-emerald-200">
-                Websites, apps, and brand identities. Built properly.
-              </p>
-            </div>
-            <div className="flex flex-col gap-3 text-sm text-emerald-200">
-              <a
-                href="mailto:workloadhq@gmail.com"
-                className="flex items-center gap-2 hover:text-white transition-colors"
-              >
-                <Mail className="h-4 w-4 text-emerald-400" />
-                workloadhq@gmail.com
-              </a>
-              <a
-                href="https://www.instagram.com/workload_hq/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 hover:text-white transition-colors"
-              >
-                <FaInstagram className="h-4 w-4 text-emerald-400" />
-                @workload_hq
-              </a>
-              <a
-                href="https://www.tiktok.com/@workload_hq"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 hover:text-white transition-colors"
-              >
-                <FaTiktok className="h-4 w-4 text-emerald-400" />
-                @workload_hq
-              </a>
-              <a
-                href="https://wa.me/2347044811328"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 hover:text-white transition-colors"
-              >
-                <FaWhatsapp className="h-4 w-4 text-emerald-400" />
-                WhatsApp
-              </a>
-              <span className="flex items-center gap-2 text-emerald-200">
-                <MapPin className="h-4 w-4 text-emerald-400" />
-                Nigeria - Remote
-              </span>
-            </div>
+    <footer className="bg-ink">
+      <div className="mx-auto max-w-6xl px-6 pb-10 pt-16">
+        <div className="flex flex-col gap-12 md:flex-row md:justify-between">
+          <div className="max-w-sm">
+            <Image
+              src="/images/logo-light.svg"
+              alt="WorkLoad HQ"
+              width={120}
+              height={60}
+              className="h-11 w-auto"
+            />
+            <p className="mt-4 text-sm leading-relaxed text-white/50">
+              Websites, apps, and brand identities. Built properly. Based in
+              Nigeria, working worldwide.
+            </p>
+            <p className="mt-6 flex items-center gap-2 text-sm text-white/40">
+              <MapPin className="h-4 w-4 text-emerald-500" />
+              Nigeria &middot; Remote
+            </p>
           </div>
 
-          {/* Right column — Navigate */}
-          <div>
-            <p className="text-xs uppercase tracking-widest text-emerald-400 mb-4">
-              Navigate
-            </p>
-            <div className="flex flex-col gap-3">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="text-sm text-emerald-200 hover:text-white transition-colors"
-                >
-                  {link.label}
-                </Link>
-              ))}
+          <div className="grid grid-cols-2 gap-12 sm:gap-20">
+            <div>
+              <p className="text-xs font-medium uppercase tracking-widest text-white/40">
+                Navigate
+              </p>
+              <ul className="mt-4 space-y-3">
+                {navLinks.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="text-sm text-white/60 transition-colors hover:text-white"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <p className="text-xs font-medium uppercase tracking-widest text-white/40">
+                Connect
+              </p>
+              <ul className="mt-4 space-y-3">
+                {socialLinks.map((social) => (
+                  <li key={social.href}>
+                    <a
+                      href={social.href}
+                      {...(social.external
+                        ? { target: "_blank", rel: "noopener noreferrer" }
+                        : {})}
+                      className="flex items-center gap-2 text-sm text-white/60 transition-colors hover:text-white"
+                    >
+                      <social.icon className="h-4 w-4 text-emerald-500" />
+                      {social.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
 
-        <p className="mt-8 text-xs uppercase tracking-[0.3em] text-emerald-400">
-          &copy; 2026 WorkLoad HQ. All rights reserved.
-        </p>
+        <div className="mt-14 flex flex-col gap-3 border-t border-white/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-xs text-white/40">
+            &copy; 2026 WorkLoad HQ. All rights reserved.
+          </p>
+          <p className="text-xs text-white/40">
+            Built properly, of course.
+          </p>
+        </div>
       </div>
     </footer>
   );

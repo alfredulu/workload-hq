@@ -1,13 +1,61 @@
 "use client";
 
-import Image from "next/image";
-import { Globe2, Mail, MessageSquare, Sparkles } from "lucide-react";
-import { FaInstagram } from "react-icons/fa";
+import { FormEvent, useEffect, useState } from "react";
+import { motion, type Variants } from "framer-motion";
+import { CheckCircle2, Globe2, Mail, Sparkles } from "lucide-react";
+import { FaInstagram, FaWhatsapp } from "react-icons/fa";
 import { FaTiktok } from "react-icons/fa6";
-import { FaWhatsapp } from "react-icons/fa";
 import FAQSection from "@/components/FAQSection";
 import { faqs } from "@/data/faqs";
-import { FormEvent, useEffect, useMemo, useState } from "react";
+
+const fadeUp: Variants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: "easeOut" },
+  },
+};
+
+const container: Variants = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.08 },
+  },
+};
+
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+const contactChannels = [
+  {
+    icon: Mail,
+    label: "Email",
+    value: "workloadhq@gmail.com",
+    href: "mailto:workloadhq@gmail.com",
+    external: false,
+  },
+  {
+    icon: FaWhatsapp,
+    label: "WhatsApp",
+    value: "+234 704 481 1328",
+    href: "https://wa.me/2347044811328",
+    external: true,
+  },
+  {
+    icon: FaInstagram,
+    label: "Instagram",
+    value: "@workload_hq",
+    href: "https://www.instagram.com/workload_hq/",
+    external: true,
+  },
+  {
+    icon: FaTiktok,
+    label: "TikTok",
+    value: "@workload_hq",
+    href: "https://www.tiktok.com/@workload_hq",
+    external: true,
+  },
+];
 
 export default function ContactContent() {
   const [formStatus, setFormStatus] = useState<{
@@ -18,15 +66,14 @@ export default function ContactContent() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccessOverlay, setShowSuccessOverlay] = useState(false);
 
-  const emailRegex = useMemo(() => /^[^\s@]+@[^\s@]+\.[^\s@]+$/, []);
   const inputBase =
-    "rounded-2xl bg-white/80 px-4 py-3 text-sm text-stone-950 shadow-sm focus:outline-none focus:ring-2 transition";
+    "w-full rounded-xl bg-white px-4 py-3 text-sm text-stone-950 placeholder:text-stone-400 transition focus:outline-none focus:ring-2";
 
   const inputClass = (hasError?: boolean) =>
     `${inputBase} ${
       hasError
-        ? "border border-rose-500 focus:ring-rose-200"
-        : "border border-emerald-200/70 focus:ring-emerald-900/10"
+        ? "border border-rose-400 focus:ring-rose-200"
+        : "border border-black/10 focus:border-emerald-500 focus:ring-emerald-100"
     }`;
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -50,13 +97,13 @@ export default function ContactContent() {
       newErrors.email = "Enter a valid email address";
     }
     if (!fieldValues.subject) newErrors.subject = "Tell us what you need";
-    if (!fieldValues.message) newErrors.message = "Let us know your project";
+    if (!fieldValues.message) newErrors.message = "Tell us about your project";
 
     if (Object.keys(newErrors).length) {
       setErrors(newErrors);
       setFormStatus({
         type: "error",
-        message: "There are some fields that need your attention.",
+        message: "A few fields need your attention.",
       });
       return;
     }
@@ -83,7 +130,7 @@ export default function ContactContent() {
       });
       setFormStatus({
         type: "success",
-        message: "Success! Your message has been sent to WorkLoad HQ.",
+        message: "Your message is on its way to WorkLoad HQ.",
       });
       setShowSuccessOverlay(true);
       (e.target as HTMLFormElement).reset();
@@ -107,371 +154,289 @@ export default function ContactContent() {
     return () => window.clearTimeout(timer);
   }, [showSuccessOverlay]);
 
-  const statusPillClass =
-    formStatus.type === "success"
-      ? "border-emerald-200 bg-emerald-50 text-emerald-800"
-      : "border-rose-200 bg-rose-50 text-rose-600";
-
-  const confettiColors = [
-    "#bef264",
-    "#fcd34d",
-    "#f472b6",
-    "#a855f7",
-    "#38bdf8",
-  ];
-  const confettiPieces = Array.from({ length: 18 }, (_, index) => index);
-
   return (
-    <main className="min-h-screen pb-24 pt-0">
+    <main className="min-h-screen">
       {showSuccessOverlay && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/80 px-6">
-          <div className="absolute inset-0 overflow-hidden">
-            {confettiPieces.map((piece) => (
-              <span
-                key={piece}
-                className="absolute h-2 w-2 rounded-full opacity-80"
-                style={{
-                  left: `${((piece * 7) % 90) + 5}%`,
-                  backgroundColor:
-                    confettiColors[piece % confettiColors.length],
-                  animation: `confettiDrop 1.8s ease-out forwards`,
-                  animationDelay: `${(piece % 7) * 0.12}s`,
-                }}
-              />
-            ))}
-          </div>
-          <div className="relative w-full max-w-xl rounded-3xl border border-white/40 bg-white/95 p-8 text-center shadow-2xl">
-            <p className="text-xs font-semibold uppercase tracking-[0.4em] text-emerald-500">
-              Success
-            </p>
-            <h2 className="mt-4 text-3xl font-bold text-slate-900">
+        <div className="fixed inset-0 z-[999] flex items-center justify-center bg-ink/90 px-6 backdrop-blur-lg">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+            className="w-full max-w-md rounded-3xl bg-white p-10 text-center shadow-2xl"
+          >
+            <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-emerald-100">
+              <CheckCircle2 className="h-7 w-7 text-emerald-600" />
+            </div>
+            <h2 className="mt-5 text-2xl font-semibold tracking-tight text-stone-950">
               Message sent
             </h2>
-            <p className="mt-2 text-sm text-slate-600">{formStatus.message}</p>
+            <p className="mt-2 text-sm leading-relaxed text-stone-600">
+              {formStatus.message} We’ll reply within 24 hours.
+            </p>
             <button
               type="button"
               onClick={() => {
                 setShowSuccessOverlay(false);
                 setFormStatus({ type: null });
               }}
-              className="mt-6 inline-flex items-center justify-center rounded-full border border-emerald-600 px-6 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-emerald-600 transition hover:bg-emerald-50"
+              className="mt-6 inline-flex items-center justify-center rounded-full bg-ink px-6 py-2.5 text-sm font-medium text-white transition hover:bg-ink-soft active:scale-95"
             >
-              Back to form
+              Done
             </button>
-          </div>
-          <style jsx>{`
-            @keyframes confettiDrop {
-              0% {
-                opacity: 1;
-                transform: translateY(-20px) rotate(0deg);
-              }
-              100% {
-                opacity: 0;
-                transform: translateY(180px) rotate(360deg);
-              }
-            }
-          `}</style>
+          </motion.div>
         </div>
       )}
-      <section className="relative w-full overflow-hidden">
-        <Image
-          src="/images/let's-talk-hero.jpg"
-          alt="WorkLoad HQ contact page background showing a professional workspace ready for client collaboration"
-          fill
-          priority
-          className="object-cover object-center"
-          sizes="100vw"
-        />
+
+      {/* Hero */}
+      <section className="relative overflow-hidden bg-ink">
+        <div className="bg-grid-dark absolute inset-0" aria-hidden />
         <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(180deg, rgba(3, 43, 40, 0.9) 0%, rgba(10, 27, 34, 0.6) 45%, rgba(255,255,255,0.95) 100%)",
-          }}
+          className="glow-emerald absolute -top-24 left-1/2 h-[360px] w-[600px] -translate-x-1/2"
+          aria-hidden
         />
-        <div className="absolute inset-0 bg-linear-to-b from-black/50 via-black/20 to-transparent" />
-        <div className="relative z-10 mx-auto flex max-w-4xl flex-col gap-6 px-6 pt-28 pb-20 text-emerald-50">
-          <p className="text-xs font-semibold uppercase tracking-[0.35em] text-emerald-200">
-            Contact
-          </p>
-          <h1 className="text-4xl font-semibold uppercase tracking-tight text-white md:text-6xl">
-            Let&apos;s build something together.
-          </h1>
-          <p className="max-w-3xl text-lg text-white/80 md:text-xl">
-            Tell us what you need. We will come back with a clear plan and a
-            price within 24 hours.
-          </p>
-          <div className="flex flex-wrap gap-4">
-            <a
-              href="#contact-form"
-              className="rounded-full bg-white/90 px-8 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-emerald-950 shadow-lg shadow-emerald-900/30 transition hover:bg-white active:scale-95"
-            >
-              Book a Call
-            </a>
-            <a
-              href="/portfolio"
-              className="rounded-full border border-white/60 bg-transparent px-8 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-white transition hover:border-white hover:text-emerald-50 active:scale-95"
-            >
-              View Portfolio
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-slate-50 py-16">
-        <div className="mx-auto max-w-4xl px-6">
-          <div className="space-y-8">
-            <div className="space-y-2">
-              <p className="text-xs font-semibold uppercase tracking-[0.35em] text-stone-600">
-                Contact
-              </p>
-              <h2 className="text-3xl font-semibold text-stone-950">
-                We respond within hours and get straight to it.
-              </h2>
-              <p className="text-sm text-emerald-800">
-                Tell us about your project, what you are trying to achieve, and
-                your timeline. We will reply with a clear plan and a price.
-              </p>
-            </div>
-            <div className="flex flex-col gap-6">
-              <div className="rounded-3xl border border-emerald-200/60 bg-white/80 p-6 shadow-sm shadow-emerald-900/10">
-                <p className="text-xs font-semibold uppercase tracking-[0.35em] text-stone-600">
-                  Reach out
-                </p>
-                <p className="mt-2 text-sm text-stone-600">
-                  Share what you need built, what you already have, or the
-                  problem you are trying to fix. We will reply with a clear plan
-                  and price.
-                </p>
-              </div>
-              {formStatus.type && !showSuccessOverlay && (
-                <div
-                  className={`rounded-3xl border px-6 py-3 text-sm font-semibold uppercase tracking-[0.3em] ${statusPillClass}`}
-                  aria-live="polite"
-                >
-                  {formStatus.message}
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="contact-form" className="mx-auto mt-4 grid max-w-4xl gap-6 px-6 lg:grid-cols-[1.2fr_0.8fr]">
-        <form
-          onSubmit={handleSubmit}
-          className="rounded-3xl border border-emerald-200/60 bg-linear-to-br from-white/85 to-emerald-50/70 p-8 shadow-lg shadow-emerald-900/10 backdrop-blur"
+        <motion.div
+          variants={container}
+          initial="hidden"
+          animate="visible"
+          className="relative z-10 mx-auto flex max-w-6xl flex-col px-6 pb-20 pt-36 md:pt-44"
         >
-          <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-2xl border border-emerald-200/70 bg-white/80 text-emerald-800">
-              <MessageSquare className="h-5 w-5" />
-            </div>
-            <p className="text-xs font-semibold uppercase tracking-[0.35em] text-stone-600">
-              Send Us A Message
-            </p>
-          </div>
-          <p className="mt-3 text-sm text-emerald-800">
-            Drop in the brief details we ask for below so we can get back with a
-            personalised plan.
-          </p>
-          <input
-            type="text"
-            name="company"
-            tabIndex={-1}
-            autoComplete="off"
-            className="mt-2 hidden"
-          />
-          <div className="mt-6 grid gap-4 md:grid-cols-2">
-            <div className="flex flex-col gap-2">
-              <label className="text-xs font-semibold uppercase tracking-[0.3em] text-stone-600">
-                Your Name
-              </label>
-              <input
-                type="text"
-                name="name"
-                className={inputClass(Boolean(errors.name))}
-                placeholder="Enter your name"
-              />
-              {errors.name && (
-                <p className="mt-2 text-xs text-rose-500">{errors.name}</p>
-              )}
-            </div>
-            <div className="flex flex-col gap-2">
-              <label className="text-xs font-semibold uppercase tracking-[0.3em] text-stone-600">
-                Your Email Address
-              </label>
-              <input
-                type="email"
-                name="email"
-                className={inputClass(Boolean(errors.email))}
-                placeholder="you@email.com"
-              />
-              {errors.email && (
-                <p className="mt-2 text-xs text-rose-500">{errors.email}</p>
-              )}
-            </div>
-            <div className="flex flex-col gap-2">
-              <label className="text-xs font-semibold uppercase tracking-[0.3em] text-stone-600">
-                Your Phone Number
-              </label>
-              <input
-                type="tel"
-                name="phone"
-                className={inputClass()}
-                placeholder="+234"
-              />
-            </div>
-            <div className="flex flex-col gap-2">
-              <label className="text-xs font-semibold uppercase tracking-[0.3em] text-stone-600">
-                Subject
-              </label>
-              <input
-                type="text"
-                name="subject"
-                className={inputClass(Boolean(errors.subject))}
-                placeholder="Website design"
-              />
-              {errors.subject && (
-                <p className="mt-2 text-xs text-rose-500">{errors.subject}</p>
-              )}
-            </div>
-          </div>
-          <div className="mt-4 flex flex-col gap-2">
-            <label className="text-xs font-semibold uppercase tracking-[0.3em] text-stone-600">
-              Your Message
-            </label>
-            <textarea
-              name="message"
-              rows={5}
-              className={`${inputBase} ${
-                errors.message
-                  ? "border border-rose-500 focus:ring-rose-200"
-                  : "border border-emerald-200/70 focus:ring-emerald-900/10"
-              }`}
-              placeholder="Tell us about your project, goals, and timeline."
-            />
-            {errors.message && (
-              <p className="mt-2 text-xs text-rose-500">{errors.message}</p>
-            )}
-          </div>
-          <button
-            type="submit"
-            disabled={isSubmitting}
-            className="mt-6 rounded-full bg-emerald-950 px-8 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-white shadow-lg transition hover:bg-emerald-900 active:scale-95 disabled:opacity-60 disabled:cursor-not-allowed"
+          <motion.p
+            variants={fadeUp}
+            className="text-xs font-medium uppercase tracking-[0.2em] text-emerald-400"
           >
-            Submit
-          </button>
-        </form>
+            Contact
+          </motion.p>
+          <motion.h1
+            variants={fadeUp}
+            className="mt-4 max-w-3xl text-balance text-5xl font-semibold tracking-tight text-white md:text-6xl"
+          >
+            Let’s build something together.
+          </motion.h1>
+          <motion.p
+            variants={fadeUp}
+            className="mt-5 max-w-2xl text-pretty text-lg leading-relaxed text-white/60"
+          >
+            Tell us what you need. We’ll come back with a clear plan and a
+            price within 24 hours.
+          </motion.p>
+        </motion.div>
+      </section>
 
-        <div className="space-y-6">
-          <div className="rounded-3xl border border-emerald-200/60 bg-linear-to-br from-white/85 to-emerald-50/70 p-8 shadow-lg shadow-emerald-900/10 backdrop-blur">
-            <p className="text-xs font-semibold uppercase tracking-[0.35em] text-stone-600">
-              Contact Info
+      {/* Form + contact info */}
+      <section id="contact-form" className="bg-mist px-6 py-16">
+        <div className="mx-auto grid max-w-6xl items-start gap-6 lg:grid-cols-[1.15fr_0.85fr]">
+          <motion.form
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+            onSubmit={handleSubmit}
+            className="rounded-3xl border border-black/5 bg-white p-7 shadow-sm md:p-9"
+          >
+            <h2 className="text-xl font-semibold tracking-tight text-stone-950">
+              Send us a message
+            </h2>
+            <p className="mt-2 text-sm leading-relaxed text-stone-600">
+              Share what you need built, what you already have, or the problem
+              you’re trying to fix.
             </p>
-            <div className="mt-4 flex items-center gap-3 text-emerald-800">
-              <Globe2 className="h-5 w-5" />
-              <span className="text-xs uppercase tracking-[0.3em] text-stone-600">
-                location is never a problem
-              </span>
+
+            {formStatus.type === "error" && !showSuccessOverlay ? (
+              <div
+                className="mt-5 rounded-xl border border-rose-200 bg-rose-50 px-4 py-3 text-sm text-rose-700"
+                aria-live="polite"
+              >
+                {formStatus.message}
+              </div>
+            ) : null}
+
+            {/* Honeypot */}
+            <input
+              type="text"
+              name="company"
+              tabIndex={-1}
+              autoComplete="off"
+              className="hidden"
+            />
+
+            <div className="mt-6 grid gap-5 md:grid-cols-2">
+              <div>
+                <label
+                  htmlFor="contact-name"
+                  className="text-sm font-medium text-stone-800"
+                >
+                  Name
+                </label>
+                <input
+                  id="contact-name"
+                  type="text"
+                  name="name"
+                  className={`mt-1.5 ${inputClass(Boolean(errors.name))}`}
+                  placeholder="Your name"
+                />
+                {errors.name && (
+                  <p className="mt-1.5 text-xs text-rose-500">{errors.name}</p>
+                )}
+              </div>
+              <div>
+                <label
+                  htmlFor="contact-email"
+                  className="text-sm font-medium text-stone-800"
+                >
+                  Email
+                </label>
+                <input
+                  id="contact-email"
+                  type="email"
+                  name="email"
+                  className={`mt-1.5 ${inputClass(Boolean(errors.email))}`}
+                  placeholder="you@email.com"
+                />
+                {errors.email && (
+                  <p className="mt-1.5 text-xs text-rose-500">{errors.email}</p>
+                )}
+              </div>
+              <div>
+                <label
+                  htmlFor="contact-phone"
+                  className="text-sm font-medium text-stone-800"
+                >
+                  Phone{" "}
+                  <span className="font-normal text-stone-400">(optional)</span>
+                </label>
+                <input
+                  id="contact-phone"
+                  type="tel"
+                  name="phone"
+                  className={`mt-1.5 ${inputClass()}`}
+                  placeholder="+234"
+                />
+              </div>
+              <div>
+                <label
+                  htmlFor="contact-subject"
+                  className="text-sm font-medium text-stone-800"
+                >
+                  What do you need?
+                </label>
+                <input
+                  id="contact-subject"
+                  type="text"
+                  name="subject"
+                  className={`mt-1.5 ${inputClass(Boolean(errors.subject))}`}
+                  placeholder="Website, app, logo…"
+                />
+                {errors.subject && (
+                  <p className="mt-1.5 text-xs text-rose-500">
+                    {errors.subject}
+                  </p>
+                )}
+              </div>
             </div>
-            <p className="mt-4 text-sm text-emerald-800">
-              Based in Nigeria, with a worldwide presence. We operate remotely
-              and serve clients across Nigeria and internationally.
-            </p>
-          </div>
-          <div className="rounded-3xl border border-emerald-200/60 bg-linear-to-br from-white/85 to-emerald-50/70 p-8 shadow-lg shadow-emerald-900/10 backdrop-blur">
-            <p className="text-xs font-semibold uppercase tracking-[0.35em] text-stone-600">
-              Email Us At
-            </p>
-            <div className="mt-4 flex items-center gap-3 text-emerald-800">
-              <Mail className="h-5 w-5" />
-              <span className="text-xs uppercase tracking-[0.3em] text-stone-600">
-                Quick replies
-              </span>
+            <div className="mt-5">
+              <label
+                htmlFor="contact-message"
+                className="text-sm font-medium text-stone-800"
+              >
+                Message
+              </label>
+              <textarea
+                id="contact-message"
+                name="message"
+                rows={5}
+                className={`mt-1.5 ${inputClass(Boolean(errors.message))}`}
+                placeholder="Tell us about your project, goals, and timeline."
+              />
+              {errors.message && (
+                <p className="mt-1.5 text-xs text-rose-500">{errors.message}</p>
+              )}
             </div>
-            <a
-              href="mailto:workloadhq@gmail.com"
-              className="mt-3 block text-lg font-semibold text-stone-950 hover:text-emerald-800"
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="mt-7 w-full rounded-full bg-ink px-8 py-3.5 text-sm font-medium text-white transition hover:bg-ink-soft active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
             >
-              workloadhq@gmail.com
-            </a>
-          </div>
-          <div className="rounded-3xl border border-emerald-200/60 bg-linear-to-br from-white/85 to-emerald-50/70 p-8 shadow-lg shadow-emerald-900/10 backdrop-blur">
-            <p className="text-xs font-semibold uppercase tracking-[0.35em] text-stone-600">
-              Instagram
-            </p>
-            <div className="mt-4 flex items-center gap-3 text-emerald-800">
-              <FaInstagram className="h-5 w-5" />
-              <span className="text-xs uppercase tracking-[0.3em] text-stone-600">
-                Recent work
-              </span>
-            </div>
-            <a
-              href="https://www.instagram.com/workload_hq/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-3 block text-lg font-semibold text-stone-950 hover:text-emerald-800"
+              {isSubmitting ? "Sending…" : "Send message"}
+            </button>
+          </motion.form>
+
+          <motion.div
+            variants={container}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+            className="flex flex-col gap-5"
+          >
+            <motion.div
+              variants={fadeUp}
+              className="rounded-3xl border border-black/5 bg-white p-7 shadow-sm"
             >
-              @workload_hq
-            </a>
-          </div>
-          <div className="rounded-3xl border border-emerald-200/60 bg-linear-to-br from-white/85 to-emerald-50/70 p-8 shadow-lg shadow-emerald-900/10 backdrop-blur">
-            <p className="text-xs font-semibold uppercase tracking-[0.35em] text-stone-600">
-              TikTok
-            </p>
-            <div className="mt-4 flex items-center gap-3 text-emerald-800">
-              <FaTiktok className="h-5 w-5" />
-              <span className="text-xs uppercase tracking-[0.3em] text-stone-600">
-                Follow us
-              </span>
-            </div>
-            <a
-              href="https://www.tiktok.com/@workload_hq"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-3 block text-lg font-semibold text-stone-950 hover:text-emerald-800"
+              <h3 className="text-sm font-semibold text-stone-950">
+                Other ways to reach us
+              </h3>
+              <ul className="mt-4 divide-y divide-black/5">
+                {contactChannels.map((channel) => (
+                  <li key={channel.label}>
+                    <a
+                      href={channel.href}
+                      {...(channel.external
+                        ? { target: "_blank", rel: "noopener noreferrer" }
+                        : {})}
+                      className="group flex items-center gap-4 py-3.5"
+                    >
+                      <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-50 text-emerald-700 transition-colors group-hover:bg-emerald-100">
+                        <channel.icon className="h-4.5 w-4.5" />
+                      </span>
+                      <span className="flex flex-col">
+                        <span className="text-xs text-stone-400">
+                          {channel.label}
+                        </span>
+                        <span className="text-sm font-medium text-stone-900 transition-colors group-hover:text-emerald-700">
+                          {channel.value}
+                        </span>
+                      </span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+
+            <motion.div
+              variants={fadeUp}
+              className="rounded-3xl border border-black/5 bg-white p-7 shadow-sm"
             >
-              @workload_hq
-            </a>
-          </div>
-          <div className="rounded-3xl border border-emerald-200/60 bg-linear-to-br from-white/85 to-emerald-50/70 p-8 shadow-lg shadow-emerald-900/10 backdrop-blur">
-            <p className="text-xs font-semibold uppercase tracking-[0.35em] text-stone-600">
-              WhatsApp
-            </p>
-            <div className="mt-4 flex items-center gap-3 text-emerald-800">
-              <FaWhatsapp className="h-5 w-5" />
-              <span className="text-xs uppercase tracking-[0.3em] text-stone-600">
-                Quick chat
-              </span>
-            </div>
-            <a
-              href="https://wa.me/2347044811328"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-3 block text-lg font-semibold text-stone-950 hover:text-emerald-800"
+              <div className="flex items-center gap-3">
+                <Globe2 className="h-5 w-5 text-emerald-600" />
+                <h3 className="text-sm font-semibold text-stone-950">
+                  Location is never a problem
+                </h3>
+              </div>
+              <p className="mt-3 text-sm leading-relaxed text-stone-600">
+                Based in Nigeria, working worldwide. We operate remotely and
+                serve clients across Nigeria and internationally.
+              </p>
+            </motion.div>
+
+            <motion.div
+              variants={fadeUp}
+              className="rounded-3xl border border-emerald-600/15 bg-emerald-50 p-7"
             >
-              +234 704 481 1328
-            </a>
-          </div>
+              <div className="flex items-center gap-3">
+                <Sparkles className="h-5 w-5 text-emerald-600" />
+                <h3 className="text-sm font-semibold text-stone-950">
+                  Prefer a quick start?
+                </h3>
+              </div>
+              <p className="mt-3 text-sm leading-relaxed text-stone-600">
+                Send us your brand name, service list, and any reference links.
+                We’ll reply with a first concept within 48 hours.
+              </p>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
-      <section className="mx-auto mt-12 max-w-4xl px-6">
-        <div className="rounded-3xl border border-emerald-200/60 bg-linear-to-br from-white/85 to-emerald-50/70 p-8 text-sm text-emerald-800 shadow-sm shadow-emerald-900/10 backdrop-blur">
-          <div className="flex items-center gap-3 text-emerald-800">
-            <Sparkles className="h-5 w-5" />
-            <span className="text-xs uppercase tracking-[0.3em] text-stone-600">
-              Quick start
-            </span>
-          </div>
-          <p className="mt-3">
-            Prefer a quick start? Send us your brand name, service list, and any
-            reference links. We will reply with a first concept within 48 hours.
-          </p>
-        </div>
-      </section>
-
-      <FAQSection faqs={faqs} ctaLabel="Book a Call" ctaHref="/contact" />
+      <FAQSection faqs={faqs} ctaLabel="Book a call" ctaHref="#contact-form" />
     </main>
   );
 }
