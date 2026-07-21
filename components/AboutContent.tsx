@@ -204,11 +204,11 @@ export default function AboutContent() {
             project: fast to ship, easy to maintain, and ready to scale when
             you are.
           </p>
-          <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4">
+          <div className="mt-10 flex flex-wrap justify-center gap-3">
             {stack.map((tool) => (
               <div
                 key={tool.name}
-                className="flex items-center gap-3 rounded-xl border border-black/5 bg-mist px-4 py-3.5 text-left"
+                className="flex w-[calc(50%-0.375rem)] items-center gap-3 rounded-xl border border-black/5 bg-mist px-4 py-3.5 text-left sm:w-52"
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
