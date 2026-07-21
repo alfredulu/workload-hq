@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+import BackToTop from "@/components/BackToTop";
 import MaintenancePage from "@/components/MaintenancePage";
 import "./globals.css";
 
@@ -116,6 +117,7 @@ export default function RootLayout({
         {children}
         <Footer />
         <FloatingWhatsApp />
+        <BackToTop />
       </body>
     </html>
   );
