@@ -109,9 +109,20 @@ export default function Footer() {
           <p className="text-xs text-white/40">
             &copy; 2026 WorkLoad HQ. All rights reserved.
           </p>
-          <p className="text-xs text-white/40">
-            Built properly, of course.
-          </p>
+          <div className="flex items-center gap-5">
+            <Link
+              href="/privacy"
+              className="text-xs text-white/40 transition-colors hover:text-white"
+            >
+              Privacy Policy
+            </Link>
+            <Link
+              href="/terms"
+              className="text-xs text-white/40 transition-colors hover:text-white"
+            >
+              Terms of Service
+            </Link>
+          </div>
         </div>
       </div>
     </footer>
