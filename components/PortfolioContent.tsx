@@ -261,12 +261,12 @@ function ProjectCard({ project }: { project: Project }) {
         </p>
 
         <div className="mt-4 flex flex-wrap gap-1.5">
-          {project.stack.map((tech) => (
+          {project.highlights.map((feature) => (
             <span
-              key={tech}
+              key={feature}
               className="rounded-full bg-mist px-2.5 py-1 text-xs text-stone-500 ring-1 ring-black/5"
             >
-              {tech}
+              {feature}
             </span>
           ))}
         </div>

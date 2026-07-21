@@ -11,21 +11,19 @@ import {
 } from "lucide-react";
 import type { IconType } from "react-icons";
 import {
-  SiCloudflare,
   SiFigma,
   SiFlutter,
-  SiFramer,
-  SiGithub,
-  SiGreensock,
   SiJavascript,
   SiKotlin,
+  SiLaravel,
   SiNextdotjs,
   SiNodedotjs,
+  SiPhp,
+  SiPython,
   SiReact,
   SiSwift,
   SiTailwindcss,
   SiTypescript,
-  SiVercel,
 } from "react-icons/si";
 
 const fadeUp: Variants = {
@@ -74,15 +72,13 @@ const stack: { name: string; icon: IconType; color: string }[] = [
   { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
   { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
   { name: "Node.js", icon: SiNodedotjs, color: "#5FA04E" },
+  { name: "Python", icon: SiPython, color: "#3776AB" },
+  { name: "PHP", icon: SiPhp, color: "#777BB4" },
+  { name: "Laravel", icon: SiLaravel, color: "#FF2D20" },
   { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4" },
   { name: "Flutter", icon: SiFlutter, color: "#02569B" },
   { name: "Kotlin", icon: SiKotlin, color: "#7F52FF" },
   { name: "Swift", icon: SiSwift, color: "#F05138" },
-  { name: "Framer Motion", icon: SiFramer, color: "#0055FF" },
-  { name: "GSAP", icon: SiGreensock, color: "#88CE02" },
-  { name: "Vercel", icon: SiVercel, color: "#000000" },
-  { name: "Cloudflare", icon: SiCloudflare, color: "#F38020" },
-  { name: "GitHub", icon: SiGithub, color: "#181717" },
   { name: "Figma", icon: SiFigma, color: "#F24E1E" },
 ];
 

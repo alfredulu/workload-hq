@@ -31,7 +31,7 @@ export type Project = {
   featured: boolean;
   link: string;
   description: string;
-  stack: string[];
+  highlights: string[];
   desktopImage: StaticImageData;
   phoneImage?: StaticImageData;
   imageAlt: string;
@@ -46,7 +46,7 @@ export const projects: Project[] = [
     link: "https://www.callphoneng.com/",
     description:
       "A digital payments platform for bill payments, airtime top-ups, and transactions, integrated with a REST API handling payments and user authentication.",
-    stack: ["React", "REST API", "Payments", "Authentication"],
+    highlights: ["Bill payments", "Airtime top-ups", "User accounts"],
     desktopImage: callphoneng,
     imageAlt:
       "Callphoneng digital payments platform showing bill payments and airtime top-up features",
@@ -58,7 +58,7 @@ export const projects: Project[] = [
     link: "https://salt-atlas.vercel.app/",
     description:
       "A county-level geospatial analytics platform for identifying high-opportunity supply chain regions across the United States. Interactive opportunity map, region filters, and a dashboard built for daily analysis.",
-    stack: ["Next.js", "TypeScript", "Interactive maps", "Data visualization"],
+    highlights: ["Interactive map", "Region filters", "Analytics dashboard"],
     desktopImage: saltAtlas,
     imageAlt:
       "Salt Atlas geospatial analytics platform with county-level opportunity map of the United States",
@@ -70,7 +70,7 @@ export const projects: Project[] = [
     link: "https://getbuttonapp.com/",
     description:
       "An event planner mobile app: hold one button, speak your plans out loud, and every event lands in your Google Calendar automatically. No typing, no tapping.",
-    stack: ["iOS & Android", "Voice input", "Google Calendar API"],
+    highlights: ["Voice input", "Auto calendar events", "iOS & Android"],
     desktopImage: buttonApp,
     imageAlt:
       "Button event planner mobile app screenshots showing voice-to-calendar planning",
@@ -82,7 +82,7 @@ export const projects: Project[] = [
     link: "https://kennyscent-and-confectionery.pages.dev/",
     description:
       "A full catalog site for a registered Lagos perfume and gifting business: shop by collection, product pages, live search, and orders routed straight to WhatsApp with no checkout friction.",
-    stack: ["Next.js", "Tailwind CSS", "WhatsApp ordering", "Framer Motion"],
+    highlights: ["Product catalog", "Live search", "WhatsApp ordering"],
     desktopImage: kennyscentDesktop,
     phoneImage: kennyscentPhone,
     imageAlt:
@@ -95,7 +95,7 @@ export const projects: Project[] = [
     link: "https://lagos-life.vercel.app/",
     description:
       "The website for a Nigerian cultural platform with a 112k+ following, covering events, people, and culture across Lagos.",
-    stack: ["Next.js", "Tailwind CSS", "SEO"],
+    highlights: ["Culture platform", "Events coverage", "112k+ audience"],
     desktopImage: lagosLife,
     imageAlt:
       "Lagos Life cultural platform website covering events and culture across Lagos",
@@ -107,11 +107,24 @@ export const projects: Project[] = [
     link: "https://ankara-world.pages.dev/",
     description:
       "The brand site for a Lagos label crafting handmade Ankara and Asooke bags since 2018. Smooth-scroll storytelling, featured collections, and editorial motion design that makes the craft the star.",
-    stack: ["Next.js", "GSAP", "Lenis smooth scroll", "Tailwind CSS"],
+    highlights: ["Brand storytelling", "Smooth scrolling", "Featured collections"],
     desktopImage: ankaraDesktop,
     phoneImage: ankaraPhone,
     imageAlt:
       "Ankara World fashion brand website with smooth-scroll storytelling and featured collections",
+  },
+  {
+    title: "Obsidian SaaS Admin",
+    category: "Web App",
+    featured: false,
+    link: "https://obsidian-saas-admin.vercel.app/",
+    description:
+      "A full-featured SaaS admin dashboard covering user management, analytics charts, notifications, and settings, structured for a real product.",
+    highlights: ["Analytics dashboard", "User management", "Notifications & settings"],
+    desktopImage: obsidianDesktop,
+    phoneImage: obsidianPhone,
+    imageAlt:
+      "Obsidian SaaS admin dashboard showing analytics widgets, task management, and responsive navigation",
   },
   {
     title: "Fred Realtors",
@@ -120,7 +133,7 @@ export const projects: Project[] = [
     link: "https://fred-realtors.vercel.app/",
     description:
       "A full real estate platform for a Lagos-based agency: property listings, area guides, filtering, inquiry forms, and an AI property assistant.",
-    stack: ["Next.js", "AI assistant", "Search & filters"],
+    highlights: ["Property listings", "AI property assistant", "Area guides"],
     desktopImage: fredRealtors,
     imageAlt:
       "Fred Realtors real estate website with property listings, area guides, and AI assistant",
@@ -132,7 +145,7 @@ export const projects: Project[] = [
     link: "https://the-nail-tech.vercel.app/",
     description:
       "An appointment booking website for a nail salon: service cards, pricing, and a direct booking flow that replaced phone-call back-and-forth.",
-    stack: ["Next.js", "Booking flow", "Tailwind CSS"],
+    highlights: ["Online booking", "Service menu", "Direct CTAs"],
     desktopImage: nailTechDesktop,
     phoneImage: nailTechPhone,
     imageAlt:
@@ -145,7 +158,7 @@ export const projects: Project[] = [
     link: "https://magxi-taste.vercel.app/",
     description:
       "The website for a fast food restaurant in Jos, Nigeria: menu, branding, and a proper online presence.",
-    stack: ["Next.js", "Tailwind CSS", "Branding"],
+    highlights: ["Digital menu", "Brand presence", "Local business"],
     desktopImage: magxiTaste,
     imageAlt: "Magxi Taste fast food restaurant website with menu and branding",
   },
@@ -156,24 +169,11 @@ export const projects: Project[] = [
     link: "https://workload-studios-estate.vercel.app/",
     description:
       "A luxury real estate platform with featured listings, advanced search, inquiry capture, and an admin dashboard for property and team management.",
-    stack: ["Next.js", "Admin dashboard", "Search & filters"],
+    highlights: ["Listings & search", "Admin dashboard", "Inquiry capture"],
     desktopImage: estateDesktop,
     phoneImage: estatePhone,
     imageAlt:
       "Workload Studios Estate real estate website displaying property listings with search and inquiry features",
-  },
-  {
-    title: "Obsidian SaaS Admin",
-    category: "Web App",
-    featured: false,
-    link: "https://obsidian-saas-admin.vercel.app/",
-    description:
-      "A full-featured SaaS admin dashboard covering user management, analytics charts, notifications, and settings, structured for a real product.",
-    stack: ["Next.js", "TypeScript", "Analytics charts"],
-    desktopImage: obsidianDesktop,
-    phoneImage: obsidianPhone,
-    imageAlt:
-      "Obsidian SaaS admin dashboard showing analytics widgets, task management, and responsive navigation",
   },
   {
     title: "Enterprise Admin UI",
@@ -182,7 +182,7 @@ export const projects: Project[] = [
     link: "https://enterprise-admin-ui.vercel.app/",
     description:
       "An internal admin panel with role-based authentication, task tracking, bulk actions, and priority breakdowns. Built as a scalable template for enterprise tools.",
-    stack: ["React", "Role-based auth", "Data tables"],
+    highlights: ["Role-based access", "Bulk actions", "CSV export"],
     desktopImage: enterpriseAdminDesktop,
     phoneImage: enterpriseAdminPhone,
     imageAlt:
@@ -195,7 +195,7 @@ export const projects: Project[] = [
     link: "",
     description:
       "A donation platform for a nonprofit, designed to make giving simple and to build trust with a clean, transparent layout.",
-    stack: ["Next.js", "Donation flow", "Tailwind CSS"],
+    highlights: ["Donation flow", "Campaign highlights", "Trust-first design"],
     desktopImage: hopebridgeDesktop,
     phoneImage: hopebridgePhone,
     imageAlt:
@@ -208,7 +208,7 @@ export const projects: Project[] = [
     link: "https://lexi-flow-ai.vercel.app/",
     description:
       "An AI-powered workflow tool with a focused conversation interface, session management, and a fast, responsive layout that works on any device.",
-    stack: ["Next.js", "AI integration", "Chat UI"],
+    highlights: ["AI chat interface", "Session management", "Works on any device"],
     desktopImage: lexiflowAi,
     imageAlt:
       "LexiFlow AI web application showing conversation interface and language processing features",
@@ -220,7 +220,7 @@ export const projects: Project[] = [
     link: "https://floor-hosting-alfred-ulu.vercel.app/",
     description:
       "A web hosting platform UI with pricing tiers, deployment management, and a clean marketing landing page.",
-    stack: ["Next.js", "Pricing UI", "Tailwind CSS"],
+    highlights: ["Pricing tiers", "Deployment dashboard", "Marketing pages"],
     desktopImage: floorHosting,
     imageAlt:
       "Floor Hosting web hosting platform with pricing tiers and deployment management",
