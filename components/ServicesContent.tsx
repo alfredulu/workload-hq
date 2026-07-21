@@ -33,7 +33,7 @@ const services: Service[] = [
     number: "01",
     title: "Websites",
     body: "Whether you need a single landing page or a full multi-page site, we design and build it from scratch. Every site is mobile-first, fast, and set up for search engines. We handle design, development, domain setup, and hosting.",
-    timeline: "3–7 days typical delivery",
+    timeline: "3 to 7 days typical delivery",
     included: [
       "Custom responsive design",
       "Mobile and desktop optimised",
@@ -46,8 +46,8 @@ const services: Service[] = [
   {
     number: "02",
     title: "Web Applications",
-    body: "If your project needs more than a website — something users log into, manage data through, or interact with every day — we build that. Admin dashboards, SaaS products, booking systems, internal tools, and anything that needs a real backend.",
-    timeline: "10–15 days depending on scope",
+    body: "Some projects need more than a website. When your users need to log in, manage data, or interact with your product every day, we build that. Admin dashboards, SaaS products, booking systems, internal tools, and anything that needs a real backend.",
+    timeline: "10 to 15 days depending on scope",
     included: [
       "Full stack: frontend and backend",
       "Database design and setup",
@@ -60,8 +60,8 @@ const services: Service[] = [
   {
     number: "03",
     title: "Mobile Apps",
-    body: "We build mobile apps for Android and iOS — fully native (Kotlin and Swift), Flutter, or React Native, depending on what fits your product and budget. From the first screen to app store submission, we handle the full build.",
-    timeline: "10–15 days depending on scope",
+    body: "We build mobile apps for Android and iOS: fully native (Kotlin and Swift), Flutter, or React Native, depending on what fits your product and budget. From the first screen to app store submission, we handle the full build.",
+    timeline: "10 to 15 days depending on scope",
     included: [
       "Native (Kotlin & Swift), Flutter, or React Native",
       "Android and iOS from one project",
@@ -74,7 +74,7 @@ const services: Service[] = [
     number: "04",
     title: "AI Automation",
     body: "We build AI into how your business runs. Chat assistants that answer customers and capture leads while you sleep, automations that remove repetitive manual work, and AI features integrated directly into your website or product.",
-    timeline: "5–10 days depending on scope",
+    timeline: "5 to 10 days depending on scope",
     included: [
       "Custom AI chat assistants for support and lead capture",
       "Workflow automation across the tools you already use",
@@ -87,7 +87,7 @@ const services: Service[] = [
   {
     number: "05",
     title: "Startup Technical Partner",
-    body: "For founders who need a technical person in their corner. We scope and build your MVP, make the architecture calls, and stay on as your development team as you grow — so you can pitch, sell, and ship without hiring in-house.",
+    body: "For founders who need a technical person in their corner. We scope and build your MVP, make the architecture calls, and stay on as your development team as you grow, so you can pitch, sell, and ship without hiring in-house.",
     timeline: "Flexible monthly engagements",
     included: [
       "MVP scoping and build",
@@ -95,14 +95,14 @@ const services: Service[] = [
       "Ongoing development sprints",
       "Code reviews and technical hiring support",
       "A technical voice in investor and client conversations",
-      "Honest advice on what to build — and what not to",
+      "Honest advice on what to build, and what not to",
     ],
   },
   {
     number: "06",
     title: "Logo & Brand Identity",
     body: "Your logo is often the first thing people see. We design logos and brand identities that are clean, memorable, and work across every surface: your website, social profiles, and anywhere else you show up.",
-    timeline: "3–5 days",
+    timeline: "3 to 5 days",
     included: [
       "Logo design with multiple directions",
       "Colour palette",

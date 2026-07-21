@@ -44,7 +44,7 @@ export default function Footer() {
   return (
     <footer className="bg-ink">
       <div className="mx-auto max-w-6xl px-6 pb-10 pt-16">
-        <div className="flex flex-col gap-12 md:flex-row md:justify-between">
+        <div className="flex flex-col gap-12 lg:flex-row lg:justify-between">
           <div className="max-w-sm">
             <Image
               src="/images/logo-light.svg"
@@ -58,12 +58,12 @@ export default function Footer() {
               Nigeria, working worldwide.
             </p>
             <p className="mt-6 flex items-center gap-2 text-sm text-white/40">
-              <MapPin className="h-4 w-4 text-emerald-500" />
+              <MapPin className="h-4 w-4 shrink-0 text-emerald-500" />
               Nigeria &middot; Remote
             </p>
           </div>
 
-          <div className="grid grid-cols-2 gap-12 sm:gap-20">
+          <div className="grid gap-12 sm:grid-cols-2 sm:gap-20">
             <div>
               <p className="text-xs font-medium uppercase tracking-widest text-white/40">
                 Navigate
@@ -95,7 +95,7 @@ export default function Footer() {
                         : {})}
                       className="flex items-center gap-2 text-sm text-white/60 transition-colors hover:text-white"
                     >
-                      <social.icon className="h-4 w-4 text-emerald-500" />
+                      <social.icon className="h-4 w-4 shrink-0 text-emerald-500" />
                       {social.label}
                     </a>
                   </li>

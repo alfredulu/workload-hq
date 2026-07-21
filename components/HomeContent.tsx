@@ -180,8 +180,8 @@ function HeroShot({
 ───────────────────────────────────────── */
 const stats = [
   { value: "20+", label: "Projects shipped" },
-  { value: "3–7 days", label: "Typical website delivery" },
-  { value: "10–15 days", label: "Typical app delivery" },
+  { value: "3 to 7 days", label: "Typical website delivery" },
+  { value: "10 to 15 days", label: "Typical app delivery" },
   { value: "< 24h", label: "Reply to every inquiry" },
 ];
 
@@ -229,7 +229,7 @@ const services = [
   {
     icon: Smartphone,
     title: "Mobile Apps",
-    body: "Android and iOS apps — native, Flutter, or React Native. From booking apps to customer-facing products and internal tools.",
+    body: "Android and iOS apps: native, Flutter, or React Native. From booking apps to customer-facing products and internal tools.",
   },
   {
     icon: Bot,
@@ -526,17 +526,17 @@ function AboutSection() {
           <p className="mt-6 max-w-2xl text-pretty leading-relaxed text-white/60">
             WorkLoad HQ works with startups, founders, small businesses, and
             individuals who need something built properly. We’re a lean team,
-            which means you deal directly with the people doing the work — and
+            which means you deal directly with the people doing the work, and
             most of our clients come back for a second project.
           </p>
 
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
             <div className="rounded-2xl border border-white/10 bg-white/5 px-6 py-4">
-              <p className="text-xl font-semibold text-white">3–7 days</p>
+              <p className="text-xl font-semibold text-white">3 to 7 days</p>
               <p className="mt-1 text-xs text-white/50">Typical website</p>
             </div>
             <div className="rounded-2xl border border-white/10 bg-white/5 px-6 py-4">
-              <p className="text-xl font-semibold text-white">10–15 days</p>
+              <p className="text-xl font-semibold text-white">10 to 15 days</p>
               <p className="mt-1 text-xs text-white/50">Typical app</p>
             </div>
             <div className="rounded-2xl border border-white/10 bg-white/5 px-6 py-4">

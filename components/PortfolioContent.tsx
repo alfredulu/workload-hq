@@ -211,7 +211,7 @@ function HeroSection() {
           className="mt-5 max-w-2xl text-pretty text-lg leading-relaxed text-white/60"
         >
           Every project here started with a problem to solve. Here’s what we
-          built and why — websites, web apps, and mobile apps for clients in
+          built and why: websites, web apps, and mobile apps for clients in
           Nigeria and worldwide.
         </motion.p>
       </motion.div>

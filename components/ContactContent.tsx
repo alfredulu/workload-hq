@@ -384,7 +384,7 @@ export default function ContactContent() {
                         : {})}
                       className="group flex items-center gap-4 py-3.5"
                     >
-                      <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-50 text-emerald-700 transition-colors group-hover:bg-emerald-100">
+                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-emerald-50 text-emerald-700 transition-colors group-hover:bg-emerald-100">
                         <channel.icon className="h-4.5 w-4.5" />
                       </span>
                       <span className="flex flex-col">

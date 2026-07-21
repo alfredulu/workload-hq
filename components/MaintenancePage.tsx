@@ -40,7 +40,7 @@ export default function MaintenancePage() {
         </h1>
         <p className="mt-5 max-w-md text-pretty leading-relaxed text-white/60">
           The site is getting an upgrade. We’re making improvements to deliver
-          an even better experience — we’ll be back shortly.
+          an even better experience, and we’ll be back shortly.
         </p>
 
         <div className="mt-10 flex flex-col gap-3 sm:flex-row">

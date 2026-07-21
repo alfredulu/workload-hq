@@ -9,6 +9,24 @@ import {
   MessagesSquare,
   Zap,
 } from "lucide-react";
+import type { IconType } from "react-icons";
+import {
+  SiCloudflare,
+  SiFigma,
+  SiFlutter,
+  SiFramer,
+  SiGithub,
+  SiGreensock,
+  SiJavascript,
+  SiKotlin,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiReact,
+  SiSwift,
+  SiTailwindcss,
+  SiTypescript,
+  SiVercel,
+} from "react-icons/si";
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 24 },
@@ -40,7 +58,7 @@ const values = [
   {
     icon: Zap,
     title: "Fast, honest timelines",
-    body: "Websites typically ship in 3–7 days, apps in 10–15. If something will take longer, we tell you before we start — not after.",
+    body: "Websites typically ship in 3 to 7 days, apps in 10 to 15. If something will take longer, we tell you before we start, not after.",
   },
   {
     icon: HeartHandshake,
@@ -49,15 +67,23 @@ const values = [
   },
 ];
 
-const stack = [
-  "Next.js",
-  "React",
-  "TypeScript",
-  "Tailwind CSS",
-  "Node.js",
-  "Kotlin & Swift",
-  "Flutter",
-  "React Native",
+const stack: { name: string; icon: IconType; color: string }[] = [
+  { name: "Next.js", icon: SiNextdotjs, color: "#000000" },
+  { name: "React", icon: SiReact, color: "#61DAFB" },
+  { name: "React Native", icon: SiReact, color: "#087EA4" },
+  { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
+  { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
+  { name: "Node.js", icon: SiNodedotjs, color: "#5FA04E" },
+  { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4" },
+  { name: "Flutter", icon: SiFlutter, color: "#02569B" },
+  { name: "Kotlin", icon: SiKotlin, color: "#7F52FF" },
+  { name: "Swift", icon: SiSwift, color: "#F05138" },
+  { name: "Framer Motion", icon: SiFramer, color: "#0055FF" },
+  { name: "GSAP", icon: SiGreensock, color: "#88CE02" },
+  { name: "Vercel", icon: SiVercel, color: "#000000" },
+  { name: "Cloudflare", icon: SiCloudflare, color: "#F38020" },
+  { name: "GitHub", icon: SiGithub, color: "#181717" },
+  { name: "Figma", icon: SiFigma, color: "#F24E1E" },
 ];
 
 export default function AboutContent() {
@@ -94,7 +120,7 @@ export default function AboutContent() {
           >
             WorkLoad HQ is a lean digital studio based in Nigeria, building
             websites, web apps, and mobile apps for clients worldwide. Small on
-            purpose — so every project gets the people who actually do the
+            purpose, so every project gets the people who actually do the
             work.
           </motion.p>
         </motion.div>
@@ -124,10 +150,10 @@ export default function AboutContent() {
             </p>
             <p>
               We work with startups, founders, small businesses, and
-              individuals — from a one-page site for a salon to a payments
-              platform, a mobile app, or stepping in as the technical partner
-              for a founder with no technical co-founder. Whatever the size,
-              the standard is the same.
+              individuals. One week it is a one-page site for a salon, the
+              next it is a payments platform, a mobile app, or stepping in as
+              the technical partner for a founder with no technical
+              co-founder. Whatever the size, the standard is the same.
             </p>
           </div>
         </motion.div>
@@ -185,7 +211,7 @@ export default function AboutContent() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
-          className="mx-auto max-w-3xl text-center"
+          className="mx-auto max-w-4xl text-center"
         >
           <p className="text-xs font-medium uppercase tracking-[0.2em] text-emerald-600">
             Our tools
@@ -194,18 +220,25 @@ export default function AboutContent() {
             Modern stack, built to last.
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-pretty text-sm leading-relaxed text-stone-600 md:text-base">
-            We build on the same technologies used by the world’s best product
-            teams — fast to ship, easy to maintain, and ready to scale when you
-            are.
+            We work across web, mobile, and design, and we pick what fits each
+            project: fast to ship, easy to maintain, and ready to scale when
+            you are.
           </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-2.5">
+          <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4">
             {stack.map((tool) => (
-              <span
-                key={tool}
-                className="rounded-full border border-black/10 bg-mist px-4 py-2 text-sm font-medium text-stone-700"
+              <div
+                key={tool.name}
+                className="flex items-center gap-3 rounded-xl border border-black/5 bg-mist px-4 py-3.5 text-left"
               >
-                {tool}
-              </span>
+                <tool.icon
+                  className="h-5 w-5 shrink-0"
+                  style={{ color: tool.color }}
+                  aria-hidden
+                />
+                <span className="truncate text-sm font-medium text-stone-700">
+                  {tool.name}
+                </span>
+              </div>
             ))}
           </div>
         </motion.div>

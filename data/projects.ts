@@ -57,7 +57,7 @@ export const projects: Project[] = [
     featured: true,
     link: "https://salt-atlas.vercel.app/",
     description:
-      "A county-level geospatial analytics platform for identifying high-opportunity supply chain regions across the United States — interactive opportunity map, region filters, and a dashboard built for daily analysis.",
+      "A county-level geospatial analytics platform for identifying high-opportunity supply chain regions across the United States. Interactive opportunity map, region filters, and a dashboard built for daily analysis.",
     stack: ["Next.js", "TypeScript", "Interactive maps", "Data visualization"],
     desktopImage: saltAtlas,
     imageAlt:
@@ -81,7 +81,7 @@ export const projects: Project[] = [
     featured: false,
     link: "https://kennyscent-and-confectionery.pages.dev/",
     description:
-      "A full catalog site for a registered Lagos perfume and gifting business: shop by collection, product pages, live search, and orders routed straight to WhatsApp — no checkout friction.",
+      "A full catalog site for a registered Lagos perfume and gifting business: shop by collection, product pages, live search, and orders routed straight to WhatsApp with no checkout friction.",
     stack: ["Next.js", "Tailwind CSS", "WhatsApp ordering", "Framer Motion"],
     desktopImage: kennyscentDesktop,
     phoneImage: kennyscentPhone,
@@ -106,7 +106,7 @@ export const projects: Project[] = [
     featured: false,
     link: "https://ankara-world.pages.dev/",
     description:
-      "The brand site for a Lagos label crafting handmade Ankara and Asooke bags since 2018 — smooth-scroll storytelling, featured collections, and editorial motion design that makes the craft the star.",
+      "The brand site for a Lagos label crafting handmade Ankara and Asooke bags since 2018. Smooth-scroll storytelling, featured collections, and editorial motion design that makes the craft the star.",
     stack: ["Next.js", "GSAP", "Lenis smooth scroll", "Tailwind CSS"],
     desktopImage: ankaraDesktop,
     phoneImage: ankaraPhone,
@@ -131,7 +131,7 @@ export const projects: Project[] = [
     featured: false,
     link: "https://the-nail-tech.vercel.app/",
     description:
-      "An appointment booking website for a nail salon — service cards, pricing, and a direct booking flow that replaced phone-call back-and-forth.",
+      "An appointment booking website for a nail salon: service cards, pricing, and a direct booking flow that replaced phone-call back-and-forth.",
     stack: ["Next.js", "Booking flow", "Tailwind CSS"],
     desktopImage: nailTechDesktop,
     phoneImage: nailTechPhone,
@@ -255,7 +255,7 @@ export const freeTools: FreeTool[] = [
   {
     name: "PDF Squeeze",
     description:
-      "Compress a PDF in seconds. No account, no upload — everything runs in your browser.",
+      "Compress a PDF in seconds. No account, no upload. Everything runs in your browser.",
     link: "https://pdf-squeeze.vercel.app/",
     github: "https://github.com/alfredulu/pdf-squeeze",
   },
