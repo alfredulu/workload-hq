@@ -47,6 +47,16 @@ export const faqs: FAQItem[] = [
       "Most single-page or promo sites ship within 2-4 business days once we receive final content. Bigger launches are scoped individually and usually fall within 1-3 weeks depending on complexity.",
   },
   {
+    question: "Can you automate parts of my business with AI?",
+    answer:
+      "Yes. We build AI chat assistants that answer customers and capture leads, automate repetitive workflows across the tools you already use, and integrate AI features directly into websites and apps. Tell us which tasks eat your time and we will map out what can be automated.",
+  },
+  {
+    question: "Can you act as the technical partner for my startup?",
+    answer:
+      "Yes. If you are a founder without a technical co-founder, we can scope and build your MVP, make the architecture decisions, and stay on as your development team on a flexible monthly engagement while you focus on customers and fundraising.",
+  },
+  {
     question: "How can I reach the team?",
     answer:
       "Send us an email at workloadhq@gmail.com, message us on Instagram, or fill out the contact form. We typically reply within one business day with next steps.",

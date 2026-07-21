@@ -3,21 +3,21 @@ import type { StaticImageData } from "next/image";
 import callphoneng from "@/public/images/projects/callphoneng.webp";
 import saltAtlas from "@/public/images/projects/salt-atlas.webp";
 import buttonApp from "@/public/images/projects/button-app.webp";
+import lagosLife from "@/public/images/projects/lagos-life.webp";
 import estateDesktop from "@/public/images/projects/estate-desktop.webp";
 import estatePhone from "@/public/images/projects/estate-phone.webp";
 import fredRealtors from "@/public/images/projects/fred-realtors.webp";
 import nailTechDesktop from "@/public/images/projects/nail-tech-desktop.webp";
 import nailTechPhone from "@/public/images/projects/nail-tech-phone.webp";
-import lagosLife from "@/public/images/projects/lagos-life.webp";
 import obsidianDesktop from "@/public/images/projects/obsidian-desktop.webp";
 import obsidianPhone from "@/public/images/projects/obsidian-phone.webp";
 import enterpriseAdminDesktop from "@/public/images/projects/enterprise-admin-desktop.webp";
 import enterpriseAdminPhone from "@/public/images/projects/enterprise-admin-phone.webp";
+import hopebridgeDesktop from "@/public/images/projects/hopebridge-desktop.webp";
+import hopebridgePhone from "@/public/images/projects/hopebridge-phone.webp";
 import lexiflowAi from "@/public/images/projects/lexiflow-ai.webp";
 import magxiTaste from "@/public/images/projects/magxi-taste.webp";
 import floorHosting from "@/public/images/projects/floor-hosting.webp";
-import hopebridgeDesktop from "@/public/images/projects/hopebridge-desktop.webp";
-import hopebridgePhone from "@/public/images/projects/hopebridge-phone.webp";
 
 export type ProjectCategory = "Website" | "Web App" | "Mobile App";
 
@@ -35,6 +35,8 @@ export type Project = {
   imageAlt: string;
 };
 
+// Ordered strongest-first: live client work and full case studies rank
+// above internal/demo builds.
 export const projects: Project[] = [
   {
     title: "Callphoneng",
@@ -74,6 +76,17 @@ export const projects: Project[] = [
     desktopImage: buttonApp,
     imageAlt:
       "Button event planner mobile app screenshots showing voice-to-calendar planning",
+  },
+  {
+    title: "Lagos Life",
+    category: "Website",
+    featured: false,
+    link: "https://lagos-life.vercel.app/",
+    description:
+      "The website for a Nigerian cultural platform with a 112k+ following, covering events, people, and culture across Lagos.",
+    desktopImage: lagosLife,
+    imageAlt:
+      "Lagos Life cultural platform website covering events and culture across Lagos",
   },
   {
     title: "Workload Studios Estate",
@@ -123,17 +136,6 @@ export const projects: Project[] = [
       "The Nail Tech nail salon appointment booking website with service selection and booking flow",
   },
   {
-    title: "Lagos Life",
-    category: "Website",
-    featured: false,
-    link: "https://lagos-life.vercel.app/",
-    description:
-      "The website for a Nigerian cultural platform with a 112k+ following, covering events, people, and culture across Lagos.",
-    desktopImage: lagosLife,
-    imageAlt:
-      "Lagos Life cultural platform website covering events and culture across Lagos",
-  },
-  {
     title: "Obsidian SaaS Admin",
     category: "Web App",
     featured: false,
@@ -170,6 +172,18 @@ export const projects: Project[] = [
       "Enterprise admin UI with ticket management tables, bulk actions, and sidebar navigation",
   },
   {
+    title: "HopeBridge",
+    category: "Website",
+    featured: false,
+    link: "",
+    description:
+      "A donation platform for a nonprofit, designed to make giving simple and to build trust with a clean, transparent layout.",
+    desktopImage: hopebridgeDesktop,
+    phoneImage: hopebridgePhone,
+    imageAlt:
+      "HopeBridge donation website with campaign highlights and giving flow",
+  },
+  {
     title: "LexiFlow AI",
     category: "Web App",
     featured: false,
@@ -200,18 +214,6 @@ export const projects: Project[] = [
     desktopImage: floorHosting,
     imageAlt:
       "Floor Hosting web hosting platform with pricing tiers and deployment management",
-  },
-  {
-    title: "HopeBridge",
-    category: "Website",
-    featured: false,
-    link: "",
-    description:
-      "A donation platform for a nonprofit, designed to make giving simple and to build trust with a clean, transparent layout.",
-    desktopImage: hopebridgeDesktop,
-    phoneImage: hopebridgePhone,
-    imageAlt:
-      "HopeBridge donation website with campaign highlights and giving flow",
   },
 ];
 

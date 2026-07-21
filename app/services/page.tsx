@@ -4,7 +4,7 @@ import ServicesContent from "@/components/ServicesContent";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "WorkLoad HQ offers website development, mobile app development, product launch pages, and UX design. Fast sprints or long-term engagements. Serving founders and product teams in Nigeria and worldwide.",
+    "WorkLoad HQ offers website development, web apps, mobile apps, AI automation, startup technical partnership, and brand identity. Fast sprints or long-term engagements. Serving founders and product teams in Nigeria and worldwide.",
   alternates: {
     canonical: "https://workload-hq.vercel.app/services",
   },

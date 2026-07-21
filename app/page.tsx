@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     absolute: "WorkLoad HQ | Website & Mobile App Development Agency",
   },
   description:
-    "WorkLoad HQ builds fast, clean websites and mobile apps for modern brands. Based in Nigeria, serving clients worldwide. Fast delivery, real results.",
+    "WorkLoad HQ builds fast, clean websites, web apps, mobile apps, and AI automations for modern brands. Based in Nigeria, serving clients worldwide. Fast delivery, real results.",
   alternates: {
     canonical: "https://workload-hq.vercel.app",
   },

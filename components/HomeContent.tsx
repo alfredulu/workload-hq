@@ -6,8 +6,10 @@ import { motion, type Variants } from "framer-motion";
 import {
   ArrowRight,
   ArrowUpRight,
+  Bot,
   LayoutGrid,
   Layers,
+  Rocket,
   Smartphone,
   Sparkles,
 } from "lucide-react";
@@ -116,7 +118,8 @@ function HeroSection() {
           >
             20+ projects shipped &nbsp;&middot;&nbsp; Websites
             &nbsp;&middot;&nbsp; Web apps &nbsp;&middot;&nbsp; Mobile apps
-            &nbsp;&middot;&nbsp; Brand identity
+            &nbsp;&middot;&nbsp; AI automation &nbsp;&middot;&nbsp; Brand
+            identity
           </motion.p>
         </motion.div>
 
@@ -229,6 +232,16 @@ const services = [
     body: "Android and iOS apps built with React Native. From booking apps to customer-facing products and internal tools.",
   },
   {
+    icon: Bot,
+    title: "AI Automation",
+    body: "Chat assistants that answer customers and capture leads, workflow automations, and AI features built into your product.",
+  },
+  {
+    icon: Rocket,
+    title: "Startup Technical Partner",
+    body: "No technical co-founder? We scope and build your MVP, make the architecture calls, and stay on as your dev team.",
+  },
+  {
     icon: Sparkles,
     title: "Logo & Brand",
     body: "Logo design, colour palettes, and brand guidelines. For new projects launching or existing ones that need a sharper identity.",
@@ -273,10 +286,10 @@ function WhatWeBuildSection() {
   return (
     <section className="bg-mist px-6 py-24">
       <div className="mx-auto max-w-6xl">
-        <SectionHeading eyebrow="What we build" title="Four things we do well." />
+        <SectionHeading eyebrow="What we build" title="Six things we do well." />
 
         <motion.div
-          className="mt-12 grid gap-5 sm:grid-cols-2"
+          className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
           variants={container}
           initial="hidden"
           whileInView="visible"
@@ -606,6 +619,10 @@ function FinalCTASection() {
             Chat on WhatsApp
           </a>
         </div>
+        <p className="mt-8 text-xs tracking-wide text-white/35">
+          Fixed quote before we start &nbsp;&middot;&nbsp; Direct line to the
+          people building &nbsp;&middot;&nbsp; One month of post-launch support
+        </p>
       </motion.div>
     </section>
   );
