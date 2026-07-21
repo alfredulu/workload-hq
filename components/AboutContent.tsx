@@ -9,22 +9,6 @@ import {
   MessagesSquare,
   Zap,
 } from "lucide-react";
-import type { IconType } from "react-icons";
-import {
-  SiFigma,
-  SiFlutter,
-  SiJavascript,
-  SiKotlin,
-  SiLaravel,
-  SiNextdotjs,
-  SiNodedotjs,
-  SiPhp,
-  SiPython,
-  SiReact,
-  SiSwift,
-  SiTailwindcss,
-  SiTypescript,
-} from "react-icons/si";
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 24 },
@@ -65,21 +49,21 @@ const values = [
   },
 ];
 
-const stack: { name: string; icon: IconType; color: string }[] = [
-  { name: "Next.js", icon: SiNextdotjs, color: "#000000" },
-  { name: "React", icon: SiReact, color: "#61DAFB" },
-  { name: "React Native", icon: SiReact, color: "#087EA4" },
-  { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
-  { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
-  { name: "Node.js", icon: SiNodedotjs, color: "#5FA04E" },
-  { name: "Python", icon: SiPython, color: "#3776AB" },
-  { name: "PHP", icon: SiPhp, color: "#777BB4" },
-  { name: "Laravel", icon: SiLaravel, color: "#FF2D20" },
-  { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4" },
-  { name: "Flutter", icon: SiFlutter, color: "#02569B" },
-  { name: "Kotlin", icon: SiKotlin, color: "#7F52FF" },
-  { name: "Swift", icon: SiSwift, color: "#F05138" },
-  { name: "Figma", icon: SiFigma, color: "#F24E1E" },
+const stack: { name: string; logo: string }[] = [
+  { name: "Next.js", logo: "/images/stack/nextjs.svg" },
+  { name: "React", logo: "/images/stack/react.svg" },
+  { name: "React Native", logo: "/images/stack/react.svg" },
+  { name: "TypeScript", logo: "/images/stack/typescript.svg" },
+  { name: "JavaScript", logo: "/images/stack/javascript.svg" },
+  { name: "Node.js", logo: "/images/stack/nodejs.svg" },
+  { name: "Python", logo: "/images/stack/python.svg" },
+  { name: "PHP", logo: "/images/stack/php.svg" },
+  { name: "Laravel", logo: "/images/stack/laravel.svg" },
+  { name: "Tailwind CSS", logo: "/images/stack/tailwindcss.svg" },
+  { name: "Flutter", logo: "/images/stack/flutter.svg" },
+  { name: "Kotlin", logo: "/images/stack/kotlin.svg" },
+  { name: "Swift", logo: "/images/stack/swift.svg" },
+  { name: "Figma", logo: "/images/stack/figma.svg" },
 ];
 
 export default function AboutContent() {
@@ -226,9 +210,14 @@ export default function AboutContent() {
                 key={tool.name}
                 className="flex items-center gap-3 rounded-xl border border-black/5 bg-mist px-4 py-3.5 text-left"
               >
-                <tool.icon
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={tool.logo}
+                  alt=""
+                  width={20}
+                  height={20}
+                  loading="lazy"
                   className="h-5 w-5 shrink-0"
-                  style={{ color: tool.color }}
                   aria-hidden
                 />
                 <span className="truncate text-sm font-medium text-stone-700">
