@@ -229,7 +229,7 @@ const services = [
   {
     icon: Smartphone,
     title: "Mobile Apps",
-    body: "Android and iOS apps built with React Native. From booking apps to customer-facing products and internal tools.",
+    body: "Android and iOS apps — native, Flutter, or React Native. From booking apps to customer-facing products and internal tools.",
   },
   {
     icon: Bot,

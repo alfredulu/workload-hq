@@ -3,9 +3,21 @@
 import { useState } from "react";
 import Link from "next/link";
 import { motion, type Variants } from "framer-motion";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import {
+  ArrowRight,
+  ArrowUpRight,
+  FileArchive,
+  ImageDown,
+} from "lucide-react";
 import ProjectMedia from "@/components/ProjectMedia";
-import { projects, projectDomain, type Project } from "@/data/projects";
+import {
+  projects,
+  projectDomain,
+  freeTools,
+  type Project,
+} from "@/data/projects";
+
+const toolIcons = [ImageDown, FileArchive];
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 24 },
@@ -95,8 +107,73 @@ export default function PortfolioContent() {
         </div>
       </section>
 
+      <FreeToolsSection />
+
       <ClosingCTASection />
     </main>
+  );
+}
+
+/* ─────────────────────────────────────────
+   FREE TOOLS
+───────────────────────────────────────── */
+function FreeToolsSection() {
+  return (
+    <section id="tools" className="scroll-mt-24 bg-white px-6 py-24">
+      <div className="mx-auto max-w-6xl">
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.4 }}
+        >
+          <p className="text-xs font-medium uppercase tracking-[0.2em] text-emerald-600">
+            Free tools
+          </p>
+          <h2 className="mt-3 max-w-2xl text-balance text-3xl font-semibold tracking-tight text-stone-950 md:text-4xl">
+            Small tools we built and use ourselves.
+          </h2>
+          <p className="mt-3 max-w-2xl text-pretty text-sm leading-relaxed text-stone-600 md:text-base">
+            Free, no sign-up, and your files never leave your browser.
+          </p>
+        </motion.div>
+
+        <motion.div
+          className="mt-10 grid gap-5 sm:grid-cols-2"
+          variants={container}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+        >
+          {freeTools.map((tool, index) => {
+            const Icon = toolIcons[index % toolIcons.length];
+            return (
+              <motion.a
+                key={tool.name}
+                variants={fadeUp}
+                href={tool.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-start gap-5 rounded-2xl border border-black/5 bg-mist p-7 transition-all duration-300 hover:-translate-y-1 hover:border-emerald-600/20 hover:shadow-md"
+              >
+                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-emerald-50 transition-colors group-hover:bg-emerald-100">
+                  <Icon className="h-6 w-6 text-emerald-700" />
+                </span>
+                <span>
+                  <span className="flex items-center gap-1.5 text-lg font-semibold tracking-tight text-stone-950">
+                    {tool.name}
+                    <ArrowUpRight className="h-4 w-4 text-emerald-600 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                  </span>
+                  <span className="mt-1.5 block text-sm leading-relaxed text-stone-600">
+                    {tool.description}
+                  </span>
+                </span>
+              </motion.a>
+            );
+          })}
+        </motion.div>
+      </div>
+    </section>
   );
 }
 
@@ -146,8 +223,6 @@ function HeroSection() {
    PROJECT CARD
 ───────────────────────────────────────── */
 function ProjectCard({ project }: { project: Project }) {
-  const hasCaseStudy = project.problem && project.solution && project.result;
-
   return (
     <motion.article
       variants={fadeUp}
@@ -181,38 +256,20 @@ function ProjectCard({ project }: { project: Project }) {
         <h2 className="mt-3 text-xl font-semibold tracking-tight text-stone-950">
           {project.title}
         </h2>
-        <p className="mt-2 text-sm leading-relaxed text-stone-600">
+        <p className="mt-2 flex-1 text-sm leading-relaxed text-stone-600">
           {project.description}
         </p>
 
-        {hasCaseStudy ? (
-          <dl className="mt-5 space-y-4 rounded-2xl bg-mist p-5">
-            <div>
-              <dt className="text-xs font-medium uppercase tracking-wider text-stone-400">
-                Problem
-              </dt>
-              <dd className="mt-1 text-sm leading-relaxed text-stone-600">
-                {project.problem}
-              </dd>
-            </div>
-            <div>
-              <dt className="text-xs font-medium uppercase tracking-wider text-stone-400">
-                Solution
-              </dt>
-              <dd className="mt-1 text-sm leading-relaxed text-stone-600">
-                {project.solution}
-              </dd>
-            </div>
-            <div>
-              <dt className="text-xs font-medium uppercase tracking-wider text-emerald-600">
-                Result
-              </dt>
-              <dd className="mt-1 text-sm leading-relaxed text-stone-700">
-                {project.result}
-              </dd>
-            </div>
-          </dl>
-        ) : null}
+        <div className="mt-4 flex flex-wrap gap-1.5">
+          {project.stack.map((tech) => (
+            <span
+              key={tech}
+              className="rounded-full bg-mist px-2.5 py-1 text-xs text-stone-500 ring-1 ring-black/5"
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
       </div>
     </motion.article>
   );

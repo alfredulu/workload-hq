@@ -52,10 +52,12 @@ const values = [
 const stack = [
   "Next.js",
   "React",
-  "React Native",
   "TypeScript",
   "Tailwind CSS",
   "Node.js",
+  "Kotlin & Swift",
+  "Flutter",
+  "React Native",
 ];
 
 export default function AboutContent() {

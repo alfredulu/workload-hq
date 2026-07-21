@@ -60,11 +60,11 @@ const services: Service[] = [
   {
     number: "03",
     title: "Mobile Apps",
-    body: "We build cross-platform mobile apps using React Native, meaning your app runs on both Android and iOS from one codebase. From the first screen to app store submission, we handle the full build.",
+    body: "We build mobile apps for Android and iOS — fully native (Kotlin and Swift), Flutter, or React Native, depending on what fits your product and budget. From the first screen to app store submission, we handle the full build.",
     timeline: "10–15 days depending on scope",
     included: [
-      "Cross-platform: Android and iOS",
-      "Native-feeling UI and interactions",
+      "Native (Kotlin & Swift), Flutter, or React Native",
+      "Android and iOS from one project",
       "Backend and API connections",
       "Push notifications",
       "App Store and Google Play submission support",
