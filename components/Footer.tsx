@@ -105,7 +105,8 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col gap-3 border-t border-white/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
+        {/* keep the legal links clear of the floating buttons bottom-right */}
+        <div className="mt-14 flex flex-col gap-3 border-t border-white/10 pt-6 sm:flex-row sm:items-center sm:justify-between sm:pr-24">
           <p className="text-xs text-white/40">
             &copy; 2026 WorkLoad HQ. All rights reserved.
           </p>
